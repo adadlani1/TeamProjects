@@ -9,6 +9,9 @@ import { DashboardHeaderComponent } from './components/dashboard-header/dashboar
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import {MatToolbarModule} from '@angular/material/typings/esm5/toolbar';
+import {MatIconModule} from '@angular/material/typings/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    MatToolbarModule,
+    MatIconModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent, DashboardHeaderComponent, DashboardComponent, DashboardComponent, LoginComponent]
