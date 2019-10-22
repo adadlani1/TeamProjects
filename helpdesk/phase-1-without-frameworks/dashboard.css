@@ -31,3 +31,10 @@ ul.breadcrumb li a:hover {
     color: #01447e;
     text-decoration: underline;
 }
+
+.dashboard-btn {
+    margin:auto;
+    display:block;
+    align-items: center;
+    justify-content: center;
+}
