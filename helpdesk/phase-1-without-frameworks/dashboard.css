@@ -40,3 +40,6 @@ ul.breadcrumb li a:hover {
     align-items: center;
     justify-content: center;
 }
+.dashboard-list{
+    color: black;
+}
