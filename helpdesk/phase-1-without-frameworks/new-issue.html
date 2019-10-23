@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="bg-primary">
+    <div class="d-inline-block">
+      <a href="#">
+        <img src="../images/download.png" class="rounded-circle img-fluid" width="140" height="100" style="padding:10%">
+      </a>
+    </div>
+    <div class="d-inline-block">
+      <h1>My Company Helpdesk</h1>
+    </div>
+  </div>
+
+
+  <div class="selector">
+    <div class="bg-white" id="navbar-guide">
+      <a href="#">Dashboard</a>
+      > New Issue
+    </div>
+
+    <div id="problem-form">
+      <form>
+        <div class="vertical-space spacer">
+          <p class="d-inline-block">
+            <input type="text" placeholder=" Problem ID" disabled>
+          </p>
+          <p class="d-inline-block spacer">
+            <input placeholder="Call" type="text">
+          </p>
+        </div>
+        <div class="vertical-space">
+          <p class="d-inline spacer">
+            <select class="select-size" id="caller-number">
+              <option value="">Caller</option>
+            </select>
+          </p>
+          <p class="d-inline-block vertical-space spacer">
+            <input type="text" placeholder="Job Title">
+          </p>
+        </div>
+        <div class="vertical-space">
+          <p class="d-inline spacer">
+            <select class="select-size">
+              <option value="">Software</option>
+            </select>
+          </p>
+          <p class="d-inline-block vertical-space spacer">
+            <input placeholder=" Department" type="text">
+          </p>
+        </div>
+        <div class="vertical-space spacer">
+          <p class="d-inline">
+            <input type="text" placeholder="Hardware">
+          </p>
+          <p class="d-inline-block vertical-space spacer">
+            <input type="text" placeholder=" Telephone">
+          </p>
+        </div>
+        <div class="vertical-space spacer">
+          Problem Type:
+          <select class="select-size">
+            <option value="">Select</option>
+          </select>
+          <select class="select-size">
+            <option value="">Select</option>
+          </select>
+          <select class="select-size">
+            <option value="">Select</option>
+          </select>
+        </div>
+        <div class="vertical-space spacer">
+          <textarea type="text" placeholder="Notes" style="height:100px;width:65%"></textarea>
+        </div>
+        <div class="spacer vertical-space">
+          <button class="btn btn-primary">Save</button>
+          <button class="btn btn-success" type="submit" disabled>Refer to a Specialist</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
+</html>
