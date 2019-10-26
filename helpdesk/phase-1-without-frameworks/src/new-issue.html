@@ -38,37 +38,47 @@
       <form>
         <div class="vertical-space spacer">
           <p class="d-inline-block">
-            <input type="text" placeholder=" Problem ID" disabled>
+            Problem ID
+            <input type="text" placeholder=" Problem ID" id="problemID" disabled>
           </p>
           <p class="d-inline-block spacer">
-            <input placeholder="Call" type="text">
+            Ext.Number
+            <input placeholder="Extension Number" id="extNumber" type="text">
           </p>
         </div>
         <div class="vertical-space">
           <p class="d-inline spacer">
-            <select class="select-size" id="caller-number">
-              <option value="s">Caller</option>
+            Caller    
+            <select class="select-size" id="caller-name" onchange="myDummyFunction()">
+              <option value="">Caller</option>
+              <option value='Ayo'>Ayo</option>
+              <option value='Kostas'>Kostas</option>
+              <option value='Ben'>Ben</option>
             </select>
           </p>
           <p class="d-inline-block vertical-space spacer">
-            <input type="text" placeholder="Job Title">
+            Job Title<input type="text" placeholder="Job Title">
           </p>
         </div>
         <div class="vertical-space">
           <p class="d-inline spacer">
+            Software
             <select class="select-size">
               <option value="">Software</option>
             </select>
           </p>
           <p class="d-inline-block vertical-space spacer">
-            <input placeholder=" Department" type="text">
+            Department
+            <input placeholder=" Department" id="department" type="text">
           </p>
         </div>
         <div class="vertical-space spacer">
           <p class="d-inline">
+            Hardware
             <input type="text" placeholder="Hardware">
           </p>
           <p class="d-inline-block vertical-space spacer">
+            Telephone
             <input type="text" placeholder=" Telephone">
           </p>
         </div>
@@ -88,14 +98,17 @@
           <textarea type="text" placeholder="Notes" style="height:100px;width:65%"></textarea>
         </div>
         <div class="spacer vertical-space">
-          <button class="btn btn-primary">Save</button>
-          <button class="btn btn-success" type="submit" disabled>Refer to a Specialist</button>
+          <button class="btn btn-primary" onclick="toggleSpecialistButton({command:false})">Save</button>
+          <button class="btn btn-success" id="specialist-button" type="submit" onclick="toggleSpecialistButton({command:true})"disabled>Refer to a Specialist</button>
         </div>
       </form>
-      <select class="select-size" id="call-number" onchange="myDummyFunction()">
-        <option value="s">Caller</option>
-      </select>
-      <button onclick="myDummyFunction()">s</button>
+      <div class="modl" id="modal">
+        <div class="modal-header">
+            <div class="title">Example Header</div>
+          <button class="close-button">&times;</button></div>
+          <div class="modal-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, natus.</div>
+        </div>
+        <div id="overlay"></div>
     </div>
   </div>
 </body>
