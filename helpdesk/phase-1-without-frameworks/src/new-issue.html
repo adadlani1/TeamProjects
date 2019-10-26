@@ -8,15 +8,19 @@
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="app.js"></script> 
+  
+
   <title>Document</title>
 </head>
 
 <body>
   <div class="bg-primary">
     <div class="d-inline-block">
-      <a href="#">
+      <!-- <a href="#">
         <img src="../images/download.png" class="rounded-circle img-fluid" width="140" height="100" style="padding:10%">
-      </a>
+      </a> -->
     </div>
     <div class="d-inline-block">
       <h1>My Company Helpdesk</h1>
@@ -26,7 +30,7 @@
 
   <div class="selector">
     <div class="bg-white" id="navbar-guide">
-      <a href="#">Dashboard</a>
+      <a href="https://www.youtube.com">Dashboard</a>
       > New Issue
     </div>
 
@@ -43,7 +47,7 @@
         <div class="vertical-space">
           <p class="d-inline spacer">
             <select class="select-size" id="caller-number">
-              <option value="">Caller</option>
+              <option value="s">Caller</option>
             </select>
           </p>
           <p class="d-inline-block vertical-space spacer">
@@ -88,6 +92,10 @@
           <button class="btn btn-success" type="submit" disabled>Refer to a Specialist</button>
         </div>
       </form>
+      <select class="select-size" id="call-number" onchange="myDummyFunction()">
+        <option value="s">Caller</option>
+      </select>
+      <button onclick="myDummyFunction()">s</button>
     </div>
   </div>
 </body>
