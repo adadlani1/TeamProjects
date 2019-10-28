@@ -19,11 +19,14 @@ function myDummyFunction(){
 function setDepartmentAndCall(department,call){
     document.getElementById('department').value = department
     document.getElementById('extNumber').value = call
+    // $('#speclialists').append("<p>Testing...</p>")
 }
 
-function toggleSpecialistButton(command){
-    document.getElementById("specialist-button").disabled = command.command
-}
+// $(document).ready(function(){    
+//     $('#test').append("<p>Testisng...</p>")
+// })
+
+
 
 function setID(){
     document.getElementById('problemID').value = "ID-"+Math.round(Math.random()*1000)

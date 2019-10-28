@@ -2,24 +2,25 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <title>Helpdesk</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="app.js"></script> 
   <title>Document</title>
 </head>
 
 <body>
   <div class="bg-primary">
     <div class="d-inline-block">
-      <a href="#">
+      <!-- <a href="#">
         <img src="../images/download.png" class="rounded-circle img-fluid" width="140" height="100" style="padding:10%">
-      </a>
+      </a> -->
     </div>
     <div class="d-inline-block">
       <h1>My Company Helpdesk</h1>
@@ -37,16 +38,19 @@
       <form>
         <div class="vertical-space spacer">
           <p class="d-inline-block">
-            <input type="text" placeholder=" Problem ID" disabled>
+            <input type="text" placeholder=" Problem ID" id="problemID" disabled>
           </p>
           <p class="d-inline-block spacer">
-            <input placeholder="Call" type="text">
+            <input placeholder="Ext. Number" id="extNumber" type="text">
           </p>
         </div>
         <div class="vertical-space">
           <p class="d-inline spacer">
-            <select class="select-size" id="caller-number">
+            <select class="select-size" id="caller-name" onchange="myDummyFunction()">
               <option value="">Caller</option>
+              <option value="Ayo">Ayo</option>
+              <option value="Ben">Ben</option>
+              <option value="Kostas">Kostas</option>
             </select>
           </p>
           <p class="d-inline-block vertical-space spacer">
@@ -60,7 +64,7 @@
             </select>
           </p>
           <p class="d-inline-block vertical-space spacer">
-            <input placeholder=" Department" type="text">
+            <input placeholder="Department" id="department" type="text">
           </p>
         </div>
         <div class="vertical-space spacer">
@@ -88,12 +92,13 @@
         </div>
         <div class="spacer vertical-space">
           <button class="btn btn-primary">Save</button>
-          <button class="btn btn-success" type="submit" disabled>Refer to a Specialist</button>
+          <button type="button" id="specialist-button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+              Refer to a Specialist</button>
         </div>
       </form>
-      <div class="container">
+      
         <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+        
 
         <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog">
@@ -102,30 +107,29 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
+                <h4 class="modal-title">Specialists</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Specialists
-                </h4>
               </div>
               <div class="modal-body">
 
                 <div style="margin-bottom: 20px;">
                   <input type="radio" name="specialists" value="Bert">
                   Bert
-                  <button style="float: right;" class="btn btn-danger">7</button>
+                  <button style="float: right;" value="7" class="specialists btn btn-danger">7</button>
                 </div>
                 <div style="margin-bottom: 20px;">
                   <input type="radio" name="specialists" value="Clara"> Clara
-                  <button style="float: right;" class="btn btn-warning">4</button>
+                  <button style="float: right;" value="4" class="specialists btn btn-warning">4</button>
                 </div>
                 <div style="margin-bottom: 20px;">
                   <input type="radio" name="specialists" value="Jim"> Jim
-                  <button style="float: right;" class="btn btn-success">1</button>
+                  <button style="float: right;" value="1" class="specialists btn btn-success">1</button>
                 </div>
                 <div style="margin-bottom: 20px;">
                   <input type="radio" name="specialists" value="Tim"> Tim
-                  <button style="float: right;" class="btn btn-success">0</button>
+                  <button style="float: right;" value="0" class="specialists btn btn-success">0</button>
                 </div>
-
+                <!-- <div class="specialists">Testing...</div> -->
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Refer</button>
@@ -135,9 +139,11 @@
           </div>
         </div>
 
-      </div>
+
+      
 
     </div>
+   
   </div>
 </body>
 
