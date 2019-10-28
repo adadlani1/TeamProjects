@@ -6,16 +6,17 @@
 </head>
 <body>
 <link rel="stylesheet" href="dashboard.css">
-<link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
-<nav class="navbar bg-dark top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
-                Company
-                Helpdesk
-            </div>
-        </div>
-    </div>
+<link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+<nav class="navbar bg-dark">
+    <a class="navbar-brand" style="color: white">
+        <img src="https://via.placeholder.com/80" alt="logo"> My Company Helpdesk
+    </a>
+    <span class="navbar-text">
+        <a class="notification" href="">
+            <img src="../open-iconic-master/png/bell-2x.png">
+            <span class="badge">1</span>
+        </a>
+    </span>
 </nav>
 <div class="breadcrumb">
     <li>Dashboard</li>
@@ -25,7 +26,7 @@
         <div class="row">
             <div class="col-6">
                 <a href="new-issue.html">
-                    <button type="button" class="dashboard-btn btn-dark">New Issue</button>
+                    <button class="dashboard-btn btn-dark">New Issue</button>
                 </a>
             </div>
             <div class="col-6">
