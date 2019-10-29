@@ -21,15 +21,24 @@ function setDepartmentAndCall(department,call){
     document.getElementById('extNumber').value = call
 }
 
+function changeStatus({status}){
+  event.preventDefault()
+  $('#status').empty()
+  $('#status').append(status)
+}
+
 $(document).ready(function(){
     $(".specialists").click(function(){
       const specialist_id = this.id.split("-")[1]  
       $('.tasks').empty()
-      $(`#tasks-${specialist_id}`).append("tasks".repeat( $(`#${this.id}`).val()))
+     for(let i=1;i<=$(`#${this.id}`).val();i++)
+      $(`#tasks-${specialist_id}`).append("</br><p>ID-421</p><p>Problem with printers</p>")
     });
   });
 
-
+function createAnotherForm(){
+  alert("hello")
+}
 
 function setID(){
     document.getElementById('problemID').value = "ID-"+Math.round(Math.random()*1000)
