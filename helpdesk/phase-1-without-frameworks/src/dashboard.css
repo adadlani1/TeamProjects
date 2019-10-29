@@ -1,6 +1,7 @@
-.breadcrumb{
+.breadcrumb {
     border-bottom-color: #343a40;
 }
+
 ul.breadcrumb {
     padding: 10px 16px;
     list-style: none;
@@ -14,7 +15,7 @@ ul.breadcrumb li {
 }
 
 /* Add a slash symbol (/) before/behind each list item */
-ul.breadcrumb li+li:before {
+ul.breadcrumb li + li:before {
     padding: 8px;
     color: black;
     content: ">\00a0";
@@ -33,34 +34,36 @@ ul.breadcrumb li a:hover {
 }
 
 .dashboard-btn {
-    margin:auto;
-    display:block;
+    margin: 50%;
+    display: block;
     align-items: center;
     justify-content: center;
 }
-.dashboard-list{
+
+.dashboard-list {
     color: black;
 }
+
 .notification {
-  background-color: #595a5b;
-  color: white;
-  text-decoration: none;
-  padding: 15px 26px;
-  position: relative;
-  display: inline-block;
-  border-radius: 2px;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    position: relative;
+    display: inline-block;
+    border-radius: 1px;
 }
 
-.notification:hover {
-  background: #6c7175;
-}
+/*.notification:hover {
+    background: #6c7175;
+}*/
 
 .notification .badge {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  padding: 5px 10px;
-  border-radius: 50%;
-  background: red;
-  color: white;
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background: red;
+    color: white;
 }
