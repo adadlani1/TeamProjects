@@ -19,12 +19,15 @@ function myDummyFunction(){
 function setDepartmentAndCall(department,call){
     document.getElementById('department').value = department
     document.getElementById('extNumber').value = call
-    // $('#speclialists').append("<p>Testing...</p>")
 }
 
-// $(document).ready(function(){    
-//     $('#test').append("<p>Testisng...</p>")
-// })
+$(document).ready(function(){
+    $(".specialists").click(function(){
+      const specialist_id = this.id.split("-")[1]  
+      $('.tasks').empty()
+      $(`#tasks-${specialist_id}`).append("tasks".repeat( $(`#${this.id}`).val()))
+    });
+  });
 
 
 
