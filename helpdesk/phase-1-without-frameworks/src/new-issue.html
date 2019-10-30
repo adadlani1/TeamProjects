@@ -8,9 +8,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
   <script src="app.js"></script> 
   <title>Document</title>
 </head>
@@ -33,7 +35,6 @@
       <a href="#">Dashboard</a>
       > New Issue
     </div>
-
     
      <div class="container" id="problem-form">
                 
@@ -49,7 +50,7 @@
         </div>
         <div class="vertical-space">
           <p class="d-inline spacer">
-            <select class="select-size" id="caller-name" onchange="myDummyFunction()">
+            <select data-live-search="true" data-live-search-style="startsWith" class="selectpicker select-size" id="caller-name" onchange="myDummyFunction()">
               <option value="">Caller</option>
               <option value="Ayo">Ayo</option>
               <option value="Ben">Ben</option>
@@ -101,6 +102,7 @@
       </form>
     </br>
       <button type="button" class="spacer btn btn-info" data-toggle="collapse" data-target="#issue">Another issue</button>
+      <!-- Modal code -->
         <div class="modal fade" id="myModal" role="dialog">
           <div class="modal-dialog">
             <div class="modal-content">
@@ -133,12 +135,17 @@
                 </div>
               </div>
               <div class="modal-footer">
+                <select class="selectpicker">
+                    <option class="btn btn-default">Normal</option>
+                    <option class="btn btn-warning">Important</option>
+                  <option class="btn btn-danger">Very Important</option>
+                </select>
                   <button type="submit" class="btn btn-default" data-dismiss="modal" onclick="changeStatus({status:'Referred to specialist.'})">Refer</button>
               </div>
-            </form>
             </div>
           </div>
         </div>
+        <!-- Ends here -->
     </div>  
   </div>
 </body>
