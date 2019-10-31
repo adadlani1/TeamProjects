@@ -1,16 +1,15 @@
 //alert("hello");
 function myDummyFunction(){
-    var v = $('#call-number').val()
+    var v = $('#call-number').val();
     alert(v)
 }
+// ["problem_id","time_of_call","job_title", "telephone_no", "dept", "software", "serial_no", "brand", "model", "device_type", "problem_type", "problem_desc", "notes"]
+const data = [ [1], [2], [11] ] ;
 
-//myDummyFunction()
-var client = new XMLHttpRequest();
-client.open('GET', '}http://localhost:63342/TeamProjects/helpdesk/phase-1-without-frameworks/src/data');
-client.onreadystatechange = function() {
-    alert(client.responseText);
+function search() {
+
 }
-client.send();
+
 
 
 
