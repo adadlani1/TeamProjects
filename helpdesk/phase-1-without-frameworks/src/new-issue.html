@@ -5,8 +5,12 @@
     <title>Helpdesk</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../dashboard.css">
-    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
+    <!-- <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
@@ -17,12 +21,22 @@
 <body>
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
-        <div class="navbar-header">
+        <div class="d-inline-block navbar-header">
             <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
                 Company
                 Helpdesk
             </div>
         </div>
+        <div class="dropdown float-right">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Notifications bit
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#">Some Job</a>
+              <a class="dropdown-item" href="#">Another Job</a>
+              <a class="dropdown-item" href="#">Do Previous Jobs</a>
+            </div>
+          </div>
     </div>
 </nav>
 
