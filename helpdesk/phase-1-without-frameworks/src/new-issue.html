@@ -5,15 +5,9 @@
     <title>Helpdesk</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/css/bootstrap-select.css" />
-    <!-- <link rel="stylesheet" href="../dashboard.css">
-    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.js"></script>
     <script src="app.js"></script>
     <title>Document</title>
 </head>
@@ -21,22 +15,37 @@
 <body>
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
-        <div class="d-inline-block navbar-header">
+        <div class="navbar-header">
             <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
                 Company
                 Helpdesk
             </div>
         </div>
-        <div class="dropdown float-right">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notifications bit
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Some Job</a>
-              <a class="dropdown-item" href="#">Another Job</a>
-              <a class="dropdown-item" href="#">Do Previous Jobs</a>
-            </div>
-          </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <div class="dropdown notification">
+                    <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
+                            src="../open-iconic-master/png/bell-4x.png"
+                            alt="">
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="dropdown-content" id="notifications">
+                        <a href="">Example </a>
+                        <a href="">Example </a>
+                        <a href="">Example </a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown notification">
+                    <a href="login.html">
+                        <button class="dropbtn">
+                            <img src="../open-iconic-master/png/account-logout-4x.png" alt="logout">
+                        </button>
+                    </a>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>
 
@@ -248,8 +257,18 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $(".chosen").chosen();
+<script>
+    $(document).keyup(function (e) {
+        if (e.key === "Escape") {
+            document.getElementById('notifications').style = 'none';
+        }
+    });
+    document.getElementById('noti-btn').addEventListener("click", showNotifications);
+
+    function showNotifications() {
+        document.getElementById('notifications').style.display = 'block';
+
+    }
 </script>
 <!-- Ends here -->
 </body>
