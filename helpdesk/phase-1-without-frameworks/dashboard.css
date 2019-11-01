@@ -11,14 +11,14 @@ ul.breadcrumb {
 /* Display list items side by side */
 ul.breadcrumb li {
     display: inline;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
 ul.breadcrumb li + li:before {
     padding: 8px;
     color: black;
-    content: ">\00a0";
+    content: " >\00a0";
 }
 
 /* Add a color to all links inside the list */
@@ -34,6 +34,8 @@ ul.breadcrumb li a:hover {
 }
 
 .dashboard-btn {
+    height: 100px;
+    width: 100px;
     margin: auto;
     display: block;
     align-items: center;
@@ -44,9 +46,43 @@ ul.breadcrumb li a:hover {
     color: black;
 }
 
+.dropbtn {
+    background-color: #343a40;
+    color: white;
+    padding: 15px;
+    margin-left: 100px;
+    font-size: 20px;
+    border: none;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    margin-left: 100px;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 70px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #4b4747;
+}
+
 .notification {
     background-color: transparent;
-    color: white;
     text-decoration: none;
     padding: 20px;
     position: relative;
@@ -54,21 +90,12 @@ ul.breadcrumb li a:hover {
     border-radius: 1px;
 }
 
-/*.notification:hover {
-    background: #6c7175;
-}*/
-
 .notification .badge {
     position: absolute;
-    top: 15px;
-    right: 5px;
+    top: 25px;
+    right: 20px;
     padding: 5px 10px;
     border-radius: 50%;
     background: red;
     color: white;
-}
-
-.button-size{
-    width: 150px;
-    height: 150px;
 }

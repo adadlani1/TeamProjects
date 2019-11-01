@@ -1,12 +1,4 @@
-<<<<<<< HEAD
-alert("hello");
-function myDummyFunction(){
-    var v = $('#call-number').val()
-    alert(v)
-}
 
-myDummyFunction()
-=======
 function changeStatus({status}) {
     event.preventDefault()
     $('#status').empty()
@@ -21,4 +13,3 @@ $(document).ready(function () {
             $(`#tasks-${specialist_id}`).append("</br><p>ID-421</p><p>Problem with printers</p>")
     });
 });
->>>>>>> notifications
