@@ -20,9 +20,7 @@ function validate(form) {
     }
   });
   if (!user.length) {
-    $('#error').empty();
-    $('#error').append('Wrong Details')
-  }
+    setTimeout($('#error').css('display', 'block'), 200) }
   else {
     if (user[0].role === 'Operator')
       window.location.href = 'dashboard.html';
@@ -31,3 +29,6 @@ function validate(form) {
   }
 
 }
+$(document).ready(function () {
+  $('#error').css('display', 'none');
+});

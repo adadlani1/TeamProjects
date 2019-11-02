@@ -220,7 +220,7 @@ function addIssues() {
         "                </div>\n" +
         "                <br/>";
 
-    scroll = setInterval(function(){ window.scrollBy(0, 1000); console.log('start');});
+    scroll = setInterval(function(){ window.scrollBy(0, 1000);});
 
     setTimeout(function(){clearInterval(scroll);}, 300);
 
