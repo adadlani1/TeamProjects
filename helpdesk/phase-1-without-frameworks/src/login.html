@@ -2,41 +2,42 @@
 
 <head>
     <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="loginScript.js"></script>
     <style type="text/css">
         h1 {
             text-align: center
         }
+
         input {
             display: block;
             margin-right: auto;
             margin-left: auto;
         }
+
         #enter {
             padding: 200px
         }
-        #menu-bar{
+
+        #menu-bar {
             font-family: Helvetica;
             background: black;
             color: #fff;
             padding: 2px;
         }
-
-
     </style>
 
     <div id='menu-bar'>
         <h1>My Company Helpdesk</h1>
     </div>
-
-    <img src=''>
-    <link href="style.css" rel="stylesheet"/>
 </head>
 
-<form id='enter' action=''>
-    <input type="text" placeholder="Username"/>
+<form id='loginForm' onsubmit="validate(this)" autocomplete="off">
+    <input id='username' type="text" placeholder="Username" required />
     <br>
     <br>
-    <input type="password" placeholder="Password"/>
+    <input id='password' type="password" placeholder="Password" required />
     <br>
-    <input type="submit" value="Login"/>
+    <input type="submit" value="Login" />
+    <span styles='text-align:center' id='error'></span>
 </form>
