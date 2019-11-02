@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Helpdesk</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="app.js"></script>
 </head>
 <body>
-<link rel="stylesheet" href="dashboard.css">
-<link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -24,12 +26,23 @@
 </div>
 <div class="issues-search">
     <p class="field-name">Issues Number:
-        <input type="text" placeholder="Issue No">
+        <input id="id-field" type="text" placeholder="Issue No">
+        <script>
+            $("#id-field").keyup( function callback() { search() } );
+        </script>
+
+        <button id="search-button" onclick=search()> Search </button>
     </p>
-    <button id="search-button" onclick=search()> Search </button>
+
 </div>
 <div id="issue-board">
-
+    <table id="i-table" class="issue-table">
+        <tr>
+            <th>problem_id</th>
+            <th>problem_desc</th>
+            <th>device_type</th>
+        </tr>
+    </table>
 </div>
 </body>
 </html>
