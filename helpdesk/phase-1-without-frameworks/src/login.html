@@ -1,43 +1,46 @@
 <!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Login</title>
+    <title>Helpdesk</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
     <script src="loginScript.js"></script>
-    <style type="text/css">
-        h1 {
-            text-align: center
-        }
-
-        input {
-            display: block;
-            margin-right: auto;
-            margin-left: auto;
-        }
-
-        #enter {
-            padding: 200px
-        }
-
-        #menu-bar {
-            font-family: Helvetica;
-            background: black;
-            color: #fff;
-            padding: 2px;
-        }
-    </style>
-
-    <div id='menu-bar'>
-        <h1>My Company Helpdesk</h1>
-    </div>
 </head>
+<body>
 
-<form id='loginForm' onsubmit="validate(this)" autocomplete="off">
-    <input id='username' type="text" placeholder="Username" required />
-    <br>
-    <br>
-    <input id='password' type="password" placeholder="Password" required />
-    <br>
-    <input type="submit" value="Login" />
-    <span styles='text-align:center' id='error'></span>
-</form>
+<nav class="navbar bg-dark  top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
+                Company
+                Helpdesk
+            </div>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+<div class="login-popup-wrap new_login_popup">
+    <div class="login-popup-heading text-center">
+        <h4><i class="fa fa-lock" aria-hidden="true"></i> Login </h4>
+    </div>
+    <form id="loginForm" onsubmit="validate(this)" method="post">
+        <div class="form-group">
+            <input type="text" class="form-control" id="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-dark login-popup-btn" name="submit" value="Login">Login</button>
+    </form>
+</div>
+</body>
+</html>
