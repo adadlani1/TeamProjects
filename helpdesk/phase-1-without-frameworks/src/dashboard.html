@@ -70,8 +70,18 @@
             </div>
         </div>
     </div>
-    <canvas class='ml-5 d-inline' id="problemsChart" style="max-width: 40%; "></canvas>
-    <canvas class='d-inline' id="specialistChart" style="max-width: 40%;"></canvas>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <canvas id="problemsChart"></canvas>
+            </div>
+            <div class="col-6">
+                <canvas id="specialistChart"></canvas>
+            </div>
+        </div>
+    </div>
 
     <script>
         $(document).keyup(function (e) {
@@ -88,20 +98,20 @@
             const problemsChart = new Chart(problemsChartObject, {
                 type: 'bar',
                 data: {
-                    labels: ['Assigned', 'Unassigned'],
+                    labels: ['Solved', 'Referred to Specialist', 'Unassigned'],
                     datasets: [{
                         label: 'No. of issues',
-                        backgroundColor: ['green', 'red'],
+                        backgroundColor: ['green','yellow' , 'red'],
                         borderWidth: 1,
                         borderColor: '#555',
                         hoverBorderWidth: 5,
-                        data: [45, 10],
+                        data: [45, 26, 5],
                     }],
                 },
                 options: {
                     title: {
                         display: true,
-                        text: 'Assigned and unassigned issues'
+                        text: 'No. of Issues'
                     },
                     legend: {
                         display: false
@@ -127,20 +137,20 @@
             const specialistChart = new Chart(specialistChartObject, {
                 type: 'bar',
                 data: {
-                    labels: ['Solved', 'Unsolved'],
+                    labels: ['Bert', 'Clara', 'Ben Dover', 'Mike Hunt', 'Papa John'],
                     datasets: [{
                         label: 'No. of issues',
-                        backgroundColor: ['green', 'red'],
+                        backgroundColor: ['green', 'red', 'orange', 'yellow', 'pink'],
                         borderWidth: 1,
                         borderColor: '#555',
                         hoverBorderWidth: 5,
-                        data: [25, 7],
+                        data: [2, 7, 9, 4, 3],
                     }],
                 },
                 options: {
                     title: {
                         display: true,
-                        text: 'Solved and unsolved issues'
+                        text: 'Number of Unsolved Issues per Specialist'
                     },
                     legend: {
                         display: false
