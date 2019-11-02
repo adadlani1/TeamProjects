@@ -2,249 +2,253 @@
 <html lang="en">
 
 <head>
-  <title>Helpdesk</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="../dashboard.css">
-  <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="app.js"></script>
-  <title>Document</title>
+    <title>Helpdesk</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
 </head>
-
 <body>
+
 <nav class="navbar bg-dark  top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
-        Company
-        Helpdesk
-      </div>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
+                Company
+                Helpdesk
+            </div>
+        </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <div class="dropdown notification">
+                    <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
+                            src="../open-iconic-master/png/bell-4x.png"
+                            alt="">
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="dropdown-content" id="notifications">
+                        <a href="">Example </a>
+                        <a href="">Example </a>
+                        <a href="">Example </a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown notification">
+                    <a href="../login.html">
+                        <button class="dropbtn">
+                            <img src="../open-iconic-master/png/account-logout-4x.png" alt="logout">
+                        </button>
+                    </a>
+                </div>
+            </li>
+        </ul>
     </div>
-    <ul class="nav justify-content-end">
-      <li class="nav-item">
-        <div class="dropdown notification">
-          <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                  src="../open-iconic-master/png/bell-4x.png"
-                  alt="">
-            <span class="badge">3</span>
-          </button>
-          <div class="dropdown-content" id="notifications">
-            <a href="">Example </a>
-            <a href="">Example </a>
-            <a href="">Example </a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="dropdown notification">
-          <a href="../login.html">
-            <button class="dropbtn">
-              <img src="../open-iconic-master/png/account-logout-4x.png" alt="logout">
-            </button>
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
 </nav>
 
 <ul class="breadcrumb">
-  <li><a href="../dashboard.html">Dashboard</a></li>
-  <li>New Issue</li>
+    <li><a href="../dashboard.html">Dashboard</a></li>
+    <li>New Issue</li>
 </ul>
 <div class="container">
-  <div class="row">
-    <div class="col-4" style="text-align: center">
-      <p>Problem ID: 123</p>
+    <div class="row">
+        <div class="col-4" style="text-align: center">
+            <span>Problem ID: </span><label id="problem-id"></label>
+        </div>
+        <div class="col-4" style="text-align: center">
+            <span>Status: </span><label id="status">Not yet submitted</label>
+        </div>
+        <div class="col-4" style="text-align: center"><span>Call: </span> <label id="dateTime"></label>
+        </div>
     </div>
-    <div class="col-4" style="text-align: center">
-      <span>Status: </span><label id="status">Not yet submitted</label>
-    </div>
-    <div class="col-4" style="text-align: center">Call: Thursday 31/10/2019 11:30
-    </div>
-  </div>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-12">
-      <form id="issue">
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <label for="callerID">Caller: </label>
-              <select class="form-control form-size" name="callerID" id="callerID" style="width: 400px">
-                <option>Default Name</option>
-                <option>alice</option>
-                <option>bert</option>
-                <option>claire</option>
-                <option>Default Name</option>
-                <option>Default Name</option>
-              </select>
-            </div>
-            <div class="col-6">
-              <label for="job-title">Job Title:</label>
-              <input class="form-control" id="job-title" type="text" style="width: 400px">
-            </div>
-          </div>
+    <div class="row">
+        <div class="col-12">
+            <form id="issue">
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="callerID">Caller: </label>
+                            <select class="form-control form-size" name="callerID" id="callerID" style="width: 400px">
+                                <option>Default Name</option>
+                                <option>alice</option>
+                                <option>bert</option>
+                                <option>claire</option>
+                                <option>Default Name</option>
+                                <option>Default Name</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="job-title">Job Title:</label>
+                            <input class="form-control" id="job-title" type="text" style="width: 400px">
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="telephone">Telephone: </label>
+                            <input type="tel" id="telephone" class="form-control form-size" style="width: 400px">
+                        </div>
+                        <div class="col-6">
+                            <label for="department">Department:</label>
+                            <input class="form-control" id="department" type="text" style="width: 400px">
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="software">Software:</label>
+                            <select class="form-control" style="width: 400px" id="software">
+                                <option value="">Software 1</option>
+                                <option value="">Software 2</option>
+                                <option value="">Software 3</option>
+                                <option value="">Software 4</option>
+                                <option value="">Software 5</option>
+                                <option value="">Software 6</option>
+                                <option value="">Software 7</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="hardware">Hardware: </label>
+                            <input type="text" id="hardware" class="form-control form-size" style="width: 400px">
+                        </div>
+                        <div class="col-6">
+                            <label for="serial-no">Serial Number:</label>
+                            <input class="form-control" id="serial-no" type="text" style="width: 400px">
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <label for="problem-type">Problem Type: </label>
+                            <select class="form-control d-inline" style="width: 400px" id="problem-type">
+                                <option value="">Software 1</option>
+                                <option value="">Software 2</option>
+                                <option value="">Software 3</option>
+                                <option value="">Software 4</option>
+                                <option value="">Software 5</option>
+                                <option value="">Software 6</option>
+                                <option value="">Software 7</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="notes">Notes:</label>
+                            <textarea id="notes" class="form-control" type="text" placeholder="Notes"
+                                      style="height:100px"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <br/>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4">
+                            <button class="btn btn-primary" onclick="changeStatus({status:'Saved'})">Save</button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" id="specialist-button" class="btn btn-dark" data-toggle="modal"
+                                    data-target="#refer-to-specialist-modal">
+                                Refer to a Specialist
+                            </button>
+                        </div>
+                        <div class="col-4">
+                            <button type="button" class="btn btn-info">Another issue</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <label for="telephone">Telephone: </label>
-              <input type="tel" id="telephone" class="form-control form-size" style="width: 400px">
-            </div>
-            <div class="col-6">
-              <label for="department">Department:</label>
-              <input class="form-control" id="department" type="text" style="width: 400px">
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <label for="software">Software:</label>
-              <select class="form-control" style="width: 400px" id="software">
-                <option value="">Software 1</option>
-                <option value="">Software 2</option>
-                <option value="">Software 3</option>
-                <option value="">Software 4</option>
-                <option value="">Software 5</option>
-                <option value="">Software 6</option>
-                <option value="">Software 7</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <label for="hardware">Hardware: </label>
-              <input type="text" id="hardware" class="form-control form-size" style="width: 400px">
-            </div>
-            <div class="col-6">
-              <label for="serial-no">Serial Number:</label>
-              <input class="form-control" id="serial-no" type="text" style="width: 400px">
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-4">
-              <label for="problem-type">Problem Type: </label>
-              <select class="form-control d-inline" style="width: 400px" id="problem-type">
-                <option value="">Software 1</option>
-                <option value="">Software 2</option>
-                <option value="">Software 3</option>
-                <option value="">Software 4</option>
-                <option value="">Software 5</option>
-                <option value="">Software 6</option>
-                <option value="">Software 7</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <label for="notes">Notes:</label>
-              <textarea id="notes" class="form-control" type="text" placeholder="Notes"
-                        style="height:100px"></textarea>
-            </div>
-          </div>
-        </div>
-        <br/>
-        <div class="container">
-          <div class="row">
-            <div class="col-4">
-              <button class="btn btn-primary" onclick="changeStatus({status:'Saved.'})">Save</button>
-            </div>
-            <div class="col-4">
-              <button type="button" id="specialist-button" class="btn btn-success" data-toggle="modal"
-                      data-target="#refer-to-specialist-modal">
-                Refer to a Specialist
-              </button>
-            </div>
-            <div class="col-4">
-              <button type="button" class="btn btn-info">Another issue</button>
-            </div>
-          </div>
-        </div>
-      </form>
     </div>
-  </div>
-  <br/>
+    <br/>
 
-  <!-- Modal code -->
-  <div class="modal fade" id="refer-to-specialist-modal" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title">Specialists</h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <!-- Modal code -->
+    <div class="modal fade" id="refer-to-specialist-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title">Specialists</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div style="margin-bottom: 20px;">
+                        <input type="radio" name="specialists" value="Bert" required>
+                        Bert
+                        <button style="float: right;" value="0" id="specialist-1"
+                                class="btn btn-success">
+                            0
+                        </button>
+                        <div class="tasks" id="tasks-1"></div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="radio" name="specialists" value="Clara"> Clara
+                        <button style="float: right;" value="1" id="specialist-2"
+                                class="specialists btn btn-success">1
+                        </button>
+                        <div class="tasks" id="tasks-2"></div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="radio" name="specialists" value="Jim"> Jim
+                        <button style="float: right;" value="4" id="specialist-3"
+                                class="specialists btn btn-warning">4
+                        </button>
+                        <div class="tasks" id="tasks-3"></div>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="radio" name="specialists" value="Tim"> Tim
+                        <button style="float: right;" value="7" id="specialist-4"
+                                class="specialists btn btn-danger">7
+                        </button>
+                        <div class="tasks" id="tasks-4"></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+
+                    <select class="form-control">
+                        <option>Normal</option>
+                        <option>Important</option>
+                        <option>Very Important</option>
+                    </select>
+                    <button type="submit" class="btn btn-dark" data-dismiss="modal"
+                            onclick="changeStatus({status:'Referred to specialist'})">Refer
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-          <div style="margin-bottom: 20px;">
-            <input type="radio" name="specialists" value="Bert" required>
-            Bert
-            <button style="float: right;" value="0" id="specialist-1"
-                    class="btn btn-success">
-              0
-            </button>
-            <div class="tasks" id="tasks-1"></div>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <input type="radio" name="specialists" value="Clara"> Clara
-            <button style="float: right;" value="1" id="specialist-2"
-                    class="specialists btn btn-success">1
-            </button>
-            <div class="tasks" id="tasks-2"></div>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <input type="radio" name="specialists" value="Jim"> Jim
-            <button style="float: right;" value="4" id="specialist-3"
-                    class="specialists btn btn-warning">4
-            </button>
-            <div class="tasks" id="tasks-3"></div>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <input type="radio" name="specialists" value="Tim"> Tim
-            <button style="float: right;" value="7" id="specialist-4"
-                    class="specialists btn btn-danger">7
-            </button>
-            <div class="tasks" id="tasks-4"></div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <select class="selectpicker">
-            <option class="btn btn-default">Normal</option>
-            <option class="btn btn-warning">Important</option>
-            <option class="btn btn-danger">Very Important</option>
-          </select>
-          <button type="submit" class="btn btn-default" data-dismiss="modal"
-                  onclick="changeStatus({status:'Referred to specialist.'})">Refer
-          </button>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 <script>
-  $(document).keyup(function (e) {
-    if (e.key === "Escape") {
-      document.getElementById('notifications').style = 'none';
+    $(document).keyup(function (e) {
+        if (e.key === "Escape") {
+            document.getElementById('notifications').style = 'none';
+        }
+    });
+    document.getElementById('noti-btn').addEventListener("click", showNotifications);
+
+    function showNotifications() {
+        document.getElementById('notifications').style.display = 'block';
     }
-  });
-  document.getElementById('noti-btn').addEventListener("click", showNotifications);
-  function showNotifications() {
-    document.getElementById('notifications').style.display = 'block';
-  }
 </script>
 <!-- Ends here -->
 </body>
