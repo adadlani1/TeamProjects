@@ -78,7 +78,7 @@
 </nav>
 
 <ul class="breadcrumb">
-    <li><a href="specialist_dashboard_1.html">Specialist Dashboard </a></li>
+    <li><a href="Specialist_Dashboard.html">Specialist Dashboard </a></li>
     <li>Existing Issue Details</li>
 </ul>
 <div class="container">
@@ -178,13 +178,9 @@
                 <br/>
 				
 				<div class="container">
-                    <button class="accord"> + Click to View Previous notes</button>
-					<div class="panell">
-					  <p>Problems Details - ......................................
-					  ...........................................................
-					  ............................................................
-					  ..............................................................
-					  ...............................................................</p>
+                    <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes"> + Click to View Previous notes</button>
+					<div class="panell" id="prev-notes">
+					  <p id="previous-notes"></p>
 					</div>
                 </div>
 				
@@ -299,7 +295,7 @@
 
 	function start() {
 		var problem_details = '{"details":[' +
-		'{"problem_id":"100","status":"refered","call":"02/11/2019 10:00","caller":"alice","job":"manager","phone":"161628648566","department":"management","software":"windows 10","device":"laptop","serial":"AC3453","make":"HP","model":"pavilion","problem_type":"software","notes":"......."}]}';
+		'{"problem_id":"100","status":"Referred","call":"02/11/2019 10:00","caller":"Alice","job":"Helpdesk Operator","phone":"01616286485","department":"Management","software":"Windows 10","device":"Laptop","serial":"AC3453","make":"HP","model":"Pavilion","problem_type":"Software","notes":"Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller called back with the same problem. Referred to Bert."}]}';
 		
 		var details_object = JSON.parse(problem_details);
 
@@ -316,7 +312,8 @@
 		document.getElementById('make').value=details_object.details[0].make;
 		document.getElementById('model').value=details_object.details[0].model;
 		document.getElementById('problem-type').innerHTML='<option value="">'+details_object.details[0].problem_type+'</option>';
-		
+		document.getElementById('previous-notes').innerHTML='<option value="">'+details_object.details[0].notes+'</option>';
+
 			
 	}
     $(document).keyup(function (e) {
