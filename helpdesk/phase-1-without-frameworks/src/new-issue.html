@@ -61,7 +61,7 @@
             <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne" onclick="appendProblemDesc()" id="accordion-header" >
-                    Problem:
+                    Problem Description:
                 </button>
             </h5>
         </div>
@@ -72,9 +72,6 @@
                     <div class="row">
                         <div class="col-4" style="text-align: center">
                             <span>Problem ID: </span><label id="problem-id"></label>
-                        </div>
-                        <div class="col-4" style="text-align: center">
-                            <span>Status: </span><label id="status">Not yet submitted</label>
                         </div>
                         <div class="col-4" style="text-align: center"><span>Call: </span> <label id="dateTime"></label>
                         </div>
@@ -90,12 +87,15 @@
                                         <div class="col-6">
                                             <label for="callerID">Caller: </label>
                                             <select class="form-control form-size" name="callerID" id="callerID">
-                                                <option>Default Name</option>
-                                                <option>alice</option>
-                                                <option>bert</option>
-                                                <option>claire</option>
-                                                <option>Default Name</option>
-                                                <option>Default Name</option>
+                                                <option>Anmol</option>
+                                                <option>Alice</option>
+                                                <option>Bert</option>
+                                                <option>Claire</option>
+                                                <option>Kostas</option>
+                                                <option>Ayo</option>
+                                                <option>Sean</option>
+                                                <option>Viraj</option>
+                                                <option>Vishwaswaroop</option>
                                             </select>
                                         </div>
                                         <div class="col-6">
@@ -183,6 +183,16 @@
                                 <div class="container">
                                     <div class="row">
                                         <div class="col-12">
+                                            <label for="problem-desc">Problem Description:</label>
+                                            <input class="form-control" id="problem-desc" type="text">
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <br/>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-12">
                                             <label for="notes">Notes:</label>
                                             <textarea id="notes" class="form-control" type="text" placeholder="Notes"
                                                       style="height:100px"></textarea>
@@ -212,19 +222,20 @@
         </div>
     </div>
   <div id="new-issues">
-
   </div>
   <br>
   <br>
   <div class="container">
     <div class="row form-group text-center">
-      <div class="col-6">
+      <div class="col-4">
         <button class="btn btn-primary" onclick="changeStatus({status:'Saved'})">
           Save
         </button>
       </div>
-
-      <div class="col-6">
+        <div class="col-4" style="text-align: center">
+            <span>Status: </span><label id="status">Not yet submitted</label>
+        </div>
+      <div class="col-4">
         <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
           issue
         </button>
@@ -302,22 +313,22 @@
     }
 
     function appendProblemDesc() {
-        const problemType = document.getElementById('problem-type').value;
+        const problemDesc = document.getElementById('problem-desc').value;
 
         $('#accordion-header').empty();
-        $('#accordion-header').append("Problem Desc: " + problemType);
+        $('#accordion-header').append("Problem Description: " + problemDesc);
     }
 
     function changeColourOfAccord() {
         changeStatus({status:'Referred to specialist'});
         const priorityLevel = document.getElementById('priority').value;
         console.log(priorityLevel);
-        if (priorityLevel === 1){
+        if (priorityLevel === "1"){
             $('#headingOne').css('background', 'red');
-        } else if (priorityLevel === 2)
-            $('#headingOne').css('background', 'yellow');
+        } else if (priorityLevel === "2")
+            $('#headingOne').css('background', 'orange');
         else
-            $('#headingOne').css('background', 'red');
+            $('#headingOne').css('background', 'yellow');
     }
 </script>
 <div id="bottom"></div>

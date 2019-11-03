@@ -97,27 +97,24 @@ function addIssues() {
 
     var dateTime = date + " " + time;
 
-    var issue = "<div class=\"card\">\n" +
+    var issue = "<div class=\"card\" >\n" +
         "        <div class=\"card-header\" id=\"headingOne\">\n" +
         "            <h5 class=\"mb-0\">\n" +
-        "                <button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapse" + id + "\" aria-expanded=\"true\"\n" +
-        "                        aria-controls=\"collapse" + id + "\">\n" +
-        "                    Collapsible Group Item " + id + "\n" +
+        "                <button class=\"btn btn-link\" data-toggle=\"collapse\" data-target=\"#collapse"+ id +"\" aria-expanded=\"true\"\n" +
+        "                        aria-controls=\"collapse"+ id +"\" onclick=\"appendProblemDesc()\" id=\"accordion-header\" >\n" +
+        "                    Problem Description:\n" +
         "                </button>\n" +
         "            </h5>\n" +
         "        </div>\n" +
         "\n" +
-        "        <div id=\"collapse" + id + "\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n" +
+        "        <div id=\"collapse"+ id +"\" class=\"collapse show\" aria-labelledby=\"headingOne\" data-parent=\"#accordion\">\n" +
         "            <div class=\"card-body\">\n" +
         "                <div class=\"container\">\n" +
         "                    <div class=\"row\">\n" +
-        "                        <div class=\"col-4\" style=\"text-align: center\">\n" +
-        "                            <span>Problem ID: </span><label id=\"problem-id\">" + id + "</label>\n" +
+        "                        <div class=\"col-6\" style=\"text-align: center\">\n" +
+        "                            <span>Problem ID: </span><label id=\"problem-id\">"+ id +"</label>\n" +
         "                        </div>\n" +
-        "                        <div class=\"col-4\" style=\"text-align: center\">\n" +
-        "                            <span>Status: </span><label id=\"status\">Not yet submitted</label>\n" +
-        "                        </div>\n" +
-        "                        <div class=\"col-4\" style=\"text-align: center\"><span>Call: "+dateTime+" </span> <label id=\"dateTime\"></label>\n" +
+        "                        <div class=\"col-6\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">"+ dateTime +"</label>\n" +
         "                        </div>\n" +
         "                    </div>\n" +
         "                </div>\n" +
@@ -131,12 +128,15 @@ function addIssues() {
         "                                        <div class=\"col-6\">\n" +
         "                                            <label for=\"callerID\">Caller: </label>\n" +
         "                                            <select class=\"form-control form-size\" name=\"callerID\" id=\"callerID\">\n" +
-        "                                                <option>Default Name</option>\n" +
-        "                                                <option>alice</option>\n" +
-        "                                                <option>bert</option>\n" +
-        "                                                <option>claire</option>\n" +
-        "                                                <option>Default Name</option>\n" +
-        "                                                <option>Default Name</option>\n" +
+        "                                                <option>Anmol</option>\n" +
+        "                                                <option>Alice</option>\n" +
+        "                                                <option>Bert</option>\n" +
+        "                                                <option>Claire</option>\n" +
+        "                                                <option>Kostas</option>\n" +
+        "                                                <option>Ayo</option>\n" +
+        "                                                <option>Sean</option>\n" +
+        "                                                <option>Viraj</option>\n" +
+        "                                                <option>Vishwaswaroop</option>\n" +
         "                                            </select>\n" +
         "                                        </div>\n" +
         "                                        <div class=\"col-6\">\n" +
@@ -209,16 +209,26 @@ function addIssues() {
         "                                        <div class=\"col-6\">\n" +
         "                                            <label for=\"problem-type\">Problem Type: </label>\n" +
         "                                            <select class=\"form-control\" id=\"problem-type\">\n" +
-        "                                                <option value=\"\">Software 1</option>\n" +
-        "                                                <option value=\"\">Software 2</option>\n" +
-        "                                                <option value=\"\">Software 3</option>\n" +
-        "                                                <option value=\"\">Software 4</option>\n" +
-        "                                                <option value=\"\">Software 5</option>\n" +
-        "                                                <option value=\"\">Software 6</option>\n" +
-        "                                                <option value=\"\">Software 7</option>\n" +
+        "                                                <option value=\"Software 1\">Software 1</option>\n" +
+        "                                                <option value=\"Software 2\">Software 2</option>\n" +
+        "                                                <option value=\"Software 3\">Software 3</option>\n" +
+        "                                                <option value=\"Software 4\">Software 4</option>\n" +
+        "                                                <option value=\"Software 5\">Software 5</option>\n" +
+        "                                                <option value=\"Software 6\">Software 6</option>\n" +
+        "                                                <option value=\"Software 7\">Software 7</option>\n" +
         "                                            </select>\n" +
         "                                        </div>\n" +
         "                                    </div>\n" +
+        "                                </div>\n" +
+        "                                <br/>\n" +
+        "                                <div class=\"container\">\n" +
+        "                                    <div class=\"row\">\n" +
+        "                                        <div class=\"col-12\">\n" +
+        "                                            <label for=\"problem-desc\">Problem Description:</label>\n" +
+        "                                            <input class=\"form-control\" id=\"problem-desc\" type=\"text\">\n" +
+        "                                        </div>\n" +
+        "                                    </div>\n" +
+        "\n" +
         "                                </div>\n" +
         "                                <br/>\n" +
         "                                <div class=\"container\">\n" +
@@ -231,14 +241,27 @@ function addIssues() {
         "                                    </div>\n" +
         "                                </div>\n" +
         "                                <br/>\n" +
-        "\n" +
-        "\n" +
         "                            </form>\n" +
+        "                            <div class=\"container\">\n" +
+        "                                <div class=\"row\">\n" +
+        "                                    <div class=\"col-6\">\n" +
+        "                                        <button type=\"button\" id=\"specialist-button\" class=\"btn btn-dark\"\n" +
+        "                                                data-toggle=\"modal\"\n" +
+        "                                                data-target=\"#refer-to-specialist-modal\">\n" +
+        "                                            Refer to a Specialist\n" +
+        "                                        </button>\n" +
+        "                                    </div>\n" +
+        "                                    <div class=\"col-6\">\n" +
+        "                                        <button type=\"button\" class=\"btn btn-dark\">Solution Provided</button>\n" +
+        "                                    </div>\n" +
+        "                                </div>\n" +
+        "                            </div>\n" +
         "                        </div>\n" +
         "                    </div>\n" +
         "                </div>\n" +
         "            </div>\n" +
-        "        </div>";
+        "        </div>\n" +
+        "    </div>";
 
     scroll = setInterval(function(){ window.scrollBy(0, 1000);});
 
