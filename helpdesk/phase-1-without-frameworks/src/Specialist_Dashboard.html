@@ -1,28 +1,11 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Specialist Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Helpdesk</title>
 </head>
 
 <style>
-
-h1{
-	color:white;
-	background-color:#4b4747;
-	text-align:center;
-	padding:10px;
-	font-size:15px;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-h2{
-	color:white;
-	background-color:#4b4747;
-	text-align:center;
-	padding:20px;
-	font-size:20px;
-	font-family: Arial, Helvetica, sans-serif;
-}
 
 .accordion {
   background-color:#ababab;
@@ -30,9 +13,8 @@ h2{
   font-color:white;
   cursor: pointer;
   padding: 18px;
-  width: 50%;
+  width: 100%;
   border: none;
-  margin-left: 500px;
   margin-top:5px;
   text-align: center;
   outline: none;
@@ -45,10 +27,9 @@ h2{
 }
 
 .panel {
-  padding: 0 18px;
+  padding: 0 20px;
   display: none;
-  margin-left: 500px;
-  width: 48%;
+  width: 100%;
   background-color: #eee;
   overflow: hidden;
 }
@@ -92,46 +73,69 @@ h2{
 
 </style>
 
-<body>
 
-<h1>My Company Helpdesk</h1>
-<div>
-<h2>Specialist Dashboard <div class="dropdown">
-  <button class="dropbtn">View Notifications</button>
-  <div class="dropdown-content">
-    <a href="#">Example  </a>
-    <a href="#">Example </a>
-    <a href="#">Example </a>
-  </div>
-</div></h2>
+<body onload="start()" >
+<link rel="stylesheet" href="dashboard.css">
+<link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+<nav class="navbar bg-dark top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
+                Company
+                Helpdesk
+            </div>
+        </div>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <div class="dropdown notification">
+                    <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
+                            src="../open-iconic-master/png/bell-4x.png"
+                            alt="">
+                        <span class="badge">3</span>
+                    </button>
+                    <div class="dropdown-content" id="notifications">
+                        <a href="">Example </a>
+                        <a href="">Example </a>
+                        <a href="">Example </a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown notification">
+                    <a href="login.html">
+                        <button class="dropbtn">
+                            <img src="../open-iconic-master/png/account-logout-4x.png" alt="logout">
+                        </button>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<ul class="breadcrumb">
+    <li><a>Specialist Dashboard</a></li>
+</ul>
 
-</div>
-
-<button class="accordion">Printer issue - Hardware </button>
-<div class="panel">
-  <p>Printer issue.   
-  <button>View Details</button></p>
-</div>
-
-<button class="accordion">Virus issue - Software</button>
-<div class="panel">
-  <p>Virus issue.   
-  <button>View Details</button></p>
-</div>
-
-<button class="accordion">Projector issue - Hardware</button>
-<div class="panel">
-  <p>Projector issue.   
-  <button>View Details</button></p>
-</div>
-
-<button class="accordion">Internet issue - Network </button>
-<div class="panel">
-  <p>Internet issue.   
-  <button>View Details</button></p>
-</div>
 
 <script>
+
+	function start() {
+	
+		var problem_file = '{"problems_referred":[' +
+		'{"problem_id":"100","problem_type":"network","specialist_name":"bert"},'+'{"problem_id":"567","problem_type":"hardware","specialist_name":"bert"},'+'{"problem_id":"646","problem_type":"software","specialist_name":"bert"}]}';
+		
+		var problem_object = JSON.parse(problem_file);
+		
+		for (i in problem_object.problems_referred) {
+			var btn = document.createElement("BUTTON");
+			btn.setAttribute("class", "accordion");
+			btn.innerHTML='<img src="../open-iconic-master/png/flag-2x.png" alt="flag">'+'&nbsp; &nbsp;'+'ID:'+problem_object.problems_referred[i].problem_id+'&nbsp; &nbsp;'+"Problem type: "+problem_object.problems_referred[i].problem_type+'&nbsp; &nbsp;'+'<a href="existing-issue-details.html"><button href="existing-issue-details.html">View Details</button></a>';
+			document.body.appendChild(btn);
+		}
+		
+	}
+	
+	
 	var acc = document.getElementsByClassName("accordion");
 	var i;
 
@@ -146,8 +150,16 @@ h2{
 		}
 	  });
 	}
+
+    $(document).keyup(function (e) {
+        if (e.key === "Escape") {
+            document.getElementById('notifications').style.display = 'none';
+        }
+    });
+    document.getElementById('noti-btn').addEventListener("click", showNotifications);
+    function showNotifications() {
+        document.getElementById('notifications').style.display = 'block';
+    }
 </script>
-
 </body>
-
 </html>
