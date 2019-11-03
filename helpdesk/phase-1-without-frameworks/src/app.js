@@ -1,9 +1,43 @@
-
-
 function changeStatus({status}) {
     event.preventDefault();
     $('#status').empty();
     $('#status').append(status)
+}
+
+function search() {
+    var user_input = $("#id-field").val();
+    var records = [];
+
+    for (var i = 0; i < data.length; i++) {
+        var record = data[i];
+
+        var id = record["problem_id"].toString();
+        var expr =  new RegExp("^" + user_input);
+        if ( expr.test(id) ) {
+            records.push(record);
+        }
+    }
+
+    updateTable(records);
+
+}
+
+function updateTable(records) {
+    $("#i-table").empty();
+    $("#i-table").append(
+        "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th> <th>Telephone</th>" +
+        "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
+        "<th>Assigned To</th> </tr>");
+
+    for (var i = 0; i < records.length; i++ ) {
+        var doc = "<tr> <td>" + records[i]["problem_id"] + "</td> <td>" + records[i]["name"] + "</td> <td>" +
+            records[i]["dept"] + "</td> <td>" + records[i]["job"] + "</td> <td>" +
+            records[i]["telephone"] + "</td> <td>" + records[i]["problem_desc"] + "</td> <td>" +
+            records[i]["problem_type"] + "</td> <td>" + records[i]["sub_type"] + "</td> <td>" +
+            records[i]["device_type"] + "</td> <td>" + records[i]["assigned"] + "</td> </tr>";
+        $("#i-table").append(doc);
+    }
+
 }
 
 $(document).ready(function () {
@@ -217,3 +251,62 @@ function addIssues() {
 
     $("#new-issues").append(issue);
 }
+
+
+/*  Data    */
+
+const data = [ {
+    "problem_id" : 1,
+    "problem_desc" : "asdad",
+    "problem_type": "",
+    "sub_type" : "",
+    "telephone" : "",
+    "device_type" : "",
+    "software" : "",
+    "brand" : "",
+    "model" : "",
+    "serial_no" : "",
+    "name" : "",
+    "dept" : "",
+    "job" : "",
+    "assigned" : "",
+    "time" : "",
+    "notes" : []
+},
+    {
+    "problem_id" : 2,
+    "problem_desc" : "asdad",
+    "problem_type": "",
+    "sub_type" : "",
+    "telephone" : "",
+    "device_type" : "",
+    "software" : "",
+    "brand" : "",
+    "model" : "",
+    "serial_no" : "",
+    "name" : "",
+    "dept" : "",
+    "job" : "",
+    "assigned" : "",
+    "time" : "",
+    "notes" : []
+    },
+    {
+    "problem_id" : 11,
+    "problem_desc" : "asdad",
+    "problem_type": "",
+    "sub_type" : "",
+    "telephone" : "",
+    "device_type" : "",
+    "software" : "",
+    "brand" : "",
+    "model" : "",
+    "serial_no" : "",
+    "name" : "",
+    "dept" : "",
+    "job" : "",
+    "assigned" : "",
+    "time" : "",
+    "notes" : []
+    },
+];
