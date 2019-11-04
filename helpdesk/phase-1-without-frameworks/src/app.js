@@ -4,6 +4,7 @@ function changeStatus({status}) {
     $('#status').append(status)
 }
 
+//finds records with similar ID
 function search() {
     var user_input = $("#id-field").val();
     var records = [];
@@ -22,9 +23,9 @@ function search() {
 
 }
 
+//updates the table based on the given records
 function updateTable(records) {
-    $("#i-table").empty();
-    $("#i-table").append(
+    $("#i-table").empty().append(
         "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th> <th>Telephone</th>" +
         "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
         "<th>Assigned To</th> </tr>");

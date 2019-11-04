@@ -294,26 +294,32 @@
 	}
 
 	function start() {
-		var problem_details = '{"details":[' +
-		'{"problem_id":"100","status":"Referred","call":"02/11/2019 10:00","caller":"Alice","job":"Helpdesk Operator","phone":"01616286485","department":"Management","software":"Windows 10","device":"Laptop","serial":"AC3453","make":"HP","model":"Pavilion","problem_type":"Software","notes":"Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller called back with the same problem. Referred to Bert."}]}';
-		
-		var details_object = JSON.parse(problem_details);
+	    //fills the fields with data in app script
+		$('#problem_id').text(data[0]['problem_id']);
+        $('#datetime').text(data[0]['time']);
+        $('#callerID').html('<option value="">'+ data[0]['name'] +'</option>');
+        $('#job-title[type=text]').val(data[0]['job']);
+        $('#telephone[type=tel]').val(data[0]['telephone']);
+        $('#department[type=text]').val(data[0]['dept']);
+        $('#software').html('<option value="">'+ data[0]['software'] +'</option>');
+        $('#device-type').html('<option value="">'+ data[0]['device_type'] +'</option>');
+        $('#serial-no[type=text]').val(data[0]['serial_no']);
+        $('#make[type=text]').val(data[0]['brand']);
+        $('#model[type=text]').val(data[0]['model']);
+        $('#problem-type').html('<option value="">'+ data[0]['problem_type'] +'</option>');
 
-		document.getElementById('problem_id').innerHTML=details_object.details[0].problem_id;
-		document.getElementById('status').innerHTML=details_object.details[0].status;
-		document.getElementById('datetime').innerHTML=details_object.details[0].call;
-		document.getElementById('callerID').innerHTML='<option value="">'+details_object.details[0].caller+'</option>';
-		document.getElementById('job-title').value=details_object.details[0].job;
-		document.getElementById('telephone').value=details_object.details[0].phone;
-		document.getElementById('department').value=details_object.details[0].department;
-		document.getElementById('software').innerHTML='<option value="">'+details_object.details[0].software+'</option>';
-		document.getElementById('device-type').innerHTML='<option value="">'+details_object.details[0].device+'</option>';
-		document.getElementById('serial-no').value=details_object.details[0].serial;
-		document.getElementById('make').value=details_object.details[0].make;
-		document.getElementById('model').value=details_object.details[0].model;
-		document.getElementById('problem-type').innerHTML='<option value="">'+details_object.details[0].problem_type+'</option>';
-		document.getElementById('previous-notes').innerHTML='<option value="">'+details_object.details[0].notes+'</option>';
+        if ( data[0]['assigned'] != "" ) {
+            $('#status').text("Referred");
+        } else {
+            $('#status').text("Not Referred");
+        }
 
+        //displays all notes for the problem
+        var notes = data[0]['notes'];
+        for (var i = 0; i < notes.length; i++ ) {
+            alert(notes[i]);
+            $('#previous-notes').append("<p>" + notes[i] + "</p>")
+        }
 			
 	}
     $(document).keyup(function (e) {
