@@ -29,14 +29,21 @@ function updateTable(records) {
         "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
         "<th>Assigned To</th> </tr>");
 
+    var keys = ["problem_id","name","dept","job","telephone","problem_desc","problem_type","sub_type","device_type","assigned"];
+
     for (var i = 0; i < records.length; i++ ) {
-        var doc = "<tr> <td>" + records[i]["problem_id"] + "</td> <td>" + records[i]["name"] + "</td> <td>" +
-            records[i]["dept"] + "</td> <td>" + records[i]["job"] + "</td> <td>" +
-            records[i]["telephone"] + "</td> <td>" + records[i]["problem_desc"] + "</td> <td>" +
-            records[i]["problem_type"] + "</td> <td>" + records[i]["sub_type"] + "</td> <td>" +
-            records[i]["device_type"] + "</td> <td>" + records[i]["assigned"] + "</td> </tr>";
+        var classname = "i-row-" + i;
+        var doc = "<tr>";
+        for (var j = 0; j < keys.length - 1; j++) {
+            doc += " <td class='" + classname + "'>" + records[i][keys[j]] + "</td>";
+        }
+        doc +=  "<td class='" + classname + "'>" + records[i]["assigned"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
+
+    $(".i-row-0").dblclick(function(){
+        window.open("existing-issue-details.html","_self");
+    });
 
 }
 
@@ -195,7 +202,7 @@ function addIssues() {
         "                                            </select>\n" +
         "                                        </div>\n" +
         "                                        <div class=\"col-3\">\n" +
-        "                                            <label for=\"serial-no\">Serial Number:</label>\n" +
+        "                                            <label for=\"serial-no\">Serial Number:</label>\n" +1
         "                                            <input class=\"form-control\" id=\"serial-no\" type=\"text\">\n" +
         "                                        </div>\n" +
         "                                        <div class=\"col-3\">\n" +
@@ -256,22 +263,23 @@ function addIssues() {
 /*  Data    */
 
 const data = [ {
-    "problem_id" : 1,
+    "problem_id" : 100,
     "problem_desc" : "asdad",
-    "problem_type": "",
+    "problem_type": "Software",
     "sub_type" : "",
-    "telephone" : "",
-    "device_type" : "",
-    "software" : "",
-    "brand" : "",
-    "model" : "",
-    "serial_no" : "",
-    "name" : "",
-    "dept" : "",
-    "job" : "",
+    "telephone" : "01616286485",
+    "device_type" : "Laptop",
+    "software" : "Windows 10",
+    "brand" : "HP",
+    "model" : "Pavilion",
+    "serial_no" : "AC3453",
+    "name" : "Alice",
+    "dept" : "Management",
+    "job" : "Helpdesk Operator",
     "assigned" : "",
-    "time" : "",
-    "notes" : []
+    "time" : "02/11/2019 10:00",
+    "notes" : ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
+    "called back with the same problem. Referred to Bert."]
 },
     {
     "problem_id" : 2,
