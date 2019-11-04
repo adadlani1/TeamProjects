@@ -75,7 +75,7 @@ function generateSpecialistChart(issues) {
   const specialistPieChart = new Chart(specialistPieChartObject, {
     type: 'doughnut',
     data: {
-      labels: ['Solved', 'Forwarded', 'Pending'],
+      labels: [`Solved:${issuesSolved}`, `Forwarded:${issuesReferred}`, `Pending:${issuesPending}`],
       datasets: [{
         label: 'No. of times specialist referred',
         backgroundColor: ['green', 'red', 'orange'],
