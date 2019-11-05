@@ -36,16 +36,21 @@ function updateTable(records) {
         var classname = "i-row-" + i;
         var doc = "<tr>";
         for (var j = 0; j < keys.length - 1; j++) {
-            doc += " <td class='" + classname + "'>" + records[i][keys[j]] + "</td>";
+            doc += " <td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i][keys[j]] + "</td>";
         }
-        doc +=  "<td class='" + classname + "'>" + records[i]["assigned"] + "</td> </tr>";
+        doc +=  "<td class='" + classname + " problem-data'>" + records[i]["assigned"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
 
-    $(".i-row-0").dblclick(function(){
+    $(".problem-data").dblclick(function(e){
         window.open("existing-issue-details.html","_self");
     });
 
+}
+
+//saves user-input when click a row in the table
+function setID(id) {
+    window.localStorage.setItem("id",id);
 }
 
 $(document).ready(function () {
