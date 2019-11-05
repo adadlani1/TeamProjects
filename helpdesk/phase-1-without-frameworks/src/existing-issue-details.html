@@ -294,31 +294,41 @@
 	}
 
 	function start() {
-	    //fills the fields with data in app script
-		$('#problem_id').text(data[0]['problem_id']);
-        $('#datetime').text(data[0]['time']);
-        $('#callerID').html('<option value="">'+ data[0]['name'] +'</option>');
-        $('#job-title[type=text]').val(data[0]['job']);
-        $('#telephone[type=tel]').val(data[0]['telephone']);
-        $('#department[type=text]').val(data[0]['dept']);
-        $('#software').html('<option value="">'+ data[0]['software'] +'</option>');
-        $('#device-type').html('<option value="">'+ data[0]['device_type'] +'</option>');
-        $('#serial-no[type=text]').val(data[0]['serial_no']);
-        $('#make[type=text]').val(data[0]['brand']);
-        $('#model[type=text]').val(data[0]['model']);
-        $('#problem-type').html('<option value="">'+ data[0]['problem_type'] +'</option>');
+	    //Saved id from user-input on existing-issue-search
+	    var selected_id = window.localStorage.getItem("id");
 
-        if ( data[0]['assigned'] != "" ) {
-            $('#status').text("Referred");
-        } else {
-            $('#status').text("Not Referred");
+	    //search through data to find the correct record
+	    for (var i = 0; i < data.length; i++) {
+	        if ( selected_id == data[i]['problem_id'].toString() ) {
+
+                //fills the fields with data in app script
+                $('#problem_id').text(data[i]['problem_id']);
+                $('#datetime').text(data[i]['time']);
+                $('#callerID').html('<option value="">'+ data[i]['name'] +'</option>');
+                $('#job-title[type=text]').val(data[i]['job']);
+                $('#telephone[type=tel]').val(data[i]['telephone']);
+                $('#department[type=text]').val(data[i]['dept']);
+                $('#software').html('<option value="">'+ data[i]['software'] +'</option>');
+                $('#device-type').html('<option value="">'+ data[i]['device_type'] +'</option>');
+                $('#serial-no[type=text]').val(data[i]['serial_no']);
+                $('#make[type=text]').val(data[i]['brand']);
+                $('#model[type=text]').val(data[i]['model']);
+                $('#problem-type').html('<option value="">'+ data[i]['problem_type'] +'</option>');
+
+                if ( data[i]['assigned'] != "" ) {
+                    $('#status').text("Referred");
+                } else {
+                    $('#status').text("Not Referred");
+                }
+
+                //displays all notes for the problem
+                var notes = data[i]['notes'];
+                for (var j = 0; j < notes.length; j++ ) {
+                    $('#previous-notes').append("<p>" + notes[j] + "</p>")
+                }
+            }
         }
 
-        //displays all notes for the problem
-        var notes = data[0]['notes'];
-        for (var i = 0; i < notes.length; i++ ) {
-            $('#previous-notes').append("<p>" + notes[i] + "</p>")
-        }
 			
 	}
     $(document).keyup(function (e) {
