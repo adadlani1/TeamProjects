@@ -38,7 +38,7 @@ function updateTable(records) {
         for (var j = 0; j < keys.length - 1; j++) {
             doc += " <td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i][keys[j]] + "</td>";
         }
-        doc +=  "<td class='" + classname + " problem-data'>" + records[i]["assigned"] + "</td> </tr>";
+        doc +=  "<td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i]["assigned"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
 
