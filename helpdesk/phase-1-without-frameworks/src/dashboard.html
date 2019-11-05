@@ -35,6 +35,15 @@
                 </li>
                 <li class="nav-item">
                     <div class="dropdown notification">
+                        <a href="graphs.html">
+                            <button class="dropbtn">
+                                <img src="../open-iconic-master/png/pie-chart-4x.png" alt="analyse">
+                            </button>
+                        </a>
+                    </div>
+                </li>
+                <li class='nav-item'>
+                    <div class="dropdown notification">
                         <a href="login.html">
                             <button class="dropbtn">
                                 <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
@@ -101,7 +110,7 @@
                     labels: ['Solved', 'Referred to Specialist', 'Unassigned'],
                     datasets: [{
                         label: 'No. of issues',
-                        backgroundColor: ['green','yellow' , 'red'],
+                        backgroundColor: ['green', 'yellow', 'red'],
                         borderWidth: 1,
                         borderColor: '#555',
                         hoverBorderWidth: 5,
@@ -112,45 +121,6 @@
                     title: {
                         display: true,
                         text: 'No. of Issues'
-                    },
-                    legend: {
-                        display: false
-                    },
-                    layout: {
-                        padding: {
-                            left: 50,
-                            right: 50
-                        }
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-
-            const specialistChartObject = document.getElementById('specialistChart').getContext('2d');
-
-            const specialistChart = new Chart(specialistChartObject, {
-                type: 'bar',
-                data: {
-                    labels: ['Bert', 'Clara', 'Ben Dover', 'Mike Hunt', 'Papa John'],
-                    datasets: [{
-                        label: 'No. of issues',
-                        backgroundColor: ['green', 'red', 'orange', 'yellow', 'pink'],
-                        borderWidth: 1,
-                        borderColor: '#555',
-                        hoverBorderWidth: 5,
-                        data: [2, 7, 9, 4, 3],
-                    }],
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Number of Unsolved Issues per Specialist'
                     },
                     legend: {
                         display: false

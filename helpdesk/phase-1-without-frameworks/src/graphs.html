@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="graph-script.js"></script>
+  <style>
+    .active,
+    .accordion:hover {
+      background-color: #ccc;
+    }
+
+    .accordion {
+      background-color: #ababab;
+      color: white;
+      cursor: pointer;
+      padding: 18px;
+      width: 70%;
+      border: none;
+      margin-top: 5px;
+      text-align: center;
+      outline: none;
+      font-size: 15px;
+      transition: 0.4s;
+    }
+
+    .styles-for-heading {
+      width: 70%;
+      /* margin-top: 25px; */
+      text-align: center;
+      font-size: 15px;
+    }
+
+    #specialistPieChart {
+      max-width: 30%;
+      margin-top: 50px;
+      margin-left: 15%;
+      margin-left: 10%;
+    }
+
+    #specialist-buttons {
+      margin-left: 10%;
+    }
+
+    .dropbtn {
+      background-color: #343a40;
+      color: white;
+      padding: 15px;
+      margin-left: 100px;
+      font-size: 20px;
+      border: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar bg-dark  top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
+          Company
+          Helpdesk
+        </div>
+      </div>
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <div class="dropdown notification">
+            <a href="login.html">
+              <button class="dropbtn">
+                <img src="../open-iconic-master/png/account-logout-4x.png" alt="logout">
+              </button>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="breadcrumb">
+    <a href='dashboard.html'>Dashboard</a> > Data-Analysis
+  </ul>
+  <div>
+  <canvas class='ml-5 d-inline' id="problemsChart" style="max-width: 30%; "></canvas>
+  <canvas class='d-inline' id="specialistChart" style="max-width: 30%;"></canvas>
+  </div>
+  <div id='specialist-buttons' class="d-inline-block">
+    <p class='styles-for-heading'><b>Performance of Individual specialists</b></p>
+    <button value='Bert' class="accordion" data-solved="7" data-pending="1" data-referred="0"
+      onclick="generateSpecialistChart(this)">Bert </button>
+    <button value='Clara' class="accordion" data-solved="4" data-pending="1" data-referred="1"
+      onclick="generateSpecialistChart(this)">Clara</button>
+    <button value='Bill' class="accordion" data-solved="1" data-pending="2" data-referred="1"
+      onclick="generateSpecialistChart(this)">Bill</button>
+    <button value='Tim' class="accordion" data-solved="2" data-pending="0" data-referred="0"
+      onclick="generateSpecialistChart(this)">Tim</button>
+    <button value='Kim' class="accordion" data-solved="1" data-pending="0" data-referred="0"
+      onclick="generateSpecialistChart(this)">Kim</button>
+  </div>
+  <canvas class='d-inline-block' id="specialistPieChart"></canvas>
+</body>
+
+</html>
