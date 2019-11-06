@@ -85,10 +85,10 @@
             <div class="card-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-4" style="text-align: center">
+                        <div class="col-6" style="text-align: center">
                             <span>Problem ID: </span><label id="problem-id"></label>
                         </div>
-                        <div class="col-4" style="text-align: center"><span>Call: </span> <label id="dateTime"></label>
+                        <div class="col-6" style="text-align: center"><span>Call: </span> <label id="dateTime"></label>
                         </div>
                     </div>
                 </div>
@@ -226,7 +226,9 @@
                                         </button>
                                     </div>
                                     <div class="col-6">
-                                        <button type="button" class="btn btn-dark">Solution Provided</button>
+                                        <button type="button" class="btn btn-dark" data-toggle="modal"
+                                                data-target="#solution-provided-modal1">Solution Provided
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -236,27 +238,53 @@
             </div>
         </div>
     </div>
-  <div id="new-issues">
-  </div>
-  <br>
-  <br>
-  <div class="container">
-    <div class="row form-group text-center">
-      <div class="col-4">
-        <button class="btn btn-primary" onclick="changeStatus({status:'Saved'})">
-          Save
-        </button>
-      </div>
-        <div class="col-4" style="text-align: center">
-            <span>Status: </span><label id="status">Not yet submitted</label>
-        </div>
-      <div class="col-4">
-        <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
-          issue
-        </button>
-      </div>
+    <div id="new-issues">
     </div>
-  </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row form-group text-center">
+            <div class="col-4">
+                <button class="btn btn-primary" onclick="changeStatus({status:'Saved'})">
+                    Save
+                </button>
+            </div>
+            <div class="col-4" style="text-align: center">
+                <span>Status: </span><label id="status">Not yet submitted</label>
+            </div>
+            <div class="col-4">
+                <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
+                    issue
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Solution Provided Modal -->
+    <div class="modal fade" id="solution-provided-modal1" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Solution Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <label for="solution">Please can you provide the solution provided to caller:</label>
+                    <textarea id="solution" class="form-control" type="text" placeholder="Notes"
+                                                            style="height:100px"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <!-- Modal code -->
@@ -270,32 +298,36 @@
                 </div>
                 <div class="modal-body">
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Bert" required>
-                        Bert
-                        <button style="float: right;" value="0" id="specialist-1"
-                                class="btn btn-success">
-                            0
+                        <button class="btn-outline-dark btn" name="specialists" value="Bert" style="width: 70%">
+                            Bert
+                            <button style="float: right;" value="0" id="specialist-1"
+                                    class="btn btn-success">
+                                No of Jobs: 0
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-1"></div>
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Clara"> Clara
-                        <button style="float: right;" value="1" id="specialist-2"
-                                class="specialists btn btn-success">1
+                        <button class="btn btn-outline-dark" name="specialists" value="Clara" style="width: 70%"> Clara
+                            <button style="float: right;" value="1" id="specialist-2"
+                                    class="specialists btn btn-success">No. of Jobs: 1
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-2"></div>
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Jim"> Jim
-                        <button style="float: right;" value="4" id="specialist-3"
-                                class="specialists btn btn-warning">4
+                        <button class="btn btn-outline-dark" name="specialists" value="Jim" style="width: 70%"> Jim
+                            <button style="float: right;" value="4" id="specialist-3"
+                                    class="specialists btn btn-warning"> No. of Jobs: 4
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-3"></div>
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Tim"> Tim
-                        <button style="float: right;" value="5" id="specialist-4"
-                                class="specialists btn btn-danger">5
+                        <button class="btn btn-outline-dark" name="specialists" value="Tim" style="width: 70%"> Tim
+                            <button style="float: right;" value="5" id="specialist-4"
+                                    class="specialists btn btn-danger"> No. of Jobs: 5
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-4"></div>
                     </div>
