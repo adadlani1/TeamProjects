@@ -17,14 +17,15 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> Make-It-All
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo">
+                Make-It-All
             </div>
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                            src="../open-iconic-master/png/bell-3x.png" alt="" >
+                            src="../open-iconic-master/png/bell-3x.png" alt="">
                         <br> <a
                                 style="font-size: 9pt;" id="text">
                             Notifications
@@ -71,11 +72,11 @@
 </ul>
 
 <div id="accordion">
-    <div class="card" >
+    <div class="card">
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
                 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne" onclick="appendProblemDesc()" id="accordion-header" >
+                        aria-controls="collapseOne" onclick="appendProblemDesc()" id="accordion-header">
                     Problem Description:
                 </button>
             </h5>
@@ -276,7 +277,7 @@
 
                     <label for="solution">Please can you provide the solution provided to caller:</label>
                     <textarea id="solution" class="form-control" type="text" placeholder="Notes"
-                                                            style="height:100px"></textarea>
+                              style="height:100px"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -367,10 +368,10 @@
     }
 
     function changeColourOfAccord() {
-        changeStatus({status:'Referred to specialist'});
+        changeStatus({status: 'Referred to specialist'});
         const priorityLevel = document.getElementById('priority').value;
         console.log(priorityLevel);
-        if (priorityLevel === "1"){
+        if (priorityLevel === "1") {
             $('#headingOne').css('background', 'red');
         } else if (priorityLevel === "2")
             $('#headingOne').css('background', 'orange');

@@ -178,7 +178,8 @@
                 <br/>
 
                 <div class="container">
-                    <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes"> + Click to
+                    <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes">
+                        <img src="../open-iconic-master/png/chevron-bottom.png" alt=""> Click to
                         View Previous notes
                     </button>
                     <div class="panell" id="prev-notes">
@@ -201,18 +202,18 @@
 
                 </div>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-3">
-                            <button class="btn btn-primary" onclick="changeStatus({status:'Saved'})">Save</button>
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <button class="btn btn-outline-info" onclick="changeStatus({status:'Saved'})">Save</button>
                         </div>
-                        <div class="col-3">
-                            <button type="button" id="specialist-button" class="btn btn-dark" data-toggle="modal"
+                        <div class="col-4">
+                            <button type="button" id="specialist-button" class="btn btn-outline-info" data-toggle="modal"
                                     data-target="#refer-to-specialist-modal">
                                 Refer to a Specialist
                             </button>
                         </div>
-                        <div class="col-3">
-                            <button type="button" class="btn btn-dark"
+                        <div class="col-4">
+                            <button type="button" class="btn btn-outline-success"
                                     onclick="changeStatus({status:'Solved and Saved'})">Solved
                             </button>
                         </div>
@@ -234,52 +235,55 @@
                 </div>
                 <div class="modal-body">
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Bert" required>
-                        Bert
-                        <button style="float: right;" value="0" id="specialist-1"
-                                class="btn btn-success">
-                            0
+                        <button class="btn-outline-dark btn" name="specialists" value="Bert" style="width: 70%">
+                            Bert
+                            <button style="float: right;" value="0" id="specialist-1"
+                                    class="btn btn-success">
+                                No of Jobs: 0
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-1"></div>
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Clara"> Clara
-                        <button style="float: right;" value="1" id="specialist-2"
-                                class="specialists btn btn-success">1
+                        <button class="btn btn-outline-dark" name="specialists" value="Clara" style="width: 70%"> Clara
+                            <button style="float: right;" value="1" id="specialist-2"
+                                    class="specialists btn btn-success">No. of Jobs: 1
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-2"></div>
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Jim"> Jim
-                        <button style="float: right;" value="4" id="specialist-3"
-                                class="specialists btn btn-warning">4
+                        <button class="btn btn-outline-dark" name="specialists" value="Jim" style="width: 70%"> Jim
+                            <button style="float: right;" value="4" id="specialist-3"
+                                    class="specialists btn btn-warning"> No. of Jobs: 4
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-3"></div>
                     </div>
                     <div style="margin-bottom: 20px;">
-                        <input type="radio" name="specialists" value="Tim"> Tim
-                        <button style="float: right;" value="7" id="specialist-4"
-                                class="specialists btn btn-danger">7
+                        <button class="btn btn-outline-dark" name="specialists" value="Tim" style="width: 70%"> Tim
+                            <button style="float: right;" value="5" id="specialist-4"
+                                    class="specialists btn btn-danger"> No. of Jobs: 5
+                            </button>
                         </button>
                         <div class="tasks" id="tasks-4"></div>
                     </div>
                 </div>
                 <div class="modal-footer">
 
-                    <select class="form-control">
-                        <option>Normal</option>
-                        <option>Important</option>
-                        <option>Very Important</option>
+                    <select class="form-control" id="priority">
+                        <option value="3">Normal</option>
+                        <option value="2">Important</option>
+                        <option value="1">Very Important</option>
                     </select>
                     <button type="submit" class="btn btn-dark" data-dismiss="modal"
-                            onclick="changeStatus({status:'Referred to specialist'})">Refer
+                            onclick="changeStatus({status:'Referred to a different Specialist'})">Refer
                     </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <script>
 
     var acc = document.getElementsByClassName("accord");
@@ -318,6 +322,7 @@
                 $('#make[type=text]').val(data[i]['brand']);
                 $('#model[type=text]').val(data[i]['model']);
                 $('#problem-type').html('<option value="">' + data[i]['problem_type'] + '</option>');
+                $('#problem-desc').val(data[i]['problem_desc']);
 
                 if (data[i]['assigned'] != "") {
                     $('#status').text("Referred");
