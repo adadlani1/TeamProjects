@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Helpdesk</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+
 </head>
 
 <style>
@@ -37,11 +42,7 @@
 
 
 </style>
-
-
 <body onload="start()" >
-<link rel="stylesheet" href="dashboard.css">
-<link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -101,20 +102,20 @@
 <script>
 
 	function start() {
-	
-		var problem_file = '{"problems_referred":[' +
-		'{"problem_id":"100","problem_type":"Network","specialist_name":"Bert"},'+'{"problem_id":"567","problem_type":"Hardware","specialist_name":"Bert"},'+'{"problem_id":"646","problem_type":"Software","specialist_name":"Bert"}]}';
-		
-		var problem_object = JSON.parse(problem_file);
-		
-		for (i in problem_object.problems_referred) {
-			var btn = document.createElement("BUTTON");
-			btn.setAttribute("class", "accordion");
-			btn.innerHTML='<img src="../open-iconic-master/png/flag-2x.png" alt="flag">'+'&nbsp; &nbsp;'+'ID:'+problem_object.problems_referred[i].problem_id+'&nbsp; &nbsp;'+"Problem type: "+problem_object.problems_referred[i].problem_type+'&nbsp; &nbsp;'+'<a href="existing-issue-details.html">' +
-                '<button class="btn btn-dark" href="existing-issue-details.html">View Details</button></a>';
-			document.body.appendChild(btn);
-		}
-		
+
+        for (var i = 0; i < data.length; i++) {
+            //Selects all issues assigned to bert and creates a button.
+            if (data[i]['assigned'].toLowerCase() == "bert") {
+                var btn = document.createElement("BUTTON");
+                btn.setAttribute("class", "accordion");
+                btn.setAttribute("data-id", data[i]['problem_id']);
+                btn.innerHTML='<img src="../open-iconic-master/png/flag-2x.png" alt="flag">' + '&nbsp; &nbsp;' + 'ID:' +
+                    data[i]['problem_id'] + '&nbsp; &nbsp;' + "Problem type: " +
+                    data[i]['problem_type']+'&nbsp; &nbsp;'+'<a href="existing-issue-details.html" onclick=setID(' + data[i]["problem_id"] + ')>' +
+                    '<button class="btn btn-dark" href="existing-issue-details.html">View Details</button></a>';
+                document.body.appendChild(btn);
+            }
+        }
 	}
 	
 	

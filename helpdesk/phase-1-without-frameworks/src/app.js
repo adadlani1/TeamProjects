@@ -316,7 +316,7 @@ const data = [ {
     "name" : "Alice",
     "dept" : "Management",
     "job" : "Helpdesk Operator",
-    "assigned" : "",
+    "assigned" : "Bert",
     "time" : "02/11/2019 10:00",
     "notes" : ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
     "called back with the same problem. Referred to Bert."]
@@ -326,6 +326,7 @@ const data = [ {
     "problem_desc" : "AutoCAD is being unresponsive",
     "problem_type": " Software",
     "sub_type" : "",
+<<<<<<< HEAD
     "telephone" : "123456789",
     "device_type" : "Laptop",
     "software" : "AutoCAD",
@@ -338,6 +339,20 @@ const data = [ {
     "assigned" : "",
     "time" : "06/11/2019 22:43",
     "notes" : ["xyz happened"]
+=======
+    "telephone" : "",
+    "device_type" : "",
+    "software" : "",
+    "brand" : "",
+    "model" : "",
+    "serial_no" : "",
+    "name" : "",
+    "dept" : "",
+    "job" : "",
+    "assigned" : "Bert",
+    "time" : "",
+    "notes" : []
+>>>>>>> origin/master
     },
     {
     "problem_id" : 11,
