@@ -306,7 +306,7 @@ const data = [ {
     "name" : "Alice",
     "dept" : "Management",
     "job" : "Helpdesk Operator",
-    "assigned" : "",
+    "assigned" : "Bert",
     "time" : "02/11/2019 10:00",
     "notes" : ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
     "called back with the same problem. Referred to Bert."]
@@ -325,7 +325,7 @@ const data = [ {
     "name" : "",
     "dept" : "",
     "job" : "",
-    "assigned" : "",
+    "assigned" : "Bert",
     "time" : "",
     "notes" : []
     },
