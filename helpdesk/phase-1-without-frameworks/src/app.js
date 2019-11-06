@@ -303,7 +303,7 @@ function returnCurrentID() {
 /*  Data    */
 
 const data = [ {
-    "problem_id" : 100,
+    "problem_id" : 2,
     "problem_desc" : "Windows 10 is being unresponsive",
     "problem_type": "Software",
     "sub_type" : "",
@@ -318,11 +318,13 @@ const data = [ {
     "job" : "Helpdesk Operator",
     "specialist" : "Bert",
     "time" : "02/11/2019 10:00",
+    "priority": "",
+    "location":"",
     "notes" : ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
     "called back with the same problem. Referred to Bert."]
 },
     {
-    "problem_id" : 2,
+    "problem_id" : 11,
     "problem_desc" : "AutoCAD is being unresponsive",
     "problem_type": " Software",
     "sub_type" : "",
@@ -337,10 +339,12 @@ const data = [ {
     "job" : "IT Technician",
     "specialist" : "Bert",
     "time" : "06/11/2019 22:43",
+    "priority": "",
+    "location":"",
     "notes" : ["xyz happened"]
     },
     {
-    "problem_id" : 11,
+    "problem_id" : 100,
     "problem_desc" : "RFID scanner does not work",
     "problem_type": "Hardware",
     "sub_type" : "",
@@ -355,6 +359,8 @@ const data = [ {
     "job" : "Sporting Director",
     "specialist" : "",
     "time" : "03/10/2019 10:32",
+    "priority": "",
+    "location":"",
     "notes" : ["Told to restart device"]
     },
 ];
