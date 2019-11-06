@@ -16,14 +16,15 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> Make-It-All
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo">
+                Make-It-All
             </div>
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                            src="../open-iconic-master/png/bell-3x.png" alt="" >
+                            src="../open-iconic-master/png/bell-3x.png" alt="">
                         <br> <a
                                 style="font-size: 9pt;" id="text">
                             Notifications
@@ -90,7 +91,7 @@
                     <div class="row">
                         <div class="col-6">
                             <label for="callerID">Caller: </label>
-                            <select class="form-control form-size" name="callerID" id="callerID" disabled >
+                            <select class="form-control form-size" name="callerID" id="callerID" disabled>
                                 <option>Default Name</option>
                             </select>
                         </div>
@@ -119,7 +120,7 @@
                         <div class="col-6">
                             <label for="software">Software:</label>
                             <select class="form-control" id="software" disabled>
-							
+
                             </select>
                         </div>
                     </div>
@@ -142,14 +143,14 @@
                             <label for="serial-no">Serial Number:</label>
                             <input class="form-control" id="serial-no" type="text" readonly>
                         </div>
-                      <div class="col-3">
-                        <label for="make">Make:</label>
-                        <input class="form-control" id="make" type="text" readonly>
-                      </div>
-                      <div class="col-3">
-                        <label for="model">Model:</label>
-                        <input class="form-control" id="model" type="text" readonly>
-                      </div>
+                        <div class="col-3">
+                            <label for="make">Make:</label>
+                            <input class="form-control" id="make" type="text" readonly>
+                        </div>
+                        <div class="col-3">
+                            <label for="model">Model:</label>
+                            <input class="form-control" id="model" type="text" readonly>
+                        </div>
                     </div>
                 </div>
                 <br/>
@@ -158,20 +159,33 @@
                         <div class="col-6">
                             <label for="problem-type">Problem Type: </label>
                             <select class="form-control" id="problem-type" disabled>
-							
+
                             </select>
                         </div>
                     </div>
                 </div>
                 <br/>
-				
-				<div class="container">
-                    <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes"> + Click to View Previous notes</button>
-					<div class="panell" id="prev-notes">
-					  <p id="previous-notes"></p>
-					</div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="problem-desc">Problem Description:</label>
+                            <input class="form-control" id="problem-desc" type="text" disabled>
+                        </div>
+                    </div>
+
                 </div>
-				
+                <br/>
+
+                <div class="container">
+                    <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes"> + Click to
+                        View Previous notes
+                    </button>
+                    <div class="panell" id="prev-notes">
+                        <p id="previous-notes"></p>
+                    </div>
+                </div>
+
                 <br/>
                 <div class="container">
                     <div class="row">
@@ -183,9 +197,9 @@
                     </div>
                 </div>
                 <br/>
-              <div id="new-issues">
+                <div id="new-issues">
 
-              </div>
+                </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-3">
@@ -198,7 +212,9 @@
                             </button>
                         </div>
                         <div class="col-3">
-                            <button type="button" class="btn btn-dark" onclick="changeStatus({status:'Solved and Saved'})" >Solved</button>
+                            <button type="button" class="btn btn-dark"
+                                    onclick="changeStatus({status:'Solved and Saved'})">Solved
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -266,44 +282,44 @@
 
 <script>
 
-	var acc = document.getElementsByClassName("accord");
-	var i;
+    var acc = document.getElementsByClassName("accord");
+    var i;
 
-	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		if (panel.style.display === "block") {
-		  panel.style.display = "none";
-		} else {
-		  panel.style.display = "block";
-		}
-	  });
-	}
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
 
-	function start() {
-	    //Saved id from user-input on existing-issue-search
-	    var selected_id = window.localStorage.getItem("id");
+    function start() {
+        //Saved id from user-input on existing-issue-search
+        var selected_id = window.localStorage.getItem("id");
 
-	    //search through data to find the correct record
-	    for (var i = 0; i < data.length; i++) {
-	        if ( selected_id == data[i]['problem_id'].toString() ) {
+        //search through data to find the correct record
+        for (var i = 0; i < data.length; i++) {
+            if (selected_id == data[i]['problem_id'].toString()) {
 
                 //fills the fields with data in app script
                 $('#problem_id').text(data[i]['problem_id']);
                 $('#datetime').text(data[i]['time']);
-                $('#callerID').html('<option value="">'+ data[i]['name'] +'</option>');
+                $('#callerID').html('<option value="">' + data[i]['name'] + '</option>');
                 $('#job-title[type=text]').val(data[i]['job']);
                 $('#telephone[type=tel]').val(data[i]['telephone']);
                 $('#department[type=text]').val(data[i]['dept']);
-                $('#software').html('<option value="">'+ data[i]['software'] +'</option>');
-                $('#device-type').html('<option value="">'+ data[i]['device_type'] +'</option>');
+                $('#software').html('<option value="">' + data[i]['software'] + '</option>');
+                $('#device-type').html('<option value="">' + data[i]['device_type'] + '</option>');
                 $('#serial-no[type=text]').val(data[i]['serial_no']);
                 $('#make[type=text]').val(data[i]['brand']);
                 $('#model[type=text]').val(data[i]['model']);
-                $('#problem-type').html('<option value="">'+ data[i]['problem_type'] +'</option>');
+                $('#problem-type').html('<option value="">' + data[i]['problem_type'] + '</option>');
 
-                if ( data[i]['assigned'] != "" ) {
+                if (data[i]['assigned'] != "") {
                     $('#status').text("Referred");
                 } else {
                     $('#status').text("Not Referred");
@@ -311,14 +327,15 @@
 
                 //displays all notes for the problem
                 var notes = data[i]['notes'];
-                for (var j = 0; j < notes.length; j++ ) {
+                for (var j = 0; j < notes.length; j++) {
                     $('#previous-notes').append("<p>" + notes[j] + "</p>")
                 }
             }
         }
 
-			
-	}
+
+    }
+
     $(document).keyup(function (e) {
         if (e.key === "Escape") {
             document.getElementById('notifications').style = 'none';
