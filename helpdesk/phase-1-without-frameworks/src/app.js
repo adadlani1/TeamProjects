@@ -25,10 +25,11 @@ function search() {
 
 //updates the table based on the given records
 function updateTable(records) {
-    $("#i-table").empty().append(
+    $("#header").empty().append(
         "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th> <th>Telephone</th>" +
         "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
         "<th>Assigned To</th> </tr>");
+    $("#i-table").empty()
 
     var keys = ["problem_id","name","dept","job","telephone","problem_desc","problem_type","sub_type","device_type","assigned"];
 
@@ -38,7 +39,7 @@ function updateTable(records) {
         for (var j = 0; j < keys.length - 1; j++) {
             doc += " <td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i][keys[j]] + "</td>";
         }
-        doc +=  "<td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i]["assigned"] + "</td> </tr>";
+        doc +=  "<td class=' pointer +" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i]["assigned"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
 
@@ -312,8 +313,8 @@ const data = [ {
 },
     {
     "problem_id" : 2,
-    "problem_desc" : "asdad",
-    "problem_type": "",
+    "problem_desc" : "Windows 10 is being unresponsive",
+    "problem_type": " Software",
     "sub_type" : "",
     "telephone" : "",
     "device_type" : "",

@@ -20,16 +20,6 @@ img{
   margin-top:2%;
 }
 
-.issue-table {
-
-}
-
-.issue-table td, .issue-table th {
-  border: 1px solid black;
-  text-align: left;
-  padding: 8px;
-}
-
-.issue-table tr:nth-child(even) {
-  background-color: #dddddd;
+.pointer{
+  cursor: pointer;
 }
