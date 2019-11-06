@@ -28,10 +28,10 @@ function updateTable(records) {
     $("#header").empty().append(
         "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th> <th>Telephone</th>" +
         "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
-        "<th>Assigned To</th> </tr>");
+        "<th>specialist To</th> </tr>");
     $("#i-table").empty()
 
-    var keys = ["problem_id","name","dept","job","telephone","problem_desc","problem_type","sub_type","device_type","assigned"];
+    var keys = ["problem_id","name","dept","job","telephone","problem_desc","problem_type","sub_type","device_type","specialist"];
 
     for (var i = 0; i < records.length; i++ ) {
         var classname = "i-row-" + i;
@@ -39,7 +39,7 @@ function updateTable(records) {
         for (var j = 0; j < keys.length - 1; j++) {
             doc += " <td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i][keys[j]] + "</td>";
         }
-        doc +=  "<td class=' pointer +" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i]["assigned"] + "</td> </tr>";
+        doc +=  "<td class=' pointer +" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i]["specialist"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
 
@@ -316,7 +316,7 @@ const data = [ {
     "name" : "Alice",
     "dept" : "Management",
     "job" : "Helpdesk Operator",
-    "assigned" : "Bert",
+    "specialist" : "Bert",
     "time" : "02/11/2019 10:00",
     "notes" : ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
     "called back with the same problem. Referred to Bert."]
@@ -335,7 +335,7 @@ const data = [ {
     "name" : "Berlinia",
     "dept" : "Tech Support",
     "job" : "IT Technician",
-    "assigned" : "",
+    "specialist" : "Bert",
     "time" : "06/11/2019 22:43",
     "notes" : ["xyz happened"]
     },
@@ -353,7 +353,7 @@ const data = [ {
     "name" : "Cristiano Ronaldo",
     "dept" : "Director",
     "job" : "Sporting Director",
-    "assigned" : "",
+    "specialist" : "",
     "time" : "03/10/2019 10:32",
     "notes" : ["Told to restart device"]
     },

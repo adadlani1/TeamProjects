@@ -105,7 +105,7 @@
 
         for (var i = 0; i < data.length; i++) {
             //Selects all issues assigned to bert and creates a button.
-            if (data[i]['assigned'].toLowerCase() == "bert") {
+            if (data[i]['specialist'].toLowerCase() == "bert") {
                 var btn = document.createElement("BUTTON");
                 btn.setAttribute("class", "accordion");
                 btn.setAttribute("data-id", data[i]['problem_id']);
