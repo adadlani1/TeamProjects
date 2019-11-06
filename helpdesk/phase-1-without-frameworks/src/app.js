@@ -208,7 +208,7 @@ function addIssues() {
         "                                            </select>\n" +
         "                                        </div>\n" +
         "                                        <div class=\"col-3\">\n" +
-        "                                            <label for=\"serial-no\">Serial Number:</label>\n" +1
+        "                                            <label for=\"serial-no\">Serial Number:</label>\n" +
         "                                            <input class=\"form-control\" id=\"serial-no\" type=\"text\">\n" +
         "                                        </div>\n" +
         "                                        <div class=\"col-3\">\n" +

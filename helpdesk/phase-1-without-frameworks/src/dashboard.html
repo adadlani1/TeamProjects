@@ -79,19 +79,6 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <canvas id="problemsChart"></canvas>
-            </div>
-            <div class="col-6">
-                <canvas id="specialistChart"></canvas>
-            </div>
-        </div>
-    </div>
-
     <script>
         $(document).keyup(function (e) {
             if (e.key === "Escape") {
@@ -102,45 +89,6 @@
         function showNotifications() {
             document.getElementById('notifications').style.display = 'block';
         }
-        $(document).ready(function () {
-            const problemsChartObject = document.getElementById('problemsChart').getContext('2d');
-            const problemsChart = new Chart(problemsChartObject, {
-                type: 'bar',
-                data: {
-                    labels: ['Solved', 'Referred to Specialist', 'Unassigned'],
-                    datasets: [{
-                        label: 'No. of issues',
-                        backgroundColor: ['green', 'yellow', 'red'],
-                        borderWidth: 1,
-                        borderColor: '#555',
-                        hoverBorderWidth: 5,
-                        data: [45, 26, 5],
-                    }],
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: 'No. of Issues'
-                    },
-                    legend: {
-                        display: false
-                    },
-                    layout: {
-                        padding: {
-                            left: 50,
-                            right: 50
-                        }
-                    },
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        })
     </script>
 </body>
 
