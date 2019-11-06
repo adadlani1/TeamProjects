@@ -14,14 +14,15 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> Make-It-All
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo">
+                Make-It-All
             </div>
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                            src="../open-iconic-master/png/bell-3x.png" alt="" >
+                            src="../open-iconic-master/png/bell-3x.png" alt="">
                         <br> <a
                                 style="font-size: 9pt;" id="text">
                             Notifications
@@ -68,31 +69,42 @@
     <li>Existing Issues</li>
 </ul>
 
-<div class="issues-search">
-    <p class="field-name">Issues Number:
-        <input id="id-field" type="text" placeholder="Issue No">
-        <script>
-            $(document).ready( function () { search() } )
-            $("#id-field").keyup( function () { search() } );
-        </script>
-    </p>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+
+            <label for="id-field">Please Enter the Issue ID:             <input id="id-field" type="text" class="form-control" placeholder="Issue ID">
+            </label>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            search()
+        })
+        $("#id-field").keyup(function () {
+            search()
+        });
+    </script>
 
 </div>
-    <div id="issue-board" class="container">
-        <table class="issue-table table table-hover">
-            <thead id="header">
-            <tr>
-                <th>problem_id</th>
-                <th>problem_desc</th>
-                <th>device_type</th>
-            </tr>
-            </thead>
-            <tbody id="i-table" class="pointer">
-            </tbody>
-        </table>
-    </div>
+<br>
+<div id="issue-board" class="container">
+    <table class="issue-table table table-hover">
+        <thead id="header">
+        <tr>
+            <th>problem_id</th>
+            <th>problem_desc</th>
+            <th>device_type</th>
+        </tr>
+        </thead>
+        <tbody id="i-table" class="pointer">
+        </tbody>
+    </table>
+</div>
 <script>
     document.getElementById('noti-btn').addEventListener("click", showNotifications);
+
     function showNotifications() {
         document.getElementById('notifications').style.display = 'block';
         document.getElementById('text').style.color = 'white';
