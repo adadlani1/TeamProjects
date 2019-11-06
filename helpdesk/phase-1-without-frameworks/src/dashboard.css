@@ -11,7 +11,7 @@ ul.breadcrumb {
 /* Display list items side by side */
 ul.breadcrumb li {
     display: inline;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -135,4 +135,28 @@ ul.breadcrumb li a:hover {
 a{
     color: #258b47;
     font-size: 18px;
+}
+
+.accord {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accord:hover {
+    background-color: #ccc;
+}
+
+.panell {
+    padding: 0 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
 }

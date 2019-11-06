@@ -25,7 +25,7 @@ function validate(form) {
     if (user[0].role === 'Operator')
       window.location.href = 'dashboard.html';
     if (user[0].role === 'Specialist')
-      window.location.href = 'specialist-dashboard.html'
+      window.location.href = 'Specialist_Dashboard.html'
   }
 
 }

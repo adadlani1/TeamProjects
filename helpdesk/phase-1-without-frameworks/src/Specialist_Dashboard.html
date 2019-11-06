@@ -45,18 +45,18 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> My
-                Company
-                Helpdesk
+            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo"> Make-It-All
             </div>
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
-                <div class="dropdown notification">
+                <div class="dropdown">
                     <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                            src="../open-iconic-master/png/bell-4x.png"
-                            alt="">
-                        <span class="badge">3</span>
+                            src="../open-iconic-master/png/bell-3x.png" alt="" >
+                        <br> <a
+                                style="font-size: 9pt;" id="text">
+                            Notifications
+                        </a>
                     </button>
                     <div class="dropdown-content" id="notifications">
                         <a href="">Example </a>
@@ -66,10 +66,26 @@
                 </div>
             </li>
             <li class="nav-item">
-                <div class="dropdown notification">
+                <div class="dropdown">
+                    <a href="graphs.html">
+                        <button class="dropbtn" onclick="window.location = 'graphs.html'">
+                            <img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a
+                                style="font-size: 9pt">
+                            Analysis
+                        </a>
+                        </button>
+                    </a>
+                </div>
+            </li>
+            <li class='nav-item'>
+                <div class="">
                     <a href="login.html">
-                        <button class="dropbtn">
-                            <img src="../open-iconic-master/png/account-logout-4x.png" alt="logout">
+                        <button class="dropbtn" onclick="window.location = 'login.html'">
+                            <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                            <br> <a
+                                style="font-size: 9pt">
+                            Logout
+                        </a>
                         </button>
                     </a>
                 </div>
