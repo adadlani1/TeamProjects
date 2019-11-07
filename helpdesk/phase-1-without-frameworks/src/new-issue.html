@@ -51,23 +51,25 @@
                 </div>
             </li>
             <li class='nav-item'>
-                <div class="">
-                    <a href="login.html">
-                        <button class="dropbtn" onclick="window.location = 'login.html'">
-                            <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
-                            <br> <a
+                    <div class="">
+                      <!-- <a href="login.html"></a> -->
+                        <!-- <button class="dropbtn" onclick="window.location = 'login.html'"> -->
+                          <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                          <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                          <br> <a
                                 style="font-size: 9pt">
-                            Logout
+                          Logout
                         </a>
                         </button>
-                    </a>
-                </div>
-            </li>
+                      </a>
+                    </div>
+                  </li>>
         </ul>
     </div>
 </nav>
 <ul class="breadcrumb">
-    <li><a href="dashboard.html">Dashboard</a></li>
+    <!-- <li><a href="dashboard.html">Dashboard</a></li> -->
+    <li><u style='cursor: pointer;' onclick="window.history.back()">Dashboard</u></li>
     <li>New Issue</li>
 </ul>
 
@@ -285,7 +287,7 @@
 </div>
 
 
-<!-- Modal code -->
+<!-- Refer to specialist modal -->
 <div class="modal fade" id="refer-to-specialist-modal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -344,6 +346,23 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="logout-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure you want to log out?</h4>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
+                    </button>
+                    <button class="btn btn-lg btn-primary" data-dismiss="modal"
+                    >Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <script>
     $(document).keyup(function (e) {

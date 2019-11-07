@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="../bootstrap-4.3.1-dist/css/bootstrap.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 
 </head>
@@ -66,7 +67,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <div class="dropdown">
                     <a href="graphs.html">
                         <button class="dropbtn" onclick="window.location = 'graphs.html'">
@@ -77,19 +78,18 @@
                         </button>
                     </a>
                 </div>
-            </li>
+            </li> -->
             <li class='nav-item'>
-                <div class="">
-                    <a href="login.html">
-                        <button class="dropbtn" onclick="window.location = 'login.html'">
-                            <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
-                            <br> <a
+                    <div class="">
+                          <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                          <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                          <br> <a
                                 style="font-size: 9pt">
-                            Logout
+                          Logout
                         </a>
                         </button>
-                    </a>
-                </div>
+                      </a>
+                    </div>
             </li>
         </ul>
     </div>
@@ -98,7 +98,23 @@
     <li><a>Specialist Dashboard</a></li>
 </ul>
 
-
+<div class="modal fade" id="logout-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+    
+                <div class="modal-header">
+                    <h4 class="modal-title">Are you sure you want to log out?</h4>
+                </div>
+                <div class="modal-footer">
+                        <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
+                            </button>
+                    <button class="btn btn-lg btn-primary" data-dismiss="modal"
+                    >Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 <script>
 
 	function start() {
@@ -111,8 +127,8 @@
                 btn.setAttribute("data-id", data[i]['problem_id']);
                 btn.innerHTML='<img src="../open-iconic-master/png/flag-2x.png" alt="flag">' + '&nbsp; &nbsp;' + 'ID:' +
                     data[i]['problem_id'] + '&nbsp; &nbsp;' + "Problem type: " +
-                    data[i]['problem_type']+'&nbsp; &nbsp;'+'<a href="existing-issue-details.html" onclick=setID(' + data[i]["problem_id"] + ')>' +
-                    '<button class="btn btn-dark" href="existing-issue-details.html">View Details</button></a>';
+                    data[i]['problem_type']+'&nbsp; &nbsp;'+'<a href="specialist-issue-details.html" onclick=setID(' + data[i]["problem_id"] + ')>' +
+                    '<button class="btn btn-dark" href="specialist-issue-details.html">View Details</button></a>';
                 document.body.appendChild(btn);
             }
         }
