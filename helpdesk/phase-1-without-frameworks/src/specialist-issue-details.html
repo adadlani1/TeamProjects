@@ -203,7 +203,7 @@
                 <div class="container">
                     <div class="row text-center">
                         <div class="col-4">
-                            <button class="btn btn-outline-info" onclick="changeStatus({status:'Saved'})">Save</button>
+                            <button class="btn btn-outline-info" data-toggle='modal' data-target='#confirmation-modal' onclick="changeStatus({status:'Saved'});redirect()">Save</button>
                         </div>
                         <div class="col-4">
                             <button type="button" id="specialist-button" class="btn btn-outline-info" data-toggle="modal"
@@ -213,7 +213,7 @@
                         </div>
                         <div class="col-4">
                             <button type="button" class="btn btn-outline-success"
-                                    onclick="changeStatus({status:'Solved and Saved'})">Solved
+                            data-toggle='modal' data-target='#confirmation-modal' onclick="changeStatus({status:'Solved and Saved'});redirect()">Solved
                             </button>
                         </div>
                     </div>
@@ -223,13 +223,13 @@
     </div>
     <br/>
 
-    <!-- Modal code -->
+    <!-- Modal for specialist code -->
     <div class="modal fade" id="refer-to-specialist-modal">
         <div class="modal-dialog">
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Specialists</h4>
+                    <h5>Specialists</h5>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -287,7 +287,7 @@
                 <div class="modal-content">
         
                     <div class="modal-header">
-                        <h4 class="modal-title">Are you sure you want to log out?</h4>
+                        <h5>Are you sure you want to log out?</h5>
                     </div>
                     <div class="modal-footer">
                             <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
@@ -296,6 +296,20 @@
                         >Cancel
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="confirmation-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h3>Changes have been saved.</h3>
+                       
+                    </div>
+                    <div class='modal-body'>
+                        <h4>Redirecting you back to dashoard.</h4>
+                    </div>                        
+                   
                 </div>
             </div>
         </div>

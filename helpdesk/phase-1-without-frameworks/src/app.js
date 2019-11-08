@@ -10,6 +10,31 @@ const Roles = [{
 
   var user;
   
+
+  const employeesData = [{name:'Select Caller',jobTitle:'',telephone:'',department:''},
+  {name:'Anmol',jobTitle:'Worker-1',telephone:'07828228282',department:'department-1'},
+  {name:'Bert',jobTitle:'Worker-2',telephone:'07262262662',department:'department-2'},
+  {name:'Claire',jobTitle:'Worker-3',telephone:'0764581721',department:'department-3'},
+  {name:'Alice',jobTitle:'Worker-4',telephone:'07648261235',department:'department-4'},
+  {name:'Kostas',jobTitle:'Worker-5',telephone:'0782364528',department:'department-5'}]
+  
+  function redirect() {
+      setTimeout(()=>{
+          window.location = 'dashboard.html'
+      },2000)
+  }
+
+  function fillData(){
+      const caller = $('#callerID').val()
+      const employeeData = employeesData.filter((employeeData)=>{
+        if(employeeData.name===caller)
+        return true
+    })
+    $('#telephone').val(employeeData[0].telephone)
+    $('#job-title').val(employeeData[0].jobTitle)
+    $('#department').val(employeeData[0].department)
+
+  }
   function validate(form) {
     event.preventDefault();
     const username = ($('#username').val());
@@ -91,13 +116,34 @@ function setID(id) {
     window.localStorage.setItem("id",id);
 }
 
+const jobsForClara = [{id:'324',description:'Problem with printer'}]
+
+const jobsForJim = [
+{id:'123',description:'Coffee machine broke'},
+{id:'543',description:'PC not working'},
+{id:'678',description:'Scanner not scanning complete page'},
+{id:'989',description:'Pen drive not recognised'}
+]
+
+const jobsForTim = [{id:'786',description:'Wifi router broke'},
+{id:'564',description:'Hadoop not working'},
+{id:'198',description:'Speakers grounded'},
+{id:'875',description:'Powerpoint not opening'},
+{id:'444',description:'VS code crashes after adding extensions'}]
+
 $(document).ready(function () {
-    var currentID = 1;
+    var specialistTaskObject; 
     $(".specialists").click(function () {
         const specialist_id = this.id.split("-")[1];
         $('.tasks').empty();
+        if(specialist_id==2)
+        specialistTaskObject=jobsForClara
+        if(specialist_id==3)
+        specialistTaskObject=jobsForJim
+        if(specialist_id==4)
+        specialistTaskObject=jobsForTim
         for (let i = 1; i <= $(`#${this.id}`).val(); i++)
-            $(`#tasks-${specialist_id}`).append("</br><p>ID-421</p><p>Problem with printers</p>")
+            $(`#tasks-${specialist_id}`).append(`</br><p>ID-${specialistTaskObject[i-1].id}</p><p>${specialistTaskObject[i-1].description}</p>`)
     });
 });
 

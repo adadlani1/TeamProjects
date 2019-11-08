@@ -101,16 +101,17 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label for="callerID">Caller: </label>
-                                    <select class="form-control form-size" name="callerID" id="callerID">
+                                    <select class="form-control form-size" name="callerID" id="callerID" onchange='fillData()'>
+                                        <option>Select Caller</option>
                                         <option>Anmol</option>
                                         <option>Alice</option>
                                         <option>Bert</option>
                                         <option>Claire</option>
                                         <option>Kostas</option>
-                                        <option>Ayo</option>
+                                        <!-- <option>Ayo</option>
                                         <option>Sean</option>
                                         <option>Viraj</option>
-                                        <option>Vishwaswaroop</option>
+                                        <option>Vishwaswaroop</option> -->
                                     </select>
                                 </div>
                                 <div class="col-6">
@@ -245,7 +246,7 @@
 <div class="container">
     <div class="row form-group text-center">
         <div class="col-4">
-            <button class="btn btn-primary" onclick="changeStatus({status:'Saved'})">
+            <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal' onclick="changeStatus({status:'Saved'});redirect()">
                 Save
             </button>
         </div>
@@ -267,7 +268,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Solution Details</h5>
+                <h5 id="exampleModalLongTitle">Solution Details</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -293,7 +294,7 @@
         <div class="modal-content">
 
             <div class="modal-header">
-                <h4 class="modal-title">Specialists</h4>
+                <h5>Specialists</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
@@ -351,7 +352,7 @@
             <div class="modal-content">
     
                 <div class="modal-header">
-                    <h4 class="modal-title">Are you sure you want to log out?</h4>
+                    <h5>Are you sure you want to log out?</h5>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
@@ -363,6 +364,20 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="confirmation-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                      <h3>Changes have been saved.</h3>
+                       
+                    </div>
+                    <div class='modal-body'>
+                        <h4>Redirecting you back to dashoard.</h4>
+                    </div>                        
+                   
+                </div>
+            </div>
+        </div>
 </div>
 <script>
     $(document).keyup(function (e) {
