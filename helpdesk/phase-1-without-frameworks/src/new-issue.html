@@ -17,19 +17,19 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="../Screenshot%20from%202019-11-08%2016-08-40.png" alt="logo">
-                Make-It-All
+            <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png"
+                                                                alt="logo">
+                Make-IT-All Helpdesk
             </div>
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <div class="dropdown">
-                    <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                            src="../open-iconic-master/png/bell-3x.png" alt="">
-                        <br> <a
-                                style="font-size: 9pt;" id="text">
-                            Notifications
-                        </a>
+                    <button class="dropbtn" onclick="showDropdowns('notifications')" id="noti-btn">
+                        <img src="../open-iconic-master/png/bell-3x.png" alt="">
+                        <br> <a style="font-size: 9pt;" id="text">
+                        Notifications
+                    </a>
                     </button>
                     <div class="dropdown-content" id="notifications">
                         <a href="">
@@ -59,33 +59,60 @@
                     </a>
                 </div>
             </li>
-            <li class='nav-item'>
-                    <div class="">
-                      <!-- <a href="login.html"></a> -->
-                        <!-- <button class="dropbtn" onclick="window.location = 'login.html'"> -->
-                          <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
-                          <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
-                          <br> <a
-                                style="font-size: 9pt">
-                          Logout
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
+                            src="../open-iconic-master/png/globe-3x.png" alt="">
+                        <br> <a
+                                style="font-size: 9pt;" id="text1">
+                            Country
                         </a>
-                        </button>
-                      </a>
+                    </button>
+                    <div class="dropdown-content" id="country" style="width: 10px">
+                        <a href="">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> German</p>
+                        </a>
+                        <a href="">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> Great Britain</p>
+                        </a>
+                        <a href="">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> Japan</p>
+                        </a>
+                        <a href="">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> Saudi Arabia</p>
+                        </a>
+
                     </div>
-                  </li>>
+                </div>
+            </li>
+            <li class='nav-item'>
+                <div class="">
+                    <!-- <a href="login.html"></a> -->
+                    <!-- <button class="dropbtn" onclick="window.location = 'login.html'"> -->
+                    <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                        <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                        <br> <a
+                            style="font-size: 9pt">
+                        Logout
+                    </a>
+                    </button>
+                    </a>
+                </div>
+            </li>
         </ul>
     </div>
 </nav>
-<ul class="breadcrumb">
-    <!-- <li><a href="dashboard.html">Dashboard</a></li> -->
-    <li><u style='cursor: pointer;' onclick="window.history.back()">Dashboard</u></li>
-    <li>New Issue</li>
-</ul>
+<div>
+    <ul class="breadcrumb">
+        <li><u style='cursor: pointer;' onclick="window.history.back()">Dashboard</u></li>
+        <li>New Issue</li>
+    </ul>
+</div>
 
 <div id="accordion">
     <div class="" id="heading1">
         <button class="accordion" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
-                aria-controls="collapse1" onclick="appendProblemDesc(1)" id="accordion-header1" >
+                aria-controls="collapse1" onclick="appendProblemDesc(1)" id="accordion-header1">
             Problem Description:
         </button>
     </div>
@@ -110,7 +137,8 @@
                             <div class="row">
                                 <div class="col-6">
                                     <label for="callerID">Caller: </label>
-                                    <select class="form-control form-size" name="callerID" id="callerID" onchange='fillData()'>
+                                    <select class="form-control form-size" name="callerID" id="callerID"
+                                            onchange='fillData()'>
                                         <option>Select Caller</option>
                                         <option>Anmol</option>
                                         <option>Alice</option>
@@ -255,7 +283,8 @@
 <div class="container">
     <div class="row form-group text-center">
         <div class="col-4">
-            <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal' onclick="changeStatus({status:'Saved'});redirect()">
+            <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal'
+                    onclick="changeStatus({status:'Saved'});redirect()">
                 Save
             </button>
         </div>
@@ -290,7 +319,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" >Save changes</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>
@@ -312,7 +341,7 @@
                     <label class="custom-control-label" for="bertCheck"><h4>
                         Bert
                     </h4>
-                    <p>Location: United Kingdom</p>
+                        <p>Location: United Kingdom</p>
                     </label>
                     <button style="float: right;" value="0" id="specialist-1"
                             class="btn btn-success">
@@ -361,10 +390,10 @@
             <div class="modal-footer">
 
                 <label for="priority">Priority: </label><select class="form-control" id="priority">
-                    <option value="3">Normal</option>
-                    <option value="2">Important</option>
-                    <option value="1">Very Important</option>
-                </select>
+                <option value="3">Normal</option>
+                <option value="2">Important</option>
+                <option value="1">Very Important</option>
+            </select>
                 <button type="submit" class="btn btn-dark" data-dismiss="modal"
                         onclick="changeColourOfAccord()">Refer
                 </button>
@@ -373,54 +402,61 @@
     </div>
 </div>
 <div class="modal fade" id="logout-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-    
-                <div class="modal-header">
-                    <h5>Are you sure you want to log out?</h5>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
-                    </button>
-                    <button class="btn btn-lg btn-primary" data-dismiss="modal"
-                    >Cancel
-                    </button>
-                </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5>Are you sure you want to log out?</h5>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
+                </button>
+                <button class="btn btn-lg btn-primary" data-dismiss="modal"
+                >Cancel
+                </button>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="confirmation-modal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                      <h3>Changes have been saved.</h3>
-                       
-                    </div>
-                    <div class='modal-body'>
-                        <h4>Redirecting you back to dashoard.</h4>
-                    </div>                        
-                   
-                </div>
+</div>
+<div class="modal fade" id="confirmation-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Changes have been saved.</h3>
+
             </div>
+            <div class='modal-body'>
+                <h4>Redirecting you back to dashoard.</h4>
+            </div>
+
         </div>
+    </div>
+</div>
 </div>
 <script>
     $(document).keyup(function (e) {
         if (e.key === "Escape") {
             document.getElementById('notifications').style = 'none';
+            document.getElementById('country').style = 'none';
         }
     });
-    document.getElementById('noti-btn').addEventListener("click", showNotifications);
+    document.getElementById('noti-btn').addEventListener("click", showDropdowns);
 
-    function showNotifications() {
-        document.getElementById('notifications').style.display = 'block';
+    function showDropdowns(nameOfDropdown) {
+        if (nameOfDropdown === 'notifications') {
+            document.getElementById('notifications').style.display = 'block';
+            document.getElementById('country').style.display = 'none';
+        } else if (nameOfDropdown === 'lang') {
+            document.getElementById('country').style.display = 'block';
+            document.getElementById('notifications').style.display = 'none';
+        }
     }
 
     function appendProblemDesc(id) {
-        const problemDesc = document.getElementById('problem-desc'+id).value;
+        const problemDesc = document.getElementById('problem-desc' + id).value;
 
-        $('#accordion-header'+id).empty();
-        $('#accordion-header'+id).append("Problem Description: " + problemDesc);
+        $('#accordion-header' + id).empty();
+        $('#accordion-header' + id).append("Problem Description: " + problemDesc);
     }
 
     function changeColourOfAccord() {
@@ -429,9 +465,9 @@
         changeStatus({status: 'Referred to specialist'});
         const priorityLevel = document.getElementById('priority').value;
         if (priorityLevel === "1") {
-            $('#accordion-header'+id).css('background', '#f77b7b');
+            $('#accordion-header' + id).css('background', '#f77b7b');
         } else if (priorityLevel === "2")
-            $('#accordion-header'+id).css('background', '#f5b367');
+            $('#accordion-header' + id).css('background', '#f5b367');
     }
 </script>
 <div id="bottom"></div>
