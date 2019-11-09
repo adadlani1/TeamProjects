@@ -2,63 +2,65 @@ const Roles = [{
     username: 'alice',
     password: 'alice',
     role: 'Operator'
-  }, {
+}, {
     username: 'bert',
     password: 'bert',
     role: 'Specialist'
-  }];
+}];
 
-  var user;
-  
+var user;
 
-  const employeesData = [{name:'Select Caller',jobTitle:'',telephone:'',department:''},
-  {name:'Anmol',jobTitle:'Worker-1',telephone:'07828228282',department:'department-1'},
-  {name:'Bert',jobTitle:'Worker-2',telephone:'07262262662',department:'department-2'},
-  {name:'Claire',jobTitle:'Worker-3',telephone:'0764581721',department:'department-3'},
-  {name:'Alice',jobTitle:'Worker-4',telephone:'07648261235',department:'department-4'},
-  {name:'Kostas',jobTitle:'Worker-5',telephone:'0782364528',department:'department-5'}]
-  
-  function redirect() {
-      setTimeout(()=>{
-          window.location = 'dashboard.html'
-      },2000)
-  }
 
-  function fillData(){
-      const caller = $('#callerID').val()
-      const employeeData = employeesData.filter((employeeData)=>{
-        if(employeeData.name===caller)
-        return true
+const employeesData = [{name: 'Select Caller', jobTitle: '', telephone: '', department: ''},
+    {name: 'Anmol', jobTitle: 'Worker-1', telephone: '07828228282', department: 'department-1'},
+    {name: 'Bert', jobTitle: 'Worker-2', telephone: '07262262662', department: 'department-2'},
+    {name: 'Claire', jobTitle: 'Worker-3', telephone: '0764581721', department: 'department-3'},
+    {name: 'Alice', jobTitle: 'Worker-4', telephone: '07648261235', department: 'department-4'},
+    {name: 'Kostas', jobTitle: 'Worker-5', telephone: '0782364528', department: 'department-5'}]
+
+function redirect() {
+    setTimeout(() => {
+        window.location = 'dashboard.html'
+    }, 2000)
+}
+
+function fillData() {
+    const caller = $('#callerID').val()
+    const employeeData = employeesData.filter((employeeData) => {
+        if (employeeData.name === caller)
+            return true
     })
     $('#telephone').val(employeeData[0].telephone)
     $('#job-title').val(employeeData[0].jobTitle)
     $('#department').val(employeeData[0].department)
 
-  }
-  function validate(form) {
+}
+
+function validate(form) {
     event.preventDefault();
     const username = ($('#username').val());
     const password = ($('#password').val());
     console.log(username + password);
     const user = Roles.filter((role) => {
-      if (role.username === username.toLowerCase().trim() && role.password === password) {
-          var user = role.username
-        return true
-      }
+        if (role.username === username.toLowerCase().trim() && role.password === password) {
+            var user = role.username
+            return true
+        }
     });
     if (!user.length) {
-      setTimeout($('#error').css('display', 'block'), 200) }
-    else {
-      if (user[0].role === 'Operator')
-        window.location.href = 'dashboard.html';
-      if (user[0].role === 'Specialist')
-        window.location.href = 'Specialist_Dashboard.html'
+        setTimeout($('#error').css('display', 'block'), 200)
+    } else {
+        if (user[0].role === 'Operator')
+            window.location.href = 'dashboard.html';
+        if (user[0].role === 'Specialist')
+            window.location.href = 'Specialist_Dashboard.html'
     }
-  
-  }
-  $(document).ready(function () {
+
+}
+
+$(document).ready(function () {
     $('#error').css('display', 'none');
-  });
+});
 
 function changeStatus({status}) {
     event.preventDefault();
@@ -75,8 +77,8 @@ function search() {
         var record = data[i];
 
         var id = record["problem_id"].toString();
-        var expr =  new RegExp("^" + user_input);
-        if ( expr.test(id) ) {
+        var expr = new RegExp("^" + user_input);
+        if (expr.test(id)) {
             records.push(record);
         }
     }
@@ -93,57 +95,57 @@ function updateTable(records) {
         "<th>specialist To</th> </tr>");
     $("#i-table").empty()
 
-    var keys = ["problem_id","name","dept","job","telephone","problem_desc","problem_type","sub_type","device_type","specialist"];
+    var keys = ["problem_id", "name", "dept", "job", "telephone", "problem_desc", "problem_type", "sub_type", "device_type", "specialist"];
 
-    for (var i = 0; i < records.length; i++ ) {
+    for (var i = 0; i < records.length; i++) {
         var classname = "i-row-" + i;
         var doc = "<tr>";
         for (var j = 0; j < keys.length - 1; j++) {
-            doc += " <td class='" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i][keys[j]] + "</td>";
+            doc += " <td class='" + classname + " problem-data' onclick='setID(" + records[i]["problem_id"] + ")'>" + records[i][keys[j]] + "</td>";
         }
-        doc +=  "<td class=' pointer +" + classname + " problem-data' onclick='setID("+ records[i]["problem_id"] +")'>" + records[i]["specialist"] + "</td> </tr>";
+        doc += "<td class=' pointer +" + classname + " problem-data' onclick='setID(" + records[i]["problem_id"] + ")'>" + records[i]["specialist"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
 
-    $(".problem-data").dblclick(function(e){
-        window.open("existing-issue-details.html","_self");
+    $(".problem-data").dblclick(function (e) {
+        window.open("existing-issue-details.html", "_self");
     });
 
 }
 
 //saves user-input when click a row in the table
 function setID(id) {
-    window.localStorage.setItem("id",id);
+    window.localStorage.setItem("id", id);
 }
 
-const jobsForClara = [{id:'324',description:'Problem with printer'}]
+const jobsForClara = [{id: '324', description: 'Problem with printer'}]
 
 const jobsForJim = [
-{id:'123',description:'Coffee machine broke'},
-{id:'543',description:'PC not working'},
-{id:'678',description:'Scanner not scanning complete page'},
-{id:'989',description:'Pen drive not recognised'}
+    {id: '123', description: 'Coffee machine broke'},
+    {id: '543', description: 'PC not working'},
+    {id: '678', description: 'Scanner not scanning complete page'},
+    {id: '989', description: 'Pen drive not recognised'}
 ]
 
-const jobsForTim = [{id:'786',description:'Wifi router broke'},
-{id:'564',description:'Hadoop not working'},
-{id:'198',description:'Speakers grounded'},
-{id:'875',description:'Powerpoint not opening'},
-{id:'444',description:'VS code crashes after adding extensions'}]
+const jobsForTim = [{id: '786', description: 'Wifi router broke'},
+    {id: '564', description: 'Hadoop not working'},
+    {id: '198', description: 'Speakers grounded'},
+    {id: '875', description: 'Powerpoint not opening'},
+    {id: '444', description: 'VS code crashes after adding extensions'}]
 
 $(document).ready(function () {
-    var specialistTaskObject; 
+    var specialistTaskObject;
     $(".specialists").click(function () {
         const specialist_id = this.id.split("-")[1];
         $('.tasks').empty();
-        if(specialist_id==2)
-        specialistTaskObject=jobsForClara
-        if(specialist_id==3)
-        specialistTaskObject=jobsForJim
-        if(specialist_id==4)
-        specialistTaskObject=jobsForTim
+        if (specialist_id == 2)
+            specialistTaskObject = jobsForClara
+        if (specialist_id == 3)
+            specialistTaskObject = jobsForJim
+        if (specialist_id == 4)
+            specialistTaskObject = jobsForTim
         for (let i = 1; i <= $(`#${this.id}`).val(); i++)
-            $(`#tasks-${specialist_id}`).append(`</br><p>ID-${specialistTaskObject[i-1].id}</p><p>${specialistTaskObject[i-1].description}</p>`)
+            $(`#tasks-${specialist_id}`).append(`</br><p>ID-${specialistTaskObject[i - 1].id}</p><p>${specialistTaskObject[i - 1].description}</p>`)
     });
 });
 
@@ -157,7 +159,7 @@ $(document).ready(function () {
         month = currentDate.getMonth() + 1,
         year = currentDate.getFullYear();
 
-    if(day<10){
+    if (day < 10) {
         var newday = "0" + day;
     }
     var date = newday + "/" + month + "/" + year;
@@ -184,7 +186,7 @@ function addIssues() {
         month = currentDate.getMonth() + 1,
         year = currentDate.getFullYear();
 
-    if(day<10){
+    if (day < 10) {
         var newday = "0" + day;
     }
     var date = newday + "/" + month + "/" + year;
@@ -203,19 +205,19 @@ function addIssues() {
 
     console.log(id);
 
-    var issue = "<div class=\"\" id=\"heading" + id+ "\">\n" +
-        "        <button class=\"accordion\" data-toggle=\"collapse\" data-target=\"#collapse" + id+ "\" aria-expanded=\"true\"\n" +
-        "                aria-controls=\"collapse" + id+ "\" onclick=\"appendProblemDesc(" + id+ ")\" id=\"accordion-header" + id+ "\" >\n" +
+    var issue = "<div class=\"\" id=\"heading" + id + "\">\n" +
+        "        <button class=\"accordion\" data-toggle=\"collapse\" data-target=\"#collapse" + id + "\" aria-expanded=\"true\"\n" +
+        "                aria-controls=\"collapse" + id + "\" onclick=\"appendProblemDesc(" + id + ")\" id=\"accordion-header" + id + "\" >\n" +
         "            Problem Description:\n" +
         "        </button>\n" +
         "    </div>\n" +
         "\n" +
-        "    <div id=\"collapse" + id+ "\" class=\"collapse show\" aria-labelledby=\"heading" + id+ "\" data-parent=\"#accordion\">\n" +
+        "    <div id=\"collapse" + id + "\" class=\"collapse show\" aria-labelledby=\"heading" + id + "\" data-parent=\"#accordion\">\n" +
         "        <br>\n" +
         "        <div class=\"container\">\n" +
         "            <div class=\"row\">\n" +
         "                <div class=\"col-6\" style=\"text-align: center\">\n" +
-        "                    <span>Problem ID: </span><label id=\"problem-id\">" + id+ "</label>\n" +
+        "                    <span>Problem ID: </span><label id=\"problem-id\">" + id + "</label>\n" +
         "                </div>\n" +
         "                <div class=\"col-6\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
         "                </div>\n" +
@@ -327,8 +329,8 @@ function addIssues() {
         "                        <div class=\"container\">\n" +
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-12\">\n" +
-        "                                    <label for=\"problem-desc" + id+ "\">Problem Description:</label>\n" +
-        "                                    <input class=\"form-control\" id=\"problem-desc" + id+ "\" type=\"text\">\n" +
+        "                                    <label for=\"problem-desc" + id + "\">Problem Description:</label>\n" +
+        "                                    <input class=\"form-control\" id=\"problem-desc" + id + "\" type=\"text\">\n" +
         "                                </div>\n" +
         "                            </div>\n" +
         "\n" +
@@ -348,9 +350,9 @@ function addIssues() {
         "                    <div class=\"container\">\n" +
         "                        <div class=\"row\">\n" +
         "                            <div class=\"col-6\">\n" +
-        "                                <button type=\"button\" id=\"specialist-button-" + id+ "\" class=\"btn btn-dark\"\n" +
+        "                                <button type=\"button\" id=\"specialist-button-" + id + "\" class=\"btn btn-dark\"\n" +
         "                                        data-toggle=\"modal\"\n" +
-        "                                        data-target=\"#refer-to-specialist-modal\" onclick='saveButtonID(" + id+ ")'>\n" +
+        "                                        data-target=\"#refer-to-specialist-modal\" onclick='saveButtonID(" + id + ")'>\n" +
         "                                    Refer to a Specialist\n" +
         "                                </button>\n" +
         "                            </div>\n" +
@@ -367,12 +369,17 @@ function addIssues() {
         "        </div>\n" +
         "    </div>";
 
-    scroll = setInterval(function(){ window.scrollBy(0, 1000);});
+    scroll = setInterval(function () {
+        window.scrollBy(0, 1000);
+    });
 
-    setTimeout(function(){clearInterval(scroll);}, 300);
+    setTimeout(function () {
+        clearInterval(scroll);
+    }, 300);
 
     $("#new-issues").append(issue);
 }
+
 let currentID = 1;
 
 function saveButtonID(id) {
@@ -383,67 +390,75 @@ function returnCurrentID() {
     return currentID;
 }
 
+
+function changeLanguage(flag, language) {
+    document.getElementById('flag').src = "../Flags-Icon-Set/24x24/" + flag + ".png";
+    document.getElementById('text1').innerText = 'Language - ' + language;
+
+}
+
+
 /*  Data    */
 
-const data = [ {
-    "problem_id" : 2,
-    "problem_desc" : "Windows 10 is being unresponsive",
+const data = [{
+    "problem_id": 2,
+    "problem_desc": "Windows 10 is being unresponsive",
     "problem_type": "Software",
-    "sub_type" : "",
-    "telephone" : "01616286485",
-    "device_type" : "Laptop",
-    "software" : "Windows 10",
-    "brand" : "HP",
-    "model" : "Pavilion",
-    "serial_no" : "AC3453",
-    "name" : "Alice",
-    "dept" : "Management",
-    "job" : "Helpdesk Operator",
-    "specialist" : "Bert",
-    "time" : "02/11/2019 10:00",
+    "sub_type": "",
+    "telephone": "01616286485",
+    "device_type": "Laptop",
+    "software": "Windows 10",
+    "brand": "HP",
+    "model": "Pavilion",
+    "serial_no": "AC3453",
+    "name": "Alice",
+    "dept": "Management",
+    "job": "Helpdesk Operator",
+    "specialist": "Bert",
+    "time": "02/11/2019 10:00",
     "priority": "",
-    "location":"",
-    "notes" : ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
+    "location": "",
+    "notes": ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
     "called back with the same problem. Referred to Bert."]
 },
     {
-    "problem_id" : 11,
-    "problem_desc" : "AutoCAD is being unresponsive",
-    "problem_type": " Software",
-    "sub_type" : "",
-    "telephone" : "123456789",
-    "device_type" : "Laptop",
-    "software" : "AutoCAD",
-    "brand" : "Lenovo",
-    "model" : "X1 Carbon",
-    "serial_no" : "12345",
-    "name" : "Berlinia",
-    "dept" : "Tech Support",
-    "job" : "IT Technician",
-    "specialist" : "Bert",
-    "time" : "06/11/2019 22:43",
-    "priority": "",
-    "location":"",
-    "notes" : ["xyz happened"]
+        "problem_id": 11,
+        "problem_desc": "AutoCAD is being unresponsive",
+        "problem_type": " Software",
+        "sub_type": "",
+        "telephone": "123456789",
+        "device_type": "Laptop",
+        "software": "AutoCAD",
+        "brand": "Lenovo",
+        "model": "X1 Carbon",
+        "serial_no": "12345",
+        "name": "Berlinia",
+        "dept": "Tech Support",
+        "job": "IT Technician",
+        "specialist": "Bert",
+        "time": "06/11/2019 22:43",
+        "priority": "",
+        "location": "",
+        "notes": ["xyz happened"]
     },
     {
-    "problem_id" : 100,
-    "problem_desc" : "RFID scanner does not work",
-    "problem_type": "Hardware",
-    "sub_type" : "",
-    "telephone" : "56574839",
-    "device_type" : "Scanner",
-    "software" : "N/A",
-    "brand" : "Samsung",
-    "model" : "ScanID",
-    "serial_no" : "SA940",
-    "name" : "Cristiano Ronaldo",
-    "dept" : "Director",
-    "job" : "Sporting Director",
-    "specialist" : "",
-    "time" : "03/10/2019 10:32",
-    "priority": "",
-    "location":"",
-    "notes" : ["Told to restart device"]
+        "problem_id": 100,
+        "problem_desc": "RFID scanner does not work",
+        "problem_type": "Hardware",
+        "sub_type": "",
+        "telephone": "56574839",
+        "device_type": "Scanner",
+        "software": "N/A",
+        "brand": "Samsung",
+        "model": "ScanID",
+        "serial_no": "SA940",
+        "name": "Cristiano Ronaldo",
+        "dept": "Director",
+        "job": "Sporting Director",
+        "specialist": "",
+        "time": "03/10/2019 10:32",
+        "priority": "",
+        "location": "",
+        "notes": ["Told to restart device"]
     },
 ];
