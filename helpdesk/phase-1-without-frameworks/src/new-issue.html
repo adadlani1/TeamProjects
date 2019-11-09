@@ -17,7 +17,7 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo">
+            <div class="navbar-brand" style="color: white"><img src="../Screenshot%20from%202019-11-08%2016-08-40.png" alt="logo">
                 Make-It-All
             </div>
         </div>
@@ -32,9 +32,18 @@
                         </a>
                     </button>
                     <div class="dropdown-content" id="notifications">
-                        <a href="">Example </a>
-                        <a href="">Example </a>
-                        <a href="">Example </a>
+                        <a href="">
+                            <h5>Problem Type: Printer</h5>
+                            <p>Printer is not responding</p>
+                        </a>
+                        <a href="">
+                            <h5>Problem Type: Hardware</h5>
+                            <p>Mike Hunt is hard</p>
+                        </a>
+                        <a href="">
+                            <h5>Problem Type: Software</h5>
+                            <p>Windows keeps freezing</p>
+                        </a>
                     </div>
                 </div>
             </li>
@@ -88,7 +97,7 @@
                 <div class="col-6" style="text-align: center">
                     <span>Problem ID: </span><label id="problem-id"></label>
                 </div>
-                <div class="col-6" style="text-align: center"><span>Call: </span> <label id="dateTime"></label>
+                <div class="col-6" style="text-align: center"><span>Call: </span> <label id="dateTime"></label> UTC
                 </div>
             </div>
         </div>
@@ -275,7 +284,7 @@
             </div>
             <div class="modal-body">
 
-                <label for="solution">Please can you provide the solution provided to caller:</label>
+                <label for="solution">How was the problem solved?</label>
                 <textarea id="solution" class="form-control" type="text" placeholder="Notes"
                           style="height:100px" required></textarea>
             </div>
@@ -297,38 +306,54 @@
                 <h5>Specialists</h5>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-            <div class="modal-body">
-                <div style="margin-bottom: 20px;">
-                    <button class="btn-outline-dark btn" name="specialists" value="Bert" style="width: 70%">
+            <div class="modal-body custom-checkbox">
+                <div class="custom-control  mb-3" style="margin-bottom: 20px;">
+                    <input type="checkbox" class="custom-control-input" id="bertCheck" name="checkbox">
+                    <label class="custom-control-label" for="bertCheck"><h4>
                         Bert
-                        <button style="float: right;" value="0" id="specialist-1"
-                                class="btn btn-success">
-                            No of Jobs: 0
-                        </button>
+                    </h4>
+                    <p>Location: United Kingdom</p>
+                    </label>
+                    <button style="float: right;" value="0" id="specialist-1"
+                            class="btn btn-success">
+                        No of Jobs: 0
                     </button>
                     <div class="tasks" id="tasks-1"></div>
+
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <button class="btn btn-outline-dark" name="specialists" value="Clara" style="width: 70%"> Clara
-                        <button style="float: right;" value="1" id="specialist-2"
-                                class="specialists btn btn-success">No. of Jobs: 1
-                        </button>
+                <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                    <input type="checkbox" class="custom-control-input" id="claraCheck" name="checkbox">
+                    <label class="custom-control-label" for="claraCheck"><h4>
+                        Clara
+                    </h4>
+                        <p>Location: United Kingdom</p>
+                    </label>
+                    <button style="float: right;" value="1" id="specialist-2"
+                            class="specialists btn btn-success">No. of Jobs: 1
                     </button>
                     <div class="tasks" id="tasks-2"></div>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <button class="btn btn-outline-dark" name="specialists" value="Jim" style="width: 70%"> Jim
-                        <button style="float: right;" value="4" id="specialist-3"
-                                class="specialists btn btn-warning"> No. of Jobs: 4
-                        </button>
+                <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                    <input type="checkbox" class="custom-control-input" id="jimCheck" name="checkbox">
+                    <label class="custom-control-label" for="jimCheck"><h4>
+                        Jim
+                    </h4>
+                        <p>Location: Saudi Arabia</p>
+                    </label>
+                    <button style="float: right;" value="5" id="specialist-3"
+                            class="specialists btn btn-danger"> No. of Jobs: 5
                     </button>
                     <div class="tasks" id="tasks-3"></div>
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <button class="btn btn-outline-dark" name="specialists" value="Tim" style="width: 70%"> Tim
-                        <button style="float: right;" value="5" id="specialist-4"
-                                class="specialists btn btn-danger"> No. of Jobs: 5
-                        </button>
+                <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                    <input type="checkbox" class="custom-control-input" id="timCheck" name="checkbox" disabled>
+                    <label class="custom-control-label" for="timCheck"><h4>
+                        Tim [Unavailable]
+                    </h4>
+                        <p>Location: Saudi Arabia</p>
+                    </label>
+                    <button style="float: right;" value="3" id="specialist-4"
+                            class="specialists btn btn-warning" disabled> No. of Jobs: 3
                     </button>
                     <div class="tasks" id="tasks-4"></div>
                 </div>
@@ -404,11 +429,9 @@
         changeStatus({status: 'Referred to specialist'});
         const priorityLevel = document.getElementById('priority').value;
         if (priorityLevel === "1") {
-            $('#accordion-header'+id).css('background', 'red');
+            $('#accordion-header'+id).css('background', '#f77b7b');
         } else if (priorityLevel === "2")
-            $('#accordion-header'+id).css('background', 'orange');
-        else
-            $('#accordion-header'+id).css('background', 'yellow');
+            $('#accordion-header'+id).css('background', '#f5b367');
     }
 </script>
 <div id="bottom"></div>
