@@ -149,6 +149,7 @@ $(document).ready(function () {
     });
 });
 
+var timeZoneGlobalVar = 'UTC';
 
 $(document).ready(function () {
     var id = Math.floor(Math.random() * 1000);
@@ -174,7 +175,7 @@ $(document).ready(function () {
 
     var time = hours + ":" + minutes;
 
-    var dateTime = date + " " + time;
+    var dateTime = date + " " + time + " " +timeZoneGlobalVar;
     $('#dateTime').append(dateTime);
 });
 
@@ -201,9 +202,8 @@ function addIssues() {
 
     var time = hours + ":" + minutes;
 
-    var dateTime = date + " " + time;
+    var dateTime = date + " " + time + " " + timeZoneGlobalVar;
 
-    console.log(id);
 
     var issue = "<div class=\"\" id=\"heading" + id + "\">\n" +
         "        <button class=\"accordion\" data-toggle=\"collapse\" data-target=\"#collapse" + id + "\" aria-expanded=\"true\"\n" +
@@ -391,10 +391,10 @@ function returnCurrentID() {
 }
 
 
-function changeLanguage(flag, language) {
+function changeLanguage(flag, language, timezone) {
     document.getElementById('flag').src = "../Flags-Icon-Set/24x24/" + flag + ".png";
     document.getElementById('text1').innerText = 'Language - ' + language;
-
+    timeZoneGlobalVar = timezone;
 }
 
 
