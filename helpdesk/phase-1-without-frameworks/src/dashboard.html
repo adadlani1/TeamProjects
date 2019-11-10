@@ -17,7 +17,7 @@
     <nav class="navbar bg-dark top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png"
+                <div class="navbar-brand" style="color: white; font-size: 20pt" id="navbar-text"><img src="../logo.png"
                                                                                      alt="logo">
                     Make-IT-All Helpdesk
                 </div>
@@ -50,7 +50,7 @@
                 <li class="nav-item">
                     <div class="dropdown">
                         <a href="graphs.html">
-                            <button class="dropbtn" onclick="window.location = 'graphs.html'">
+                            <button class="dropbtn" onclick="window.location = 'graphs.html'" id="analysis">
                                 <img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a
                                     style="font-size: 9pt">
                                 Analysis
@@ -64,7 +64,7 @@
                         <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
                                 src="../Flags-Icon-Set/24x24/GB.png" alt="" id="flag">
                             <br> <a style="font-size: 9pt;" id="text1">
-                                Language - English
+                                English
                             </a>
                         </button>
                         <div class="dropdown-content" id="country" style="max-width: 200px">
@@ -88,7 +88,7 @@
                     <div class="">
                         <!-- <a href="login.html"></a> -->
                         <!-- <button class="dropbtn" onclick="window.location = 'login.html'"> -->
-                        <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                        <button class="dropbtn" data-toggle="modal" data-target='#logout-modal' id="logout">
                             <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
                             <br> <a
                                 style="font-size: 9pt">
@@ -102,22 +102,23 @@
         </div>
     </nav>
     <ul class="breadcrumb">
-        <li>Dashboard</li>
+        <li id="dashboard">Dashboard</li>
     </ul>
     <div class="container">
         <div class="container-fluid">
             <div class="row form-group text-center">
                 <div class="col-6">
                     <a href="new-issue.html">
-                        <button class="btn btn-light btn-outline-dark button-size"><img
+                        <button class="btn btn-light btn-outline-dark button-size" id="new-issue-btn"><img
                                 src="../open-iconic-master/png/plus-8x.png" alt="wrench">
-                            <br />New Issue
+                            <br/>
+                            New Issue
                         </button>
                     </a>
                 </div>
                 <div class="col-6">
                     <a href="existing-issue-search.html">
-                        <button type="button" class="btn-light btn btn-outline-dark button-size"><img
+                        <button type="button" class="btn-light btn btn-outline-dark button-size" id="existing-issue-btn"><img
                                 src="../open-iconic-master/png/wrench-8x.png" alt="wrench">
                             <br />Existing Issue
                         </button>

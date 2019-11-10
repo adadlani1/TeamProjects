@@ -469,8 +469,110 @@ function returnCurrentID() {
 
 function changeLanguage(flag, language, timezone) {
     document.getElementById('flag').src = "../Flags-Icon-Set/24x24/" + flag + ".png";
-    document.getElementById('text1').innerText = 'Language - ' + language;
+    document.getElementById('text1').innerText = language;
     timeZoneGlobalVar = timezone;
+
+    if (language === 'Deutsche'){
+        document.getElementById('new-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
+            '                            <br />Nueves Problem';
+        document.getElementById('existing-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/wrench-8x.png" alt="wrench">\n' +
+            '                            <br />Bestehende Probleme';
+        document.getElementById('dashboard').innerText = 'Instrumententafel';
+        document.getElementById('noti-btn').innerHTML = '<img src="../open-iconic-master/png/bell-3x.png" alt="">\n' +
+            '                            <br> <a style="font-size: 9pt; color: red" id="text">\n' +
+            '                            Benachrichtigungen\n' +
+            '                        </a>';
+        document.getElementById('analysis').innerHTML = '<img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a\n' +
+            '                                    style="font-size: 9pt">\n' +
+            '                                Analyse\n' +
+            '                            </a>';
+        document.getElementById('logout').innerHTML = '<img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">\n' +
+            '                            <br> <a\n' +
+            '                                style="font-size: 9pt">\n' +
+            '                            Ausloggen\n' +
+            '                        </a>';
+        document.getElementById('navbar-text').innerHTML = '<img src="../logo.png"\n' +
+            '                                                                          alt="logo"> Make-IT-All Helpdesk'
+
+    }
+
+    if (language === 'English'){
+        document.getElementById('new-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
+            '                            <br />New Issue';
+        document.getElementById('existing-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/wrench-8x.png" alt="wrench">\n' +
+            '                            <br />Existing Issues';
+        document.getElementById('dashboard').innerText = 'Dashboard';
+        document.getElementById('noti-btn').innerHTML = '<img src="../open-iconic-master/png/bell-3x.png" alt="">\n' +
+            '                            <br> <a style="font-size: 9pt; color: red" id="text">\n' +
+            '                            Notifications\n' +
+            '                        </a>';
+        document.getElementById('analysis').innerHTML = '<img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a\n' +
+            '                                    style="font-size: 9pt">\n' +
+            '                                Analysis\n' +
+            '                            </a>';
+        document.getElementById('logout').innerHTML = '<img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">\n' +
+            '                            <br> <a\n' +
+            '                                style="font-size: 9pt">\n' +
+            '                            Logout\n' +
+            '                        </a>';
+        document.getElementById('navbar-text').innerHTML = '<img src="../logo.png"\n' +
+            '                                                                          alt="logo"> Make-IT-All Helpdesk'
+    }
+    if (language === '日本語'){
+        document.getElementById('new-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
+            '                            <br />新刊';
+        document.getElementById('existing-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/wrench-8x.png" alt="wrench">\n' +
+            '                            <br />既存の問題';
+        document.getElementById('dashboard').innerText = 'ダッシュボード';
+        document.getElementById('noti-btn').innerHTML = '<img src="../open-iconic-master/png/bell-3x.png" alt="">\n' +
+            '                            <br> <a style="font-size: 9pt; color: red" id="text">\n' +
+            '                            通知\n' +
+            '                        </a>';
+        document.getElementById('analysis').innerHTML = '<img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a\n' +
+            '                                    style="font-size: 9pt">\n' +
+            '                                分析\n' +
+            '                            </a>';
+        document.getElementById('logout').innerHTML = '<img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">\n' +
+            '                            <br> <a\n' +
+            '                                style="font-size: 9pt">\n' +
+            '                            ログアウト\n' +
+            '                        </a>';
+        document.getElementById('navbar-text').innerHTML = '<img src="../logo.png"\n' +
+            '                                                                          alt="logo">Make-IT-Allヘルプデスク'
+
+    }
+
+
+    if (language === 'عربى'){
+        document.getElementById('new-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
+            '                            <br />مشكلة جديدة';
+        document.getElementById('existing-issue-btn').innerHTML = '<img\n' +
+            '                                src="../open-iconic-master/png/wrench-8x.png" alt="wrench">\n' +
+            '                            <br />القضايا الحالية';
+        document.getElementById('dashboard').innerText = 'لوحة القيادة';
+        document.getElementById('noti-btn').innerHTML = '<img src="../open-iconic-master/png/bell-3x.png" alt="">\n' +
+            '                            <br> <a style="font-size: 9pt; color: red" id="text">\n' +
+            '                            إشعارات\n' +
+            '                        </a>';
+        document.getElementById('analysis').innerHTML = '<img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a\n' +
+            '                                    style="font-size: 9pt">\n' +
+            '                                تحليل\n' +
+            '                            </a>';
+        document.getElementById('logout').innerHTML = '<img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">\n' +
+            '                            <br> <a\n' +
+            '                                style="font-size: 9pt">\n' +
+            '                            تسجيل خروج\n' +
+            '                        </a>';
+        document.getElementById('navbar-text').innerHTML = '<img src="../logo.png"\n' +
+            '                                                                          alt="logo"> مكتب المساعدة Make-IT-All'
+    }
 }
 
 
