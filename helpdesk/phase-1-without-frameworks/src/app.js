@@ -8,7 +8,129 @@ const Roles = [{
     role: 'Specialist'
 }];
 
+/*  Data    */
+
+const data = [{
+    "problem_id": 2,
+    "problem_desc": "Windows 10 is being unresponsive",
+    "problem_type": "Software",
+    "sub_type": "",
+    "telephone": "01616286485",
+    "device_type": "Laptop",
+    "software": "Windows 10",
+    "brand": "HP",
+    "model": "Pavilion",
+    "serial_no": "AC3453",
+    "name": "Alice",
+    "dept": "Management",
+    "job": "Helpdesk Operator",
+    "specialist": "Bert",
+    "time": "02/11/2019 10:00",
+    "priority": "",
+    "location": "",
+    "notes": ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
+    "called back with the same problem. Referred to Bert."]
+},
+    {
+        "problem_id": 11,
+        "problem_desc": "AutoCAD is being unresponsive",
+        "problem_type": " Software",
+        "sub_type": "",
+        "telephone": "123456789",
+        "device_type": "Laptop",
+        "software": "AutoCAD",
+        "brand": "Lenovo",
+        "model": "X1 Carbon",
+        "serial_no": "12345",
+        "name": "Berlinia",
+        "dept": "Tech Support",
+        "job": "IT Technician",
+        "specialist": "Bert",
+        "time": "06/11/2019 22:43",
+        "priority": "",
+        "location": "",
+        "notes": ["xyz happened"]
+    },
+    {
+        "problem_id": 100,
+        "problem_desc": "RFID scanner does not work",
+        "problem_type": "Hardware",
+        "sub_type": "",
+        "telephone": "56574839",
+        "device_type": "Scanner",
+        "software": "N/A",
+        "brand": "Samsung",
+        "model": "ScanID",
+        "serial_no": "SA940",
+        "name": "Cristiano Ronaldo",
+        "dept": "Director",
+        "job": "Sporting Director",
+        "specialist": "",
+        "time": "03/10/2019 10:32",
+        "priority": "",
+        "location": "",
+        "notes": ["Told to restart device"]
+    },
+];
+
 var user;
+
+const jobsForClara = [{id: '324', description: 'Problem with printer'}];
+
+const jobsForJim = [
+    {id: '123', description: 'Coffee machine broke'},
+    {id: '543', description: 'PC not working'},
+    {id: '678', description: 'Scanner not scanning complete page'},
+    {id: '989', description: 'Pen drive not recognised'}
+];
+
+const jobsForTim = [{id: '786', description: 'Wifi router broke'},
+    {id: '564', description: 'Hadoop not working'},
+    {id: '198', description: 'Speakers grounded'},
+    {id: '875', description: 'Powerpoint not opening'},
+    {id: '444', description: 'VS code crashes after adding extensions'}];
+
+$(document).ready(function () {
+    var specialistTaskObject;
+    $(".specialists").click(function () {
+        const specialist_id = this.id.split("-")[1];
+        $('.tasks').empty();
+        if (specialist_id == 2)
+            specialistTaskObject = jobsForClara
+        if (specialist_id == 3)
+            specialistTaskObject = jobsForJim
+        if (specialist_id == 4)
+            specialistTaskObject = jobsForTim
+        for (let i = 1; i <= $(`#${this.id}`).val(); i++)
+            $(`#tasks-${specialist_id}`).append(`</br><p>ID-${specialistTaskObject[i - 1].id}</p><p>${specialistTaskObject[i - 1].description}</p>`)
+    });
+});
+
+var timeZoneGlobalVar = 'UTC';
+
+var currentDate = new Date(),
+    day = currentDate.getDate(),
+    month = currentDate.getMonth() + 1,
+    year = currentDate.getFullYear();
+
+if (day < 10) {
+    var newday = "0" + day;
+} else
+    newday = day;
+var date = newday + "/" + month + "/" + year;
+
+var currentTime = new Date(),
+    hours = currentTime.getHours(),
+    minutes = currentTime.getMinutes();
+
+if (minutes < 10) {
+    minutes = "0" + minutes;
+}
+
+var time = hours + ":" + minutes;
+
+var dateTime = date + " " + time + " " +timeZoneGlobalVar;
+
 
 
 const employeesData = [{name: 'Select Caller', jobTitle: '', telephone: '', department: ''},
@@ -118,64 +240,12 @@ function setID(id) {
     window.localStorage.setItem("id", id);
 }
 
-const jobsForClara = [{id: '324', description: 'Problem with printer'}]
-
-const jobsForJim = [
-    {id: '123', description: 'Coffee machine broke'},
-    {id: '543', description: 'PC not working'},
-    {id: '678', description: 'Scanner not scanning complete page'},
-    {id: '989', description: 'Pen drive not recognised'}
-]
-
-const jobsForTim = [{id: '786', description: 'Wifi router broke'},
-    {id: '564', description: 'Hadoop not working'},
-    {id: '198', description: 'Speakers grounded'},
-    {id: '875', description: 'Powerpoint not opening'},
-    {id: '444', description: 'VS code crashes after adding extensions'}]
-
-$(document).ready(function () {
-    var specialistTaskObject;
-    $(".specialists").click(function () {
-        const specialist_id = this.id.split("-")[1];
-        $('.tasks').empty();
-        if (specialist_id == 2)
-            specialistTaskObject = jobsForClara
-        if (specialist_id == 3)
-            specialistTaskObject = jobsForJim
-        if (specialist_id == 4)
-            specialistTaskObject = jobsForTim
-        for (let i = 1; i <= $(`#${this.id}`).val(); i++)
-            $(`#tasks-${specialist_id}`).append(`</br><p>ID-${specialistTaskObject[i - 1].id}</p><p>${specialistTaskObject[i - 1].description}</p>`)
-    });
-});
-
-var timeZoneGlobalVar = 'UTC';
 
 $(document).ready(function () {
     var id = Math.floor(Math.random() * 1000);
     $('#problem-id').append(id);
 
-    var currentDate = new Date(),
-        day = currentDate.getDate(),
-        month = currentDate.getMonth() + 1,
-        year = currentDate.getFullYear();
 
-    if (day < 10) {
-        var newday = "0" + day;
-    }
-    var date = newday + "/" + month + "/" + year;
-
-    var currentTime = new Date(),
-        hours = currentTime.getHours(),
-        minutes = currentTime.getMinutes();
-
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-
-    var time = hours + ":" + minutes;
-
-    var dateTime = date + " " + time + " " +timeZoneGlobalVar;
     $('#dateTime').append(dateTime);
 });
 
@@ -199,28 +269,6 @@ function addIssues() {
 	
 	
 	var id = Math.floor(Math.random() * 1000);
-
-    var currentDate = new Date(),
-        day = currentDate.getDate(),
-        month = currentDate.getMonth() + 1,
-        year = currentDate.getFullYear();
-
-    if (day < 10) {
-        var newday = "0" + day;
-    }
-    var date = newday + "/" + month + "/" + year;
-
-    var currentTime = new Date(),
-        hours = currentTime.getHours(),
-        minutes = currentTime.getMinutes();
-
-    if (minutes < 10) {
-        minutes = "0" + minutes;
-    }
-
-    var time = hours + ":" + minutes;
-
-    var dateTime = date + " " + time + " " + timeZoneGlobalVar;
 
 
     var issue = "<div class=\"\" id=\"heading" + id + "\">\n" +
@@ -418,67 +466,3 @@ function changeLanguage(flag, language, timezone) {
 }
 
 
-/*  Data    */
-
-const data = [{
-    "problem_id": 2,
-    "problem_desc": "Windows 10 is being unresponsive",
-    "problem_type": "Software",
-    "sub_type": "",
-    "telephone": "01616286485",
-    "device_type": "Laptop",
-    "software": "Windows 10",
-    "brand": "HP",
-    "model": "Pavilion",
-    "serial_no": "AC3453",
-    "name": "Alice",
-    "dept": "Management",
-    "job": "Helpdesk Operator",
-    "specialist": "Bert",
-    "time": "02/11/2019 10:00",
-    "priority": "",
-    "location": "",
-    "notes": ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
-    "called back with the same problem. Referred to Bert."]
-},
-    {
-        "problem_id": 11,
-        "problem_desc": "AutoCAD is being unresponsive",
-        "problem_type": " Software",
-        "sub_type": "",
-        "telephone": "123456789",
-        "device_type": "Laptop",
-        "software": "AutoCAD",
-        "brand": "Lenovo",
-        "model": "X1 Carbon",
-        "serial_no": "12345",
-        "name": "Berlinia",
-        "dept": "Tech Support",
-        "job": "IT Technician",
-        "specialist": "Bert",
-        "time": "06/11/2019 22:43",
-        "priority": "",
-        "location": "",
-        "notes": ["xyz happened"]
-    },
-    {
-        "problem_id": 100,
-        "problem_desc": "RFID scanner does not work",
-        "problem_type": "Hardware",
-        "sub_type": "",
-        "telephone": "56574839",
-        "device_type": "Scanner",
-        "software": "N/A",
-        "brand": "Samsung",
-        "model": "ScanID",
-        "serial_no": "SA940",
-        "name": "Cristiano Ronaldo",
-        "dept": "Director",
-        "job": "Sporting Director",
-        "specialist": "",
-        "time": "03/10/2019 10:32",
-        "priority": "",
-        "location": "",
-        "notes": ["Told to restart device"]
-    },
-];
