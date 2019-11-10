@@ -333,7 +333,7 @@ function addIssues() {
         "                        <div class=\"container\">\n" +
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-6\">\n" +
-        "                                    <label for=\"software\">Software:</label>\n" +
+        "                                    <label for=\"software\">Software Name:</label>\n" +
         "                                    <select class=\"form-control\" id=\"software\">\n" +
         "                                        <option value=\"\">Software 1</option>\n" +
         "                                        <option value=\"\">Software 2</option>\n" +
@@ -343,6 +343,14 @@ function addIssues() {
         "                                        <option value=\"\">Software 6</option>\n" +
         "                                        <option value=\"\">Software 7</option>\n" +
         "                                    </select>\n" +
+        "                                </div>\n" +
+        "                                <div class=\"col-3\">\n" +
+        "                                    <label for=\"software-version\">Software Version:</label>\n" +
+        "                                    <input class=\"form-control\" id=\"software-version\" type=\"text\">\n" +
+        "                                </div>\n" +
+        "                                <div class=\"col-3\">\n" +
+        "                                    <label for=\"software-date\">Expiry Date:</label>\n" +
+        "                                    <input class=\"form-control\" id=\"software-date\" type=\"text\">\n" +
         "                                </div>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
