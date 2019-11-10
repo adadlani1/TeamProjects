@@ -249,8 +249,7 @@ $(document).ready(function () {
     $('#dateTime').append(dateTime);
 });
 
-function addIssues() {
-	
+function collapse_all(){
 	
 	var x = document.getElementsByClassName("collapse show");
 	for (i = 0; i < x.length; i++) {
@@ -267,8 +266,14 @@ function addIssues() {
 	  z[i].setAttribute("aria-expanded", "false");
 	}
 	
+}
+
+function addIssues() {
 	
-	var id = Math.floor(Math.random() * 1000);
+    collapse_all();
+    collapse_all();	
+	
+    var id = Math.floor(Math.random() * 1000);
 
 
     var issue = "<div class=\"\" id=\"heading" + id + "\">\n" +
