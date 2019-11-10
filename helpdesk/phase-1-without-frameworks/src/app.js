@@ -185,7 +185,6 @@ function addIssues() {
 	var x = document.getElementsByClassName("collapse show");
 	for (i = 0; i < x.length; i++) {
 	  x[i].className = "collapse";
-	  alert(i);
 	}
 	
 	var y = document.getElementsByClassName("accordion");
