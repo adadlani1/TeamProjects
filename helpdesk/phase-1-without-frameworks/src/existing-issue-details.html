@@ -16,24 +16,33 @@
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
-            <div class="navbar-brand" style="color: white"><img src="https://via.placeholder.com/80" alt="logo">
-                Make-It-All
+            <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png"
+                                                                                 alt="logo">
+                Make-IT-All Helpdesk
             </div>
         </div>
         <ul class="nav justify-content-end">
             <li class="nav-item">
                 <div class="dropdown">
-                    <button class="dropbtn" onclick="showNotifications()" id="noti-btn"><img
-                            src="../open-iconic-master/png/bell-3x.png" alt="">
-                        <br> <a
-                                style="font-size: 9pt;" id="text">
-                            Notifications
-                        </a>
+                    <button class="dropbtn" onclick="showDropdowns('notifications')" id="noti-btn">
+                        <img src="../open-iconic-master/png/bell-3x.png" alt="">
+                        <br> <a style="font-size: 9pt;" id="text">
+                        Notifications
+                    </a>
                     </button>
                     <div class="dropdown-content" id="notifications">
-                        <a href="">Example </a>
-                        <a href="">Example </a>
-                        <a href="">Example </a>
+                        <a href="">
+                            <h5>Problem Type: Printer</h5>
+                            <p>Printer is not responding</p>
+                        </a>
+                        <a href="">
+                            <h5>Problem Type: Hardware</h5>
+                            <p>Mike Hunt is hard</p>
+                        </a>
+                        <a href="">
+                            <h5>Problem Type: Software</h5>
+                            <p>Windows keeps freezing</p>
+                        </a>
                     </div>
                 </div>
             </li>
@@ -49,17 +58,44 @@
                     </a>
                 </div>
             </li>
-            <li class='nav-item'>
-                    <div class="">
-                          <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
-                          <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
-                          <br> <a
-                                style="font-size: 9pt">
-                          Logout
+            <li class="nav-item">
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
+                            src="../Flags-Icon-Set/24x24/GB.png" alt="" id="flag">
+                        <br> <a style="font-size: 9pt;" id="text1">
+                            Language - English
                         </a>
-                        </button>
-                      </a>
+                    </button>
+                    <div class="dropdown-content" id="country" style="width: 10px">
+                        <a href="javascript:changeLanguage('DE', 'Deutsche', 'CET')">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> - Deutsche</p>
+                        </a>
+                        <a href="javascript:changeLanguage('GB', 'English', 'UTC')">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> - English</p>
+                        </a>
+                        <a href="javascript:changeLanguage('JP', '日本語', 'JST')">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
+                        </a>
+                        <a href="javascript:changeLanguage('SA', 'عربى', 'AST')">
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> - عربى </p>
+                        </a>
+
                     </div>
+                </div>
+            </li>
+            <li class='nav-item'>
+                <div class="">
+                    <!-- <a href="login.html"></a> -->
+                    <!-- <button class="dropbtn" onclick="window.location = 'login.html'"> -->
+                    <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                        <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                        <br> <a
+                            style="font-size: 9pt">
+                        Logout
+                    </a>
+                    </button>
+                    </a>
+                </div>
             </li>
         </ul>
     </div>
@@ -368,16 +404,22 @@
 
 
     }
-
     $(document).keyup(function (e) {
         if (e.key === "Escape") {
             document.getElementById('notifications').style = 'none';
+            document.getElementById('country').style = 'none';
         }
     });
-    document.getElementById('noti-btn').addEventListener("click", showNotifications);
+    document.getElementById('noti-btn').addEventListener("click", showDropdowns);
 
-    function showNotifications() {
-        document.getElementById('notifications').style.display = 'block';
+    function showDropdowns(nameOfDropdown) {
+        if (nameOfDropdown === 'notifications') {
+            document.getElementById('notifications').style.display = 'block';
+            document.getElementById('country').style.display = 'none';
+        } else if (nameOfDropdown === 'lang') {
+            document.getElementById('country').style.display = 'block';
+            document.getElementById('notifications').style.display = 'none';
+        }
     }
 </script>
 <div id="bottom"></div>
