@@ -432,7 +432,7 @@ function addIssues() {
         "                            </div>\n" +
         "                            <div class=\"col-6\">\n" +
         "                                <button type=\"button\" class=\"btn btn-dark\" data-toggle=\"modal\"\n" +
-        "                                        data-target=\"#solution-provided-modal1\">Solution Provided\n" +
+        "                                        data-target=\"#solution-provided-modal1\">Provide Solution\n" +
         "                                </button>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
