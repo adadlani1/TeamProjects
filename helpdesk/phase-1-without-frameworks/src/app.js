@@ -345,7 +345,7 @@ function addIssues() {
         "                                    </select>\n" +
         "                                </div>\n" +
         "                                <div class=\"col-3\">\n" +
-        "                                    <label for=\"software-version\">Software Version:</label>\n" +
+        "                                    <label for=\"software-version\">Version:</label>\n" +
         "                                    <input class=\"form-control\" id=\"software-version\" type=\"text\">\n" +
         "                                </div>\n" +
         "                                <div class=\"col-3\">\n" +
