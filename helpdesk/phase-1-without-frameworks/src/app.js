@@ -180,7 +180,26 @@ $(document).ready(function () {
 });
 
 function addIssues() {
-    var id = Math.floor(Math.random() * 1000);
+	
+	
+	var x = document.getElementsByClassName("collapse show");
+	for (i = 0; i < x.length; i++) {
+	  x[i].className = "collapse";
+	  alert(i);
+	}
+	
+	var y = document.getElementsByClassName("accordion");
+	for (i = 0; i < y.length; i++) {
+	  y[i].className = "accordion collapsed";
+	}
+	
+	var z = document.getElementsByClassName("accordion");
+	for (i = 0; i < z.length; i++) {
+	  z[i].setAttribute("aria-expanded", "false");
+	}
+	
+	
+	var id = Math.floor(Math.random() * 1000);
 
     var currentDate = new Date(),
         day = currentDate.getDate(),
@@ -378,6 +397,8 @@ function addIssues() {
     }, 300);
 
     $("#new-issues").append(issue);
+	
+	
 }
 
 let currentID = 1;
