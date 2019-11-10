@@ -460,6 +460,14 @@
     }
 
     function appendProblemDesc(id) {
+        
+        var y = document.getElementById('accordion-header' + id).className;
+		if (y == "accordion") {
+			null;
+		} else {
+			collapse_all();
+		}
+        
         const problemDesc = document.getElementById('problem-desc' + id).value;
 
         $('#accordion-header' + id).empty();
