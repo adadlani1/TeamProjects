@@ -214,7 +214,7 @@ function updateTable(records) {
     $("#header").empty().append(
         "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th> <th>Telephone</th>" +
         "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
-        "<th>specialist To</th> </tr>");
+        "<th>Assigned Specialist</th> </tr>");
     $("#i-table").empty()
 
     var keys = ["problem_id", "name", "dept", "job", "telephone", "problem_desc", "problem_type", "sub_type", "device_type", "specialist"];
@@ -333,7 +333,7 @@ function addIssues() {
         "                        <div class=\"container\">\n" +
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-6\">\n" +
-        "                                    <label for=\"software\">Software:</label>\n" +
+        "                                    <label for=\"software\">Software Name:</label>\n" +
         "                                    <select class=\"form-control\" id=\"software\">\n" +
         "                                        <option value=\"\">Software 1</option>\n" +
         "                                        <option value=\"\">Software 2</option>\n" +
@@ -344,13 +344,21 @@ function addIssues() {
         "                                        <option value=\"\">Software 7</option>\n" +
         "                                    </select>\n" +
         "                                </div>\n" +
+        "                                <div class=\"col-3\">\n" +
+        "                                    <label for=\"software-version\">Version:</label>\n" +
+        "                                    <input class=\"form-control\" id=\"software-version\" type=\"text\">\n" +
+        "                                </div>\n" +
+        "                                <div class=\"col-3\">\n" +
+        "                                    <label for=\"software-date\">Expiry Date:</label>\n" +
+        "                                    <input class=\"form-control\" id=\"software-date\" type=\"text\">\n" +
+        "                                </div>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
         "                        <br/>\n" +
         "                        <div class=\"container\">\n" +
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-3\">\n" +
-        "                                    <label for=\"device-type\">Device: </label>\n" +
+        "                                    <label for=\"device-type\">Device Type: </label>\n" +
         "                                    <select id=\"device-type\" class=\"form-control d-inline\">\n" +
         "                                        <option value=\"\">Laptop</option>\n" +
         "                                        <option value=\"\">PC</option>\n" +
@@ -361,16 +369,16 @@ function addIssues() {
         "                                    </select>\n" +
         "                                </div>\n" +
         "                                <div class=\"col-3\">\n" +
-        "                                    <label for=\"serial-no\">Serial Number:</label>\n" +
-        "                                    <input class=\"form-control\" id=\"serial-no\" type=\"text\">\n" +
-        "                                </div>\n" +
-        "                                <div class=\"col-3\">\n" +
         "                                    <label for=\"make\">Make:</label>\n" +
         "                                    <input class=\"form-control\" id=\"make\" type=\"text\">\n" +
         "                                </div>\n" +
         "                                <div class=\"col-3\">\n" +
         "                                    <label for=\"model\">Model:</label>\n" +
         "                                    <input class=\"form-control\" id=\"model\" type=\"text\">\n" +
+        "                                </div>\n" +
+        "                                <div class=\"col-3\">\n" +
+        "                                    <label for=\"serial-no\">Serial Number:</label>\n" +
+        "                                    <input class=\"form-control\" id=\"serial-no\" type=\"text\">\n" +
         "                                </div>\n" +
         "                            </div>\n" +
         "                        </div>\n" +

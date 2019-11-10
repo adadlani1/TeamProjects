@@ -173,8 +173,8 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-6">
-                                    <label for="software">Software:</label>
-                                    <select class="form-control" id="software">
+                                    <label for="software">Software Name:</label>
+                                    <select class="form-control d-inline" id="software">
                                         <option value="">Software 1</option>
                                         <option value="">Software 2</option>
                                         <option value="">Software 3</option>
@@ -184,13 +184,21 @@
                                         <option value="">Software 7</option>
                                     </select>
                                 </div>
+                                <div class="col-3">
+                                    <label for="software-version">Version:</label>
+                                    <input class="form-control" id="software-version" type="text">
+                                </div>
+                                <div class="col-3">
+                                    <label for="software-date">Expiry Date:</label>
+                                    <input class="form-control" id="software-date" type="text">
+                                </div>
                             </div>
                         </div>
                         <br/>
                         <div class="container">
                             <div class="row">
                                 <div class="col-3">
-                                    <label for="device-type">Device: </label>
+                                    <label for="device-type">Device Type: </label>
                                     <select id="device-type" class="form-control d-inline">
                                         <option value="">Laptop</option>
                                         <option value="">PC</option>
@@ -201,16 +209,16 @@
                                     </select>
                                 </div>
                                 <div class="col-3">
-                                    <label for="serial-no">Serial Number:</label>
-                                    <input class="form-control" id="serial-no" type="text">
-                                </div>
-                                <div class="col-3">
                                     <label for="make">Make:</label>
                                     <input class="form-control" id="make" type="text">
                                 </div>
                                 <div class="col-3">
                                     <label for="model">Model:</label>
                                     <input class="form-control" id="model" type="text">
+                                </div>
+                                <div class="col-3">
+                                    <label for="serial-no">Serial Number:</label>
+                                    <input class="form-control" id="serial-no" type="text">
                                 </div>
                             </div>
                         </div>
