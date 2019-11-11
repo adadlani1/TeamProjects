@@ -12,306 +12,316 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </head>
+
 <body onload="addIssues()">
 
-<nav class="navbar bg-dark top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png"
-                                                                alt="logo">
-                Make-IT-All Helpdesk
+    <nav class="navbar bg-dark top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png" alt="logo">
+                    Make-IT-All Helpdesk
+                </div>
             </div>
-        </div>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="showDropdowns('notifications')" id="noti-btn">
-                        <img src="../open-iconic-master/png/bell-3x.png" alt="">
-                        <br> <a style="font-size: 9pt;" id="text">
-                        Notifications
-                    </a>
-                    </button>
-                    <div class="dropdown-content" id="notifications">
-                        <a href="">
-                            <h5>Problem Type: Printer</h5>
-                            <p>Printer is not responding</p>
-                        </a>
-                        <a href="">
-                            <h5>Problem Type: Hardware</h5>
-                            <p>Mike Hunt is hard</p>
-                        </a>
-                        <a href="">
-                            <h5>Problem Type: Software</h5>
-                            <p>Windows keeps freezing</p>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <a href="graphs.html">
-                        <button class="dropbtn" onclick="window.location = 'graphs.html'">
-                            <img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a
-                                style="font-size: 9pt">
-                            Analysis
-                        </a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="showDropdowns('notifications')" id="noti-btn">
+                            <img src="../open-iconic-master/png/bell-3x.png" alt="">
+                            <br> <a style="font-size: 9pt;" id="text">
+                                Notifications
+                            </a>
                         </button>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
-                            src="../Flags-Icon-Set/24x24/GB.png" alt="" id="flag">
-                        <br> <a style="font-size: 9pt;" id="text1">
-                            Language - English
-                        </a>
-                    </button>
-                    <div class="dropdown-content" id="country" style="max-width: 200px">
-                        <a href="javascript:changeLanguage('DE', 'Deutsche', 'CET')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> - Deutsche</p>
-                        </a>
-                        <a href="javascript:changeLanguage('GB', 'English', 'UTC')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> - English</p>
-                        </a>
-                        <a href="javascript:changeLanguage('JP', '日本語', 'JST')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
-                        </a>
-                        <a href="javascript:changeLanguage('SA', 'عربى', 'AST')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> - عربى </p>
-                        </a>
-
+                        <div class="dropdown-content" id="notifications">
+                            <a href="">
+                                <h5>Problem Type: Printer</h5>
+                                <p>Printer is not responding</p>
+                            </a>
+                            <a href="">
+                                <h5>Problem Type: Hardware</h5>
+                                <p>Mike Hunt is hard</p>
+                            </a>
+                            <a href="">
+                                <h5>Problem Type: Software</h5>
+                                <p>Windows keeps freezing</p>
+                            </a>
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li class='nav-item'>
-                <div class="">
-                    <!-- <a href="../index.html"></a> -->
-                    <!-- <button class="dropbtn" onclick="window.location = '../index.html'"> -->
-                    <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
-                        <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
-                        <br> <a
-                            style="font-size: 9pt">
-                        Logout
-                    </a>
-                    </button>
-                    </a>
-                </div>
-            </li>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a href="graphs.html">
+                            <button class="dropbtn" onclick="window.location = 'graphs.html'">
+                                <img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a
+                                    style="font-size: 9pt">
+                                    Analysis
+                                </a>
+                            </button>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
+                                src="../Flags-Icon-Set/24x24/GB.png" alt="" id="flag">
+                            <br> <a style="font-size: 9pt;" id="text1">
+                                Language - English
+                            </a>
+                        </button>
+                        <div class="dropdown-content" id="country" style="max-width: 200px">
+                            <a href="javascript:changeLanguage('DE', 'Deutsche', 'CET')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> -
+                                    Deutsche</p>
+                            </a>
+                            <a href="javascript:changeLanguage('GB', 'English', 'UTC')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> - English
+                                </p>
+                            </a>
+                            <a href="javascript:changeLanguage('JP', '日本語', 'JST')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
+                            </a>
+                            <a href="javascript:changeLanguage('SA', 'عربى', 'AST')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> -
+                                    عربى </p>
+                            </a>
+
+                        </div>
+                    </div>
+                </li>
+                <li class='nav-item'>
+                    <div class="">
+                        <!-- <a href="../index.html"></a> -->
+                        <!-- <button class="dropbtn" onclick="window.location = '../index.html'"> -->
+                        <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                            <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                            <br> <a style="font-size: 9pt">
+                                Logout
+                            </a>
+                        </button>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div>
+        <ul class="breadcrumb">
+            <li><u style='cursor: pointer;' onclick="window.history.back()">Dashboard</u></li>
+            <li>New Issue</li>
         </ul>
     </div>
-</nav>
-<div>
-    <ul class="breadcrumb">
-        <li><u style='cursor: pointer;' onclick="window.history.back()">Dashboard</u></li>
-        <li>New Issue</li>
-    </ul>
-</div>
 
-<div id="accordion">
-    
-</div>
-<div id="new-issues">
-</div>
-<br>
-<div class="container">
-    <div class="row form-group text-center">
-        <div class="col-6">
-            <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal'
+    <div id="accordion">
+
+    </div>
+    <div id="new-issues">
+    </div>
+    <br>
+    <div class="container">
+        <div class="row form-group text-center">
+            <div class="col-6">
+                <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal'
                     onclick="redirect()">
-                Save
-            </button>
-        </div>
-        <!-- <div class="col-4" style="text-align: center">
+                    Save
+                </button>
+            </div>
+            <!-- <div class="col-4" style="text-align: center">
             <span>Status: </span><label id="status">Not yet submitted</label>
         </div> -->
-        <div class="col-6">
-            <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
-                issue
-            </button>
-        </div>
-    </div>
-</div>
-
-
-<!--Solution Provided Modal -->
-<div class="modal fade" id="solution-provided-modal1" tabindex="-1" role="dialog"
-     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 id="exampleModalLongTitle">Solution Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+            <div class="col-6">
+                <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
+                    issue
                 </button>
             </div>
-            <div class="modal-body">
+        </div>
+    </div>
 
-                <label for="solution">How was the problem solved?</label>
-                <textarea id="solution" class="form-control" type="text" placeholder="Notes"
-                          style="height:100px" required></textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+
+    <!--Solution Provided Modal -->
+    <div class="modal fade" id="solution-provided-modal1" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="exampleModalLongTitle">Solution Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <label for="solution">How was the problem solved?</label>
+                    <textarea id="solution" class="form-control" type="text" placeholder="Notes" style="height:100px"
+                        required></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save
+                        changes</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- Refer to specialist modal -->
-<div class="modal fade" id="refer-to-specialist-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <!-- Refer to specialist modal -->
+    <div class="modal fade" id="refer-to-specialist-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <h5>Specialists</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-            <div class="modal-body custom-checkbox">
-                <div class="custom-control  mb-3" style="margin-bottom: 20px;">
-                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="bertCheck" name="checkbox">
-                    <label class="custom-control-label" for="bertCheck"><h4>
-                        Bert
-                    </h4>
-                        <p>Location: United Kingdom</p>
-                    </label>
-                    <button style="float: right;" value="0" id="specialist-1"
-                            class="btn btn-success">
-                        No of Jobs: 0
-                    </button>
-                    <div class="tasks" id="tasks-1"></div>
-
+                <div class="modal-header">
+                    <h5>Specialists</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="claraCheck" name="checkbox">
-                    <label class="custom-control-label" for="claraCheck"><h4>
-                        Clara
-                    </h4>
-                        <p>Location: United Kingdom</p>
-                    </label>
-                    <button style="float: right;" value="1" id="specialist-2"
+                <div class="modal-body custom-checkbox">
+                    <div class="custom-control  mb-3" style="margin-bottom: 20px;">
+                        <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input"
+                            id="bertCheck" name="checkbox">
+                        <label class="custom-control-label" for="bertCheck">
+                            <h4>
+                                Bert
+                            </h4>
+                            <p>Location: United Kingdom</p>
+                        </label>
+                        <button style="float: right;" value="0" id="specialist-1" class="btn btn-success">
+                            No of Jobs: 0
+                        </button>
+                        <div class="tasks" id="tasks-1"></div>
+
+                    </div>
+                    <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                        <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input"
+                            id="claraCheck" name="checkbox">
+                        <label class="custom-control-label" for="claraCheck">
+                            <h4>
+                                Clara
+                            </h4>
+                            <p>Location: United Kingdom</p>
+                        </label>
+                        <button style="float: right;" value="1" id="specialist-2"
                             class="specialists btn btn-success">No. of Jobs: 1
-                    </button>
-                    <div class="tasks" id="tasks-2"></div>
+                        </button>
+                        <div class="tasks" id="tasks-2"></div>
+                    </div>
+                    <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                        <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input"
+                            id="jimCheck" name="checkbox">
+                        <label class="custom-control-label" for="jimCheck">
+                            <h4>
+                                Jim
+                            </h4>
+                            <p>Location: Saudi Arabia</p>
+                        </label>
+                        <button style="float: right;" value="5" id="specialist-3" class="specialists btn btn-danger">
+                            No. of Jobs: 5
+                        </button>
+                        <div class="tasks" id="tasks-3"></div>
+                    </div>
+                    <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                        <input type="radio" class="specialist custom-control-input" id="timCheck" name="checkbox"
+                            disabled>
+                        <label class="custom-control-label" for="timCheck">
+                            <h4>
+                                Tim [Unavailable]
+                            </h4>
+                            <p>Location: Saudi Arabia</p>
+                        </label>
+                        <button style="float: right;" value="3" id="specialist-4" class="specialists btn btn-warning"
+                            disabled> No. of Jobs: 3
+                        </button>
+                        <div class="tasks" id="tasks-4"></div>
+                    </div>
                 </div>
-                <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="jimCheck" name="checkbox">
-                    <label class="custom-control-label" for="jimCheck"><h4>
-                        Jim
-                    </h4>
-                        <p>Location: Saudi Arabia</p>
-                    </label>
-                    <button style="float: right;" value="5" id="specialist-3"
-                            class="specialists btn btn-danger"> No. of Jobs: 5
-                    </button>
-                    <div class="tasks" id="tasks-3"></div>
-                </div>
-                <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="radio" class="specialist custom-control-input" id="timCheck" name="checkbox" disabled>
-                    <label class="custom-control-label" for="timCheck"><h4>
-                        Tim [Unavailable]
-                    </h4>
-                        <p>Location: Saudi Arabia</p>
-                    </label>
-                    <button style="float: right;" value="3" id="specialist-4"
-                            class="specialists btn btn-warning" disabled> No. of Jobs: 3
-                    </button>
-                    <div class="tasks" id="tasks-4"></div>
-                </div>
-            </div>
-            <div class="modal-footer">
+                <div class="modal-footer">
 
-                <label for="priority">Priority: </label><select class="form-control" id="priority">
-                <option value="3">Normal</option>
-                <option value="2">Important</option>
-                <option value="1">Very Important</option>
-            </select>
-                <button type="submit" id='referButton' class="btn btn-dark" data-dismiss="modal"
-                       disabled onclick="changeColourOfAccord();reflectSpecialist()">Refer
-                </button>
+                    <label for="priority">Priority: </label><select class="form-control" id="priority">
+                        <option value="3">Normal</option>
+                        <option value="2">Important</option>
+                        <option value="1">Very Important</option>
+                    </select>
+                    <button type="submit" id='referButton' class="btn btn-dark" data-dismiss="modal" disabled
+                        onclick="changeColourOfAccord();reflectSpecialist()">Refer
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="logout-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal fade" id="logout-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-            <div class="modal-header">
-                <h5>Are you sure you want to log out?</h5>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-lg btn-dark" onclick="window.location = '../index.html'">Yes
-                </button>
-                <button class="btn btn-lg btn-primary" data-dismiss="modal"
-                >Cancel
-                </button>
+                <div class="modal-header">
+                    <h5>Are you sure you want to log out?</h5>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-lg btn-dark" onclick="window.location = '../index.html'">Yes
+                    </button>
+                    <button class="btn btn-lg btn-primary" data-dismiss="modal">Cancel
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="modal fade" id="confirmation-modal">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Changes have been saved.</h3>
+    <div class="modal fade" id="confirmation-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Changes have been saved.</h3>
+
+                </div>
+                <div class='modal-body'>
+                    <h4>Redirecting you back to dashoard.</h4>
+                </div>
 
             </div>
-            <div class='modal-body'>
-                <h4>Redirecting you back to dashoard.</h4>
-            </div>
-
         </div>
     </div>
-</div>
-</div>
-<script>
-    $(document).keyup(function (e) {
-        if (e.key === "Escape") {
-            document.getElementById('notifications').style = 'none';
-            document.getElementById('country').style = 'none';
+    </div>
+    <script>
+        $(document).keyup(function (e) {
+            if (e.key === "Escape") {
+                document.getElementById('notifications').style = 'none';
+                document.getElementById('country').style = 'none';
+            }
+        });
+        document.getElementById('noti-btn').addEventListener("click", showDropdowns);
+
+        function showDropdowns(nameOfDropdown) {
+            if (nameOfDropdown === 'notifications') {
+                document.getElementById('notifications').style.display = 'block';
+                document.getElementById('country').style.display = 'none';
+            } else if (nameOfDropdown === 'lang') {
+                document.getElementById('country').style.display = 'block';
+                document.getElementById('notifications').style.display = 'none';
+            }
         }
-    });
-    document.getElementById('noti-btn').addEventListener("click", showDropdowns);
 
-    function showDropdowns(nameOfDropdown) {
-        if (nameOfDropdown === 'notifications') {
-            document.getElementById('notifications').style.display = 'block';
-            document.getElementById('country').style.display = 'none';
-        } else if (nameOfDropdown === 'lang') {
-            document.getElementById('country').style.display = 'block';
-            document.getElementById('notifications').style.display = 'none';
+        function appendProblemDesc(id) {
+
+            saveButtonID(id);
+            var y = document.getElementById('accordion-header' + id).className;
+            if (y == "accordion") {
+                null;
+            } else {
+                collapse_all();
+            }
+
+            const problemDesc = document.getElementById('problem-desc' + id).value;
+
+            $('#accordion-header' + id).empty();
+            $('#accordion-header' + id).append("Problem Description: " + problemDesc);
         }
-    }
 
-    function appendProblemDesc(id) {
-        
-		saveButtonID(id);
-        var y = document.getElementById('accordion-header' + id).className;
-		if (y == "accordion") {
-			null;
-		} else {
-			collapse_all();
-		}
-        
-        const problemDesc = document.getElementById('problem-desc' + id).value;
-
-        $('#accordion-header' + id).empty();
-        $('#accordion-header' + id).append("Problem Description: " + problemDesc);
-    }
-
-    function changeColourOfAccord() {
-        let id = returnCurrentID();
-        const priorityLevel = document.getElementById('priority').value;
-        if (priorityLevel === "1") {
-            $('#accordion-header' + id).css('background', '#f77b7b');
-        } else if (priorityLevel === "2")
-            $('#accordion-header' + id).css('background', '#f5b367');
-    }
-</script>
-<div id="bottom"></div>
-<!-- Ends here -->
+        function changeColourOfAccord() {
+            let id = returnCurrentID();
+            const priorityLevel = document.getElementById('priority').value;
+            if (priorityLevel === "1") {
+                $('#accordion-header' + id).css('background', '#f77b7b');
+            } else if (priorityLevel === "2")
+                $('#accordion-header' + id).css('background', '#f5b367');
+        }
+    </script>
+    <div id="bottom"></div>
+    <!-- Ends here -->
 </body>
+
 </html>

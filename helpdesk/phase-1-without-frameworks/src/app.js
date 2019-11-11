@@ -8,31 +8,31 @@ const Roles = [{
     role: 'Specialist'
 }];
 
-function makeReferButtonEnable(){
+function makeReferButtonEnable() {
     $('#referButton').removeAttr('disabled');
-  }
+}
 
-function disableButton(){
+function disableButton() {
     document.getElementById("referButton").disabled = true
 }
 
-function unclickAllButtons(){
+function unclickAllButtons() {
     $('.specialist').prop('checked', false)
 }
 
-  var user;
-  const specialists = ['bertCheck','claraCheck','jimCheck','timCheck']
- function reflectSpecialist(){
-    if($('.specialist').is(':checked')){
-        specialists.forEach((specialist)=>{
-            if($(`#${specialist}`).is(':checked')){
-               // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
-               document.getElementById("status"+currentID).innerHTML = `Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`;
-            //    document.getElementById("myBtn").disabled = true
+var user;
+const specialists = ['bertCheck', 'claraCheck', 'jimCheck', 'timCheck']
+function reflectSpecialist() {
+    if ($('.specialist').is(':checked')) {
+        specialists.forEach((specialist) => {
+            if ($(`#${specialist}`).is(':checked')) {
+                // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
+                document.getElementById("status" + currentID).innerHTML = `Referred to ${specialist.toUpperCase().substring(0, specialist.length - 5)}`;
+                //    document.getElementById("myBtn").disabled = true
             }
         })
     }
- }
+}
 
 /*  Data    */
 
@@ -54,64 +54,64 @@ const data = [{
     "priority": "Very Important",
     "location": "",
     "notes": ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
-    "called back with the same problem. Referred to Bert."]
+        "called back with the same problem. Referred to Bert."]
 },
-    {
-        "problem_id": 11,
-        "problem_desc": "AutoCAD is being unresponsive",
-        "problem_type": " Software",
-        "telephone": "123456789",
-        "device_type": "Laptop",
-        "software": "AutoCAD",
-        "brand": "Lenovo",
-        "model": "X1 Carbon",
-        "serial_no": "12345",
-        "name": "Berlinia",
-        "dept": "Tech Support",
-        "job": "IT Technician",
-        "specialist": "Bert",
-        "time": "06/11/2019 22:43",
-        "priority": "Important",
-        "location": "",
-        "notes": ["xyz happened"]
-    },
-    {
-        "problem_id": 100,
-        "problem_desc": "RFID scanner does not work",
-        "problem_type": "Hardware",
-        "telephone": "56574839",
-        "device_type": "Scanner",
-        "software": "N/A",
-        "brand": "Samsung",
-        "model": "ScanID",
-        "serial_no": "SA940",
-        "name": "Cristiano Ronaldo",
-        "dept": "Director",
-        "job": "Sporting Director",
-        "specialist": "",
-        "time": "03/10/2019 10:32",
-        "priority": "",
-        "location": "",
-        "notes": ["Told to restart device"]
-    },
+{
+    "problem_id": 11,
+    "problem_desc": "AutoCAD is being unresponsive",
+    "problem_type": " Software",
+    "telephone": "123456789",
+    "device_type": "Laptop",
+    "software": "AutoCAD",
+    "brand": "Lenovo",
+    "model": "X1 Carbon",
+    "serial_no": "12345",
+    "name": "Berlinia",
+    "dept": "Tech Support",
+    "job": "IT Technician",
+    "specialist": "Bert",
+    "time": "06/11/2019 22:43",
+    "priority": "Important",
+    "location": "",
+    "notes": ["xyz happened"]
+},
+{
+    "problem_id": 100,
+    "problem_desc": "RFID scanner does not work",
+    "problem_type": "Hardware",
+    "telephone": "56574839",
+    "device_type": "Scanner",
+    "software": "N/A",
+    "brand": "Samsung",
+    "model": "ScanID",
+    "serial_no": "SA940",
+    "name": "Cristiano Ronaldo",
+    "dept": "Director",
+    "job": "Sporting Director",
+    "specialist": "",
+    "time": "03/10/2019 10:32",
+    "priority": "",
+    "location": "",
+    "notes": ["Told to restart device"]
+},
 ];
 
 var user;
 
-const jobsForClara = [{id: '324', description: 'Problem with printer'}];
+const jobsForClara = [{ id: '324', description: 'Problem with printer' }];
 
 const jobsForJim = [
-    {id: '123', description: 'Coffee machine broke'},
-    {id: '543', description: 'PC not working'},
-    {id: '678', description: 'Scanner not scanning complete page'},
-    {id: '989', description: 'Pen drive not recognised'}
+    { id: '123', description: 'Coffee machine broke' },
+    { id: '543', description: 'PC not working' },
+    { id: '678', description: 'Scanner not scanning complete page' },
+    { id: '989', description: 'Pen drive not recognised' }
 ];
 
-const jobsForTim = [{id: '786', description: 'Wifi router broke'},
-    {id: '564', description: 'Hadoop not working'},
-    {id: '198', description: 'Speakers grounded'},
-    {id: '875', description: 'Powerpoint not opening'},
-    {id: '444', description: 'VS code crashes after adding extensions'}];
+const jobsForTim = [{ id: '786', description: 'Wifi router broke' },
+{ id: '564', description: 'Hadoop not working' },
+{ id: '198', description: 'Speakers grounded' },
+{ id: '875', description: 'Powerpoint not opening' },
+{ id: '444', description: 'VS code crashes after adding extensions' }];
 
 $(document).ready(function () {
     var specialistTaskObject;
@@ -152,22 +152,30 @@ if (minutes < 10) {
 
 var time = hours + ":" + minutes;
 
-var dateTime = date + " " + time + " " +timeZoneGlobalVar;
+var dateTime = date + " " + time + " " + timeZoneGlobalVar;
 
 
 
-const employeesData = [{name: 'Select Caller', jobTitle: '', telephone: '', department: ''},
-    {name: 'Anmol', jobTitle: 'Worker-1', telephone: '07828228282', department: 'department-1'},
-    {name: 'Bert', jobTitle: 'Worker-2', telephone: '07262262662', department: 'department-2'},
-    {name: 'Claire', jobTitle: 'Worker-3', telephone: '0764581721', department: 'department-3'},
-    {name: 'Alice', jobTitle: 'Worker-4', telephone: '07648261235', department: 'department-4'},
-    {name: 'Kostas', jobTitle: 'Worker-5', telephone: '0782364528', department: 'department-5'}]
+const employeesData = [{ name: 'Select Caller', jobTitle: '', telephone: '', department: '' },
+{ name: 'Anmol', jobTitle: 'Worker-1', telephone: '07828228282', department: 'department-1' },
+{ name: 'Bert', jobTitle: 'Worker-2', telephone: '07262262662', department: 'department-2' },
+{ name: 'Claire', jobTitle: 'Worker-3', telephone: '0764581721', department: 'department-3' },
+{ name: 'Alice', jobTitle: 'Worker-4', telephone: '07648261235', department: 'department-4' },
+{ name: 'Kostas', jobTitle: 'Worker-5', telephone: '0782364528', department: 'department-5' }]
 
 function redirect() {
     setTimeout(() => {
         window.location = 'dashboard.html'
     }, 2000)
 }
+
+function redirectForSpecialist() {
+    setTimeout(() => {
+        window.location = 'Specialist_Dashboard.html'
+    }, 2000)
+}
+
+
 
 function fillData() {
     const caller = $('#callerID').val()
@@ -271,22 +279,23 @@ $(document).ready(function () {
     $('#dateTime').append(dateTime);
 });
 
-function collapse_all(){
+function collapse_all() {
 
-	var x = document.getElementsByClassName("collapse show");
-	for (i = 0; i < x.length; i++) {
-	  x[i].className = "collapse";
-	}
+    var x = document.getElementsByClassName("collapse show");
+    for (i = 0; i < x.length; i++) {
+        x[i].className = "collapse";
+    }
 
-	var y = document.getElementsByClassName("accordion");
-	for (i = 0; i < y.length; i++) {
-	  y[i].className = "accordion collapsed";
-	}
+    var y = document.getElementsByClassName("accordion");
+    for (i = 0; i < y.length; i++) {
+        y[i].className = "accordion collapsed";
+    }
 
-	var z = document.getElementsByClassName("accordion");
-	for (i = 0; i < z.length; i++) {
-	  z[i].setAttribute("aria-expanded", "false");
-	}
+    var z = document.getElementsByClassName("accordion");
+    for (i = 0; i < z.length; i++) {
+        z[i].setAttribute("aria-expanded", "false");
+    }
+
 
 }
 var id;
@@ -295,6 +304,7 @@ function addIssues() {
 
     collapse_all();
     collapse_all();
+
 
     id = Math.floor(Math.random() * 1000);
 
@@ -314,8 +324,10 @@ function addIssues() {
         "                <div class=\"col-3\" style=\"text-align: center\">\n" +
         "                    <span>Problem ID: </span><label id=\"problem-id\">" + id + "</label>\n" +
         "                </div>\n" +
+
         " <div class='col-3' style='text-align: center'><span>Operator: Alice </span></div>"+
         `<div class='col-3' style='text-align: center'><span>Status:` + " "+`</span><label id='status${id}'> Not yet submitted</label></div>`+
+
         "                <div class=\"col-3\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
         "                </div>\n" +
         "            </div>\n" +
@@ -330,7 +342,7 @@ function addIssues() {
         "                                <div class=\"col-6\">\n" +
         "                                    <label for=\"callerID\">Caller: </label>\n" +
         "                                    <select class=\"form-control form-size\" name=\"callerID\" id=\"callerID\" onclick='fillData()'>\n" +
-        "                                        <option>Select Caller</option>"+
+        "                                        <option>Select Caller</option>" +
         "                                        <option>Anmol</option>\n" +
         "                                        <option>Alice</option>\n" +
         "                                        <option>Bert</option>\n" +
@@ -483,6 +495,7 @@ function addIssues() {
         "                                    <label for=\"notes\">Notes:</label>\n" +
         "                                    <textarea id=\"notes\" class=\"form-control\" type=\"text\" placeholder=\"Notes\"\n" +
         "                                              style=\"height:100px\"></textarea>\n" +
+
         "                                </div>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
@@ -539,7 +552,7 @@ function changeLanguage(flag, language, timezone) {
     document.getElementById('text1').innerText = language;
     timeZoneGlobalVar = timezone;
 
-    if (language === 'Deutsche'){
+    if (language === 'Deutsche') {
         document.getElementById('new-issue-btn').innerHTML = '<img\n' +
             '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
             '                            <br />Nueves Problem';
@@ -565,7 +578,7 @@ function changeLanguage(flag, language, timezone) {
 
     }
 
-    if (language === 'English'){
+    if (language === 'English') {
         document.getElementById('new-issue-btn').innerHTML = '<img\n' +
             '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
             '                            <br />New Issue';
@@ -589,7 +602,7 @@ function changeLanguage(flag, language, timezone) {
         document.getElementById('navbar-text').innerHTML = '<img src="../logo.png"\n' +
             '                                                                          alt="logo"> Make-IT-All Helpdesk'
     }
-    if (language === '日本語'){
+    if (language === '日本語') {
         document.getElementById('new-issue-btn').innerHTML = '<img\n' +
             '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
             '                            <br />新刊';
@@ -616,7 +629,7 @@ function changeLanguage(flag, language, timezone) {
     }
 
 
-    if (language === 'عربى'){
+    if (language === 'عربى') {
         document.getElementById('new-issue-btn').innerHTML = '<img\n' +
             '                                src="../open-iconic-master/png/plus-8x.png" alt="wrench">\n' +
             '                            <br />مشكلة جديدة';
