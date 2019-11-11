@@ -40,7 +40,6 @@ const data = [{
     "problem_id": 2,
     "problem_desc": "Windows 10 is being unresponsive",
     "problem_type": "Software",
-    "sub_type": "",
     "telephone": "01616286485",
     "device_type": "Laptop",
     "software": "Windows 10",
@@ -61,7 +60,6 @@ const data = [{
         "problem_id": 11,
         "problem_desc": "AutoCAD is being unresponsive",
         "problem_type": " Software",
-        "sub_type": "",
         "telephone": "123456789",
         "device_type": "Laptop",
         "software": "AutoCAD",
@@ -81,7 +79,6 @@ const data = [{
         "problem_id": 100,
         "problem_desc": "RFID scanner does not work",
         "problem_type": "Hardware",
-        "sub_type": "",
         "telephone": "56574839",
         "device_type": "Scanner",
         "software": "N/A",
@@ -238,11 +235,11 @@ function search() {
 function updateTable(records) {
     $("#header").empty().append(
         "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th> <th>Telephone</th>" +
-        "<th> Problem Description</th>  <th>Problem Type</th> <th>Sub Problem Type</th> <th>Device Type</th>" +
+        "<th> Problem Description</th>  <th>Problem Type</th> <th>Device Type</th>" +
         "<th>Assigned Specialist</th> </tr>");
     $("#i-table").empty()
 
-    var keys = ["problem_id", "name", "dept", "job", "telephone", "problem_desc", "problem_type", "sub_type", "device_type", "specialist"];
+    var keys = ["problem_id", "name", "dept", "job", "telephone", "problem_desc", "problem_type", "device_type", "specialist"];
 
     for (var i = 0; i < records.length; i++) {
         var classname = "i-row-" + i;
