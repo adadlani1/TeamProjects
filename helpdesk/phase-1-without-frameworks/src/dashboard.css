@@ -46,6 +46,14 @@ ul.breadcrumb li a:hover {
     color: black;
 }
 
+.dropdown-content a:hover {
+    background-color: #eeeeee;
+    }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    }
+    
 .dropbtn {
     background-color: #343a40;
     color: white;

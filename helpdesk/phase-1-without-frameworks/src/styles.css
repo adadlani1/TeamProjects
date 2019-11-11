@@ -23,3 +23,11 @@ img{
 .pointer{
   cursor: pointer;
 }
+
+.dropdown-content a:hover {
+  background-color: #000000;
+  }
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  }
