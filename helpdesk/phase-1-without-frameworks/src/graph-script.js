@@ -67,7 +67,7 @@ $(document).ready(function () {
 function generateSpecialistChart(issues) {
   event.preventDefault()
   $('#specialistPieChart').remove();
-  $('body').append('<canvas class="d-inline-block" style="max-width: 400px; " id="specialistPieChart"><canvas>');
+  $('#sss').append('<canvas class="d-inline-block" style="max-width: 400px; " id="specialistPieChart"><canvas>');
   const specialistPieChartObject = document.getElementById('specialistPieChart').getContext('2d');
   const issuesSolved = issues.getAttribute('data-solved')
   const issuesReferred = issues.getAttribute('data-referred')
