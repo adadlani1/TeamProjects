@@ -12,331 +12,357 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </head>
+
 <body onload="start()">
-<nav class="navbar bg-dark top">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png"
-                                                                                 alt="logo">
-                Make-IT-All Helpdesk
+    <nav class="navbar bg-dark top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-brand" style="color: white; font-size: 20pt"><img src="../logo.png" alt="logo">
+                    Make-IT-All Helpdesk
+                </div>
             </div>
-        </div>
-        <ul class="nav justify-content-end">
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="showDropdowns('notifications')" id="noti-btn">
-                        <img src="../open-iconic-master/png/bell-3x.png" alt="">
-                        <br> <a style="font-size: 9pt;" id="text">
-                        Notifications
-                    </a>
-                    </button>
-                    <div class="dropdown-content" id="notifications">
-                        <a href="">
-                            <h5>Problem Type: Printer</h5>
-                            <p>Printer is not responding</p>
-                        </a>
-                        <a href="">
-                            <h5>Problem Type: Hardware</h5>
-                            <p>Mike Hunt is hard</p>
-                        </a>
-                        <a href="">
-                            <h5>Problem Type: Software</h5>
-                            <p>Windows keeps freezing</p>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <a href="graphs.html">
-                        <button class="dropbtn" onclick="window.location = 'graphs.html'">
-                            <img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a
-                                style="font-size: 9pt">
-                            Analysis
-                        </a>
+            <ul class="nav justify-content-end">
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="showDropdowns('notifications')" id="noti-btn">
+                            <img src="../open-iconic-master/png/bell-3x.png" alt="">
+                            <br> <a style="font-size: 9pt;" id="text">
+                                Notifications
+                            </a>
                         </button>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <div class="dropdown">
-                    <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
-                            src="../Flags-Icon-Set/24x24/GB.png" alt="" id="flag">
-                        <br> <a style="font-size: 9pt;" id="text1">
-                            Language - English
-                        </a>
-                    </button>
-                    <div class="dropdown-content" id="country" style="max-width: 200px">
-                        <a href="javascript:changeLanguage('DE', 'Deutsche', 'CET')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> - Deutsche</p>
-                        </a>
-                        <a href="javascript:changeLanguage('GB', 'English', 'UTC')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> - English</p>
-                        </a>
-                        <a href="javascript:changeLanguage('JP', '日本語', 'JST')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
-                        </a>
-                        <a href="javascript:changeLanguage('SA', 'عربى', 'AST')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> - عربى </p>
-                        </a>
-
-                    </div>
-                </div>
-            </li>
-            <li class='nav-item'>
-                <div class="">
-                    <!-- <a href="../index.html"></a> -->
-                    <!-- <button class="dropbtn" onclick="window.location = '../index.html'"> -->
-                    <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
-                        <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
-                        <br> <a
-                            style="font-size: 9pt">
-                        Logout
-                    </a>
-                    </button>
-                    </a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
-<ul class="breadcrumb">
-    <li><a href="Specialist_Dashboard.html"> Specialist Dashboard </a></li>
-    <li>Existing Issue Details</li>
-</ul>
-<div class="container">
-    <div class="row">
-        <div class="col-4" style="text-align: center">
-            <span>Problem ID: </span><label id="problem_id">.</label>
-        </div>
-        <div class="col-4" style="text-align: center">
-            <span>Status: </span><label id="status">.</label>
-        </div>
-        <div class="col-4" style="text-align: center"><span>Call: </span> <label id="datetime">.</label>
-        </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <form id="issue">
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="callerID">Caller: </label>
-                            <select class="form-control form-size" name="callerID" id="callerID" disabled>
-                                <option>Default Name</option>
-                            </select>
-                        </div>
-                        <div class="col-6">
-                            <label for="job-title">Job Title:</label>
-                            <input class="form-control" id="job-title" type="text" readonly>
+                        <div class="dropdown-content" id="notifications">
+                            <a href="">
+                                <h5>Problem Type: Printer</h5>
+                                <p>Printer is not responding</p>
+                            </a>
+                            <a href="">
+                                <h5>Problem Type: Hardware</h5>
+                                <p>Mike Hunt is hard</p>
+                            </a>
+                            <a href="">
+                                <h5>Problem Type: Software</h5>
+                                <p>Windows keeps freezing</p>
+                            </a>
                         </div>
                     </div>
-                </div>
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="telephone">Telephone: </label>
-                            <input type="tel" id="telephone" class="form-control form-size" readonly>
-                        </div>
-                        <div class="col-6">
-                            <label for="department">Department:</label>
-                            <input class="form-control" id="department" type="text" readonly>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="software">Software Name:</label>
-                            <select class="form-control" id="software" disabled>
-
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <label for="software-version">Version:</label>
-                            <input class="form-control" id="software-version" type="text" disabled>
-                        </div>
-                        <div class="col-3">
-                            <label for="software-date">Expiry Date:</label>
-                            <input class="form-control" id="software-date" type="text" disabled>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-3">
-                            <label for="device-type">Device Type: </label>
-                            <select id="device-type" class="form-control d-inline" disabled>
-                                <option value="">Laptop</option>
-                                <option value="">PC</option>
-                                <option value="">Macbook</option>
-                                <option value="">iPad</option>
-                                <option value="">Printer</option>
-                                <option value="">Television</option>
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <label for="make">Make:</label>
-                            <input class="form-control" id="make" type="text" readonly>
-                        </div>
-                        <div class="col-3">
-                            <label for="model">Model:</label>
-                            <input class="form-control" id="model" type="text" readonly>
-                        </div>
-                        <div class="col-3">
-                            <label for="serial-no">Serial Number:</label>
-                            <input class="form-control" id="serial-no" type="text" readonly>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="problem-type">Problem Type: </label>
-                            <select class="form-control" id="problem-type" disabled>
-
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="problem-desc">Problem Description:</label>
-                            <input class="form-control" id="problem-desc" type="text" disabled>
-                        </div>
-                    </div>
-
-                </div>
-                <br/>
-
-                <div class="container">
-                    <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes">
-                        <img src="../open-iconic-master/png/chevron-bottom.png" alt=""> Click to
-                        View Previous notes
-                    </button>
-                    <div class="panell" id="prev-notes">
-                        <p id="previous-notes"></p>
-                    </div>
-                </div>
-
-                <br/>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <label for="notes">Notes:</label>
-                            <textarea id="notes" class="form-control" type="text" placeholder="Notes"
-                                      style="height:100px"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <br/>
-                <div id="new-issues">
-
-                </div>
-                <div class="container">
-                    <div class="row text-center">
-                        <div class="col-4">
-                            <button class="btn btn-outline-info" data-toggle='modal' data-target='#confirmation-modal' onclick="changeStatus({status:'Saved'});redirect()">Save</button>
-                        </div>
-                        <div class="col-4">
-                            <button type="button" id="specialist-button" class="btn btn-outline-info" data-toggle="modal"
-                                    data-target="#refer-to-specialist-modal">
-                                Refer to a Specialist
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a href="graphs.html">
+                            <button class="dropbtn" onclick="window.location = 'graphs.html'">
+                                <img src="../open-iconic-master/png/pie-chart-3x.png" alt="analyse"> <br> <a
+                                    style="font-size: 9pt">
+                                    Analysis
+                                </a>
                             </button>
-                        </div>
-                        <div class="col-4">
-                            <button type="button" class="btn btn-outline-success"
-                            data-toggle='modal' data-target='#confirmation-modal' onclick="changeStatus({status:'Solved and Saved'});redirect()">Provide Solution
-                            </button>
-                        </div>
+                        </a>
                     </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <br/>
-
-    <!-- Modal for specialist code -->
-    <div class="modal fade" id="refer-to-specialist-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h5>Specialists</h5>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <div style="margin-bottom: 20px;">
-                        <button class="btn-outline-dark btn" name="specialists" value="Bert" style="width: 70%">
-                            Bert
-                            <button style="float: right;" value="0" id="specialist-1"
-                                    class="btn btn-success">
-                                No of Jobs: 0
-                            </button>
+                </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
+                                src="../Flags-Icon-Set/24x24/GB.png" alt="" id="flag">
+                            <br> <a style="font-size: 9pt;" id="text1">
+                                Language - English
+                            </a>
                         </button>
-                        <div class="tasks" id="tasks-1"></div>
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <button class="btn btn-outline-dark" name="specialists" value="Clara" style="width: 70%"> Clara
-                            <button style="float: right;" value="1" id="specialist-2"
-                                    class="specialists btn btn-success">No. of Jobs: 1
-                            </button>
-                        </button>
-                        <div class="tasks" id="tasks-2"></div>
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <button class="btn btn-outline-dark" name="specialists" value="Jim" style="width: 70%"> Jim
-                            <button style="float: right;" value="4" id="specialist-3"
-                                    class="specialists btn btn-warning"> No. of Jobs: 4
-                            </button>
-                        </button>
-                        <div class="tasks" id="tasks-3"></div>
-                    </div>
-                    <div style="margin-bottom: 20px;">
-                        <button class="btn btn-outline-dark" name="specialists" value="Tim" style="width: 70%"> Tim
-                            <button style="float: right;" value="5" id="specialist-4"
-                                    class="specialists btn btn-danger"> No. of Jobs: 5
-                            </button>
-                        </button>
-                        <div class="tasks" id="tasks-4"></div>
-                    </div>
-                </div>
-                <div class="modal-footer">
+                        <div class="dropdown-content" id="country" style="max-width: 200px">
+                            <a href="javascript:changeLanguage('DE', 'Deutsche', 'CET')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> -
+                                    Deutsche</p>
+                            </a>
+                            <a href="javascript:changeLanguage('GB', 'English', 'UTC')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> - English
+                                </p>
+                            </a>
+                            <a href="javascript:changeLanguage('JP', '日本語', 'JST')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
+                            </a>
+                            <a href="javascript:changeLanguage('SA', 'عربى', 'AST')">
+                                <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> -
+                                    عربى </p>
+                            </a>
 
-                    <select class="form-control" id="priority">
-                        <option value="3">Normal</option>
-                        <option value="2">Important</option>
-                        <option value="1">Very Important</option>
-                    </select>
-                    <button type="submit" class="btn btn-dark" data-dismiss="modal"
-                            onclick="changeStatus({status:'Referred to a different Specialist'})">Refer
-                    </button>
-                </div>
+                        </div>
+                    </div>
+                </li>
+                <li class='nav-item'>
+                    <div class="">
+                        <!-- <a href="../index.html"></a> -->
+                        <!-- <button class="dropbtn" onclick="window.location = '../index.html'"> -->
+                        <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
+                            <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
+                            <br> <a style="font-size: 9pt">
+                                Logout
+                            </a>
+                        </button>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="breadcrumb">
+        <li><a href="Specialist_Dashboard.html"> Specialist Dashboard </a></li>
+        <li>Existing Issue Details</li>
+    </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-4" style="text-align: center">
+                <span>Problem ID: </span><label id="problem_id">.</label>
+            </div>
+            <div class="col-4" style="text-align: center">
+                <span>Status: </span><label id="status">.</label>
+            </div>
+            <div class="col-4" style="text-align: center"><span>Call: </span> <label id="datetime">.</label>
             </div>
         </div>
     </div>
-    <div class="modal fade" id="logout-modal">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form id="issue">
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="callerID">Caller: </label>
+                                <select class="form-control form-size" name="callerID" id="callerID" disabled>
+                                    <option>Default Name</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <label for="job-title">Job Title:</label>
+                                <input class="form-control" id="job-title" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="telephone">Telephone: </label>
+                                <input type="tel" id="telephone" class="form-control form-size" readonly>
+                            </div>
+                            <div class="col-6">
+                                <label for="department">Department:</label>
+                                <input class="form-control" id="department" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="software">Software Name:</label>
+                                <select class="form-control" id="software" disabled>
+
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <label for="software-version">Version:</label>
+                                <input class="form-control" id="software-version" type="text" disabled>
+                            </div>
+                            <div class="col-3">
+                                <label for="software-date">Expiry Date:</label>
+                                <input class="form-control" id="software-date" type="text" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3">
+                                <label for="device-type">Device Type: </label>
+                                <select id="device-type" class="form-control d-inline" disabled>
+                                    <option value="">Laptop</option>
+                                    <option value="">PC</option>
+                                    <option value="">Macbook</option>
+                                    <option value="">iPad</option>
+                                    <option value="">Printer</option>
+                                    <option value="">Television</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <label for="make">Make:</label>
+                                <input class="form-control" id="make" type="text" readonly>
+                            </div>
+                            <div class="col-3">
+                                <label for="model">Model:</label>
+                                <input class="form-control" id="model" type="text" readonly>
+                            </div>
+                            <div class="col-3">
+                                <label for="serial-no">Serial Number:</label>
+                                <input class="form-control" id="serial-no" type="text" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="problem-type">Problem Type: </label>
+                                <select class="form-control" id="problem-type" disabled>
+
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="problem-desc">Problem Description:</label>
+                                <input class="form-control" id="problem-desc" type="text" disabled>
+                            </div>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div class="container">
+                        <button class="accord" type="button" data-toggle="collapse" data-target="#prev-notes">
+                            <img src="../open-iconic-master/png/chevron-bottom.png" alt=""> Click to
+                            View Previous notes
+                        </button>
+                        <div class="panell" id="prev-notes">
+                            <p id="previous-notes"></p>
+                        </div>
+                    </div>
+
+                    <br />
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <label for="notes">Notes:</label>
+                                <textarea id="notes" class="form-control" type="text" placeholder="Notes"
+                                    style="height:100px"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div id="new-issues">
+
+                    </div>
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <button type="button" class="btn btn-outline-info" data-toggle='modal'
+                                    data-target='#confirmation-modal' onclick="redirectForSpecialist()">Save</button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" id="specialist-button" class="btn btn-outline-info"
+                                    data-toggle="modal" data-target="#refer-to-specialist-modal">
+                                    Refer to a Specialist
+                                </button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-outline-success" data-toggle='modal'
+                                    data-target='#confirmation-modal' onclick="redirectForSpecialist()">Provide
+                                    Solution
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br />
+
+        <!-- Modal for specialist code -->
+        <div class="modal fade" id="refer-to-specialist-modal">
             <div class="modal-dialog">
                 <div class="modal-content">
-        
+
+                    <div class="modal-header">
+                        <h5>Specialists</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body custom-checkbox">
+                        <!-- <div class="custom-control  mb-3" style="margin-bottom: 20px;">
+                            <input type="radio" onclick='makeReferButtonEnable()'
+                                class="specialist custom-control-input" id="bertCheck" name="checkbox">
+                            <label class="custom-control-label" for="bertCheck">
+                                <h4>
+                                    Bert
+                                </h4>
+                                <p>Location: United Kingdom</p>
+                            </label>
+                            <button style="float: right;" value="0" id="specialist-1" class="btn btn-success">
+                                No of Jobs: 0
+                            </button>
+                            <div class="tasks" id="tasks-1"></div>
+
+                        </div> -->
+                        <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                            <input type="radio" onclick='makeReferButtonEnable()'
+                                class="specialist custom-control-input" id="claraCheck" name="checkbox">
+                            <label class="custom-control-label" for="claraCheck">
+                                <h4>
+                                    Clara
+                                </h4>
+                                <p>Location: United Kingdom</p>
+                            </label>
+                            <button style="float: right;" value="1" id="specialist-2"
+                                class="specialists btn btn-success">No. of Jobs: 1
+                            </button>
+                            <div class="tasks" id="tasks-2"></div>
+                        </div>
+                        <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                            <input type="radio" onclick='makeReferButtonEnable()'
+                                class="specialist custom-control-input" id="jimCheck" name="checkbox">
+                            <label class="custom-control-label" for="jimCheck">
+                                <h4>
+                                    Jim
+                                </h4>
+                                <p>Location: Saudi Arabia</p>
+                            </label>
+                            <button style="float: right;" value="5" id="specialist-3"
+                                class="specialists btn btn-danger"> No. of Jobs: 5
+                            </button>
+                            <div class="tasks" id="tasks-3"></div>
+                        </div>
+                        <div class="custom-control mb-3" style="margin-bottom: 20px;">
+                            <input type="radio" class="specialist custom-control-input" id="timCheck" name="checkbox"
+                                disabled>
+                            <label class="custom-control-label" for="timCheck">
+                                <h4>
+                                    Tim [Unavailable]
+                                </h4>
+                                <p>Location: Saudi Arabia</p>
+                            </label>
+                            <button style="float: right;" value="3" id="specialist-4"
+                                class="specialists btn btn-warning" disabled> No. of Jobs: 3
+                            </button>
+                            <div class="tasks" id="tasks-4"></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <label for="priority">Priority: </label><select class="form-control" id="priority">
+                            <option value="3">Normal</option>
+                            <option value="2">Important</option>
+                            <option value="1">Very Important</option>
+                        </select>
+                        <button type="submit" id='referButton' class="btn btn-dark" data-dismiss="modal" disabled
+                            onclick="reflectSpecialistInExistingIssue()">Refer
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="logout-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
                     <div class="modal-header">
                         <h5>Are you sure you want to log out?</h5>
                     </div>
                     <div class="modal-footer">
-                            <button class="btn btn-lg btn-dark" onclick="window.location = '../index.html'">Yes
-                                </button>
-                        <button class="btn btn-lg btn-primary" data-dismiss="modal"
-                        >Cancel
+                        <button class="btn btn-lg btn-dark" onclick="window.location = '../index.html'">Yes
+                        </button>
+                        <button class="btn btn-lg btn-primary" data-dismiss="modal">Cancel
                         </button>
                     </div>
                 </div>
@@ -346,94 +372,107 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                      <h3>Changes have been saved.</h3>
-                       
+                        <h3>Changes have been saved.</h3>
+
                     </div>
                     <div class='modal-body'>
                         <h4>Redirecting you back to dashoard.</h4>
-                    </div>                        
-                   
+                    </div>
+
                 </div>
             </div>
         </div>
-</div>
-<script>
+    </div>
+    <script>
 
-    var acc = document.getElementsByClassName("accord");
-    var i;
+        const specialistsInExistingIssue = ['claraCheck', 'jimCheck', 'timCheck']
+        function reflectSpecialistInExistingIssue() {
+            if ($('.specialist').is(':checked')) {
+                specialistsInExistingIssue.forEach((specialist) => {
+                    if ($(`#${specialist}`).is(':checked')) {
+                        // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
+                        document.getElementById("status").innerHTML = `Referred to ${specialist.toUpperCase().substring(0, specialist.length - 5)}`;
+                        //    document.getElementById("myBtn").disabled = true
+                    }
+                })
+            }
+        }
+        var acc = document.getElementsByClassName("accord");
+        var i;
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+
+        function start() {
+            //Saved id from user-input on existing-issue-search
+            var selected_id = window.localStorage.getItem("id");
+
+            //search through data to find the correct record
+            for (var i = 0; i < data.length; i++) {
+                if (selected_id == data[i]['problem_id'].toString()) {
+
+                    //fills the fields with data in app script
+                    $('#problem_id').text(data[i]['problem_id']);
+                    $('#datetime').text(data[i]['time']);
+                    $('#callerID').html('<option value="">' + data[i]['name'] + '</option>');
+                    $('#job-title[type=text]').val(data[i]['job']);
+                    $('#telephone[type=tel]').val(data[i]['telephone']);
+                    $('#department[type=text]').val(data[i]['dept']);
+                    $('#software').html('<option value="">' + data[i]['software'] + '</option>');
+                    $('#device-type').html('<option value="">' + data[i]['device_type'] + '</option>');
+                    $('#serial-no[type=text]').val(data[i]['serial_no']);
+                    $('#make[type=text]').val(data[i]['brand']);
+                    $('#model[type=text]').val(data[i]['model']);
+                    $('#problem-type').html('<option value="">' + data[i]['problem_type'] + '</option>');
+                    $('#problem-desc').val(data[i]['problem_desc']);
+
+                    if (data[i]['assigned'] != "") {
+                        $('#status').text("Referred");
+                    } else {
+                        $('#status').text("Not Referred");
+                    }
+
+                    //displays all notes for the problem
+                    var notes = data[i]['notes'];
+                    for (var j = 0; j < notes.length; j++) {
+                        $('#previous-notes').append("<p>" + notes[j] + "</p>")
+                    }
+                }
+            }
+
+
+        }
+
+        $(document).keyup(function (e) {
+            if (e.key === "Escape") {
+                document.getElementById('notifications').style = 'none';
+                document.getElementById('country').style = 'none';
             }
         });
-    }
+        document.getElementById('noti-btn').addEventListener("click", showDropdowns);
 
-    function start() {
-        //Saved id from user-input on existing-issue-search
-        var selected_id = window.localStorage.getItem("id");
-
-        //search through data to find the correct record
-        for (var i = 0; i < data.length; i++) {
-            if (selected_id == data[i]['problem_id'].toString()) {
-
-                //fills the fields with data in app script
-                $('#problem_id').text(data[i]['problem_id']);
-                $('#datetime').text(data[i]['time']);
-                $('#callerID').html('<option value="">' + data[i]['name'] + '</option>');
-                $('#job-title[type=text]').val(data[i]['job']);
-                $('#telephone[type=tel]').val(data[i]['telephone']);
-                $('#department[type=text]').val(data[i]['dept']);
-                $('#software').html('<option value="">' + data[i]['software'] + '</option>');
-                $('#device-type').html('<option value="">' + data[i]['device_type'] + '</option>');
-                $('#serial-no[type=text]').val(data[i]['serial_no']);
-                $('#make[type=text]').val(data[i]['brand']);
-                $('#model[type=text]').val(data[i]['model']);
-                $('#problem-type').html('<option value="">' + data[i]['problem_type'] + '</option>');
-                $('#problem-desc').val(data[i]['problem_desc']);
-
-                if (data[i]['assigned'] != "") {
-                    $('#status').text("Referred");
-                } else {
-                    $('#status').text("Not Referred");
-                }
-
-                //displays all notes for the problem
-                var notes = data[i]['notes'];
-                for (var j = 0; j < notes.length; j++) {
-                    $('#previous-notes').append("<p>" + notes[j] + "</p>")
-                }
+        function showDropdowns(nameOfDropdown) {
+            if (nameOfDropdown === 'notifications') {
+                document.getElementById('notifications').style.display = 'block';
+                document.getElementById('country').style.display = 'none';
+            } else if (nameOfDropdown === 'lang') {
+                document.getElementById('country').style.display = 'block';
+                document.getElementById('notifications').style.display = 'none';
             }
         }
+    </script>
+    <div id="bottom"></div>
 
-
-    }
-
-    $(document).keyup(function (e) {
-        if (e.key === "Escape") {
-            document.getElementById('notifications').style = 'none';
-            document.getElementById('country').style = 'none';
-        }
-    });
-    document.getElementById('noti-btn').addEventListener("click", showDropdowns);
-
-    function showDropdowns(nameOfDropdown) {
-        if (nameOfDropdown === 'notifications') {
-            document.getElementById('notifications').style.display = 'block';
-            document.getElementById('country').style.display = 'none';
-        } else if (nameOfDropdown === 'lang') {
-            document.getElementById('country').style.display = 'block';
-            document.getElementById('notifications').style.display = 'none';
-        }
-    }
-</script>
-<div id="bottom"></div>
-
-<!-- Ends here -->
+    <!-- Ends here -->
 </body>
+
 </html>
