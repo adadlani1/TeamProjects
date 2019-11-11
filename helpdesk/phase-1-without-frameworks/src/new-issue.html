@@ -120,11 +120,17 @@
         <br>
         <div class="container">
             <div class="row">
-                <div class="col-6" style="text-align: center">
+                <div class="col-3" style="text-align: center">
                     <span>Problem ID: </span><label id="problem-id"></label>
                 </div>
-                <div class="col-6" style="text-align: center"><span>Call: </span><label id="dateTime"></label>
-                </div>
+                <div class="col-3" style="text-align: center">
+                        <span>Operator: Alice </span>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                            <span>Status: </span><label id="status">Not yet submitted</label>
+                        </div>
+                <div class="col-3" style="text-align: center"><span>Call: </span><label id="dateTime"></label></div>
+                
             </div>
         </div>
         <div class="container">
@@ -295,9 +301,9 @@
                 Save
             </button>
         </div>
-        <div class="col-4" style="text-align: center">
+        <!-- <div class="col-4" style="text-align: center">
             <span>Status: </span><label id="status">Not yet submitted</label>
-        </div>
+        </div> -->
         <div class="col-4">
             <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
                 issue
@@ -344,7 +350,7 @@
             </div>
             <div class="modal-body custom-checkbox">
                 <div class="custom-control  mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="bertCheck" name="checkbox">
+                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="bertCheck" name="checkbox">
                     <label class="custom-control-label" for="bertCheck"><h4>
                         Bert
                     </h4>
@@ -358,7 +364,7 @@
 
                 </div>
                 <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="claraCheck" name="checkbox">
+                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="claraCheck" name="checkbox">
                     <label class="custom-control-label" for="claraCheck"><h4>
                         Clara
                     </h4>
@@ -370,7 +376,7 @@
                     <div class="tasks" id="tasks-2"></div>
                 </div>
                 <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="jimCheck" name="checkbox">
+                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="jimCheck" name="checkbox">
                     <label class="custom-control-label" for="jimCheck"><h4>
                         Jim
                     </h4>
@@ -382,7 +388,7 @@
                     <div class="tasks" id="tasks-3"></div>
                 </div>
                 <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="timCheck" name="checkbox" disabled>
+                    <input type="radio" class="specialist custom-control-input" id="timCheck" name="checkbox" disabled>
                     <label class="custom-control-label" for="timCheck"><h4>
                         Tim [Unavailable]
                     </h4>
@@ -401,8 +407,8 @@
                 <option value="2">Important</option>
                 <option value="1">Very Important</option>
             </select>
-                <button type="submit" class="btn btn-dark" data-dismiss="modal"
-                        onclick="changeColourOfAccord()">Refer
+                <button type="submit" id='referButton' class="btn btn-dark" data-dismiss="modal"
+                       disabled onclick="changeColourOfAccord();reflectSpecialist()">Refer
                 </button>
             </div>
         </div>
@@ -468,8 +474,6 @@
 
     function changeColourOfAccord() {
         let id = returnCurrentID();
-        console.log(id);
-        changeStatus({status: 'Referred to specialist'});
         const priorityLevel = document.getElementById('priority').value;
         if (priorityLevel === "1") {
             $('#accordion-header' + id).css('background', '#f77b7b');

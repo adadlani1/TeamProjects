@@ -8,6 +8,22 @@ const Roles = [{
     role: 'Specialist'
 }];
 
+function makeReferButtonEnable(){
+    $('#referButton').removeAttr('disabled');
+  }
+
+  var user;
+  const specialists = ['bertCheck','claraCheck','jimCheck','timCheck']
+ function reflectSpecialist(){
+    if($('.specialist').is(':checked')){
+        specialists.forEach((specialist)=>{
+            if($(`#${specialist}`).is(':checked')){
+                changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
+            }
+        })
+    }
+ }
+
 /*  Data    */
 
 const data = [{
@@ -282,10 +298,12 @@ function addIssues() {
         "        <br>\n" +
         "        <div class=\"container\">\n" +
         "            <div class=\"row\">\n" +
-        "                <div class=\"col-6\" style=\"text-align: center\">\n" +
+        "                <div class=\"col-3\" style=\"text-align: center\">\n" +
         "                    <span>Problem ID: </span><label id=\"problem-id\">" + id + "</label>\n" +
         "                </div>\n" +
-        "                <div class=\"col-6\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
+        " <div class='col-3' style='text-align: center'><span>Operator: Alice </span></div>"+
+        " <span>Status: </span><label id='status'>Not yet submitted</label>"+ 
+        "                <div class=\"col-3\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
         "                </div>\n" +
         "            </div>\n" +
         "        </div>\n" +
