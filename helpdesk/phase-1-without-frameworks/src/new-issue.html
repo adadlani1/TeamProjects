@@ -121,8 +121,7 @@
     <div class="container">
         <div class="row form-group text-center">
             <div class="col-6">
-                <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal'
-                    onclick="redirect()">
+                <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal'>
                     Save
                 </button>
             </div>
@@ -267,16 +266,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Changes have been saved.</h3>
+                    <h5>Changes have been saved.</h5>
 
                 </div>
                 <div class='modal-body'>
-                    <h4>Redirecting you back to dashoard.</h4>
+                    <p>Redirecting you back to dashboard.</p>
                 </div>
-
+                <div class="modal-footer">
+                    <button class="btn btn-dark" onclick="window.location = 'dashboard.html'">
+                        Okay
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
     <script>
         $(document).keyup(function (e) {
