@@ -467,6 +467,8 @@
                     $('#model[type=text]').val(data[i]['model']);
                     $('#problem-type').html('<option value="">' + data[i]['problem_type'] + '</option>');
                     $('#problem-desc').val(data[i]['problem_desc']);
+                    $('#software-version').val(data[i]['version']);
+                    $('#software-date').val(data[i]['expiry_date']);
 
                     if (data[i]['assigned'] != "") {
                         $('#status').text("Referred");
