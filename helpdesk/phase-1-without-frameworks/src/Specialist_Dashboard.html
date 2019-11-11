@@ -10,7 +10,7 @@
     <script src="app.js"></script>
 
 </head>
-<body onload="start()" >
+<body onload="start()">
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -44,7 +44,7 @@
                     </div>
                 </div>
             </li>
-            <!--<li class="nav-item">
+            <li class="nav-item">
                 <div class="dropdown">
                     <a href="graphs.html">
                         <button class="dropbtn" onclick="window.location = 'graphs.html'">
@@ -55,7 +55,7 @@
                         </button>
                     </a>
                 </div>
-            </li>-->
+            </li>
             <li class="nav-item">
                 <div class="dropdown">
                     <button class="dropbtn" onclick="showDropdowns('lang')" id="lang-btn"><img
@@ -66,7 +66,8 @@
                     </button>
                     <div class="dropdown-content" id="country" style="max-width: 200px">
                         <a href="javascript:changeLanguage('DE', 'Deutsche', 'CET')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> - Deutsche</p>
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/DE.png" alt="Germany"> - Deutsche
+                            </p>
                         </a>
                         <a href="javascript:changeLanguage('GB', 'English', 'UTC')">
                             <p style="color: black"><img src="../Flags-Icon-Set/24x24/GB.png" alt="GB"> - English</p>
@@ -75,7 +76,8 @@
                             <p style="color: black"><img src="../Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
                         </a>
                         <a href="javascript:changeLanguage('SA', 'عربى', 'AST')">
-                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> - عربى </p>
+                            <p style="color: black"><img src="../Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> - عربى
+                            </p>
                         </a>
 
                     </div>
@@ -102,41 +104,106 @@
     <li><a>Specialist Dashboard</a></li>
 </ul>
 
+<div id="accordion">
+
+</div>
+
+
 <div class="modal fade" id="logout-modal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-    
-                <div class="modal-header">
-                    <h4 class="modal-title">Are you sure you want to log out?</h4>
-                </div>
-                <div class="modal-footer">
-                        <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
-                            </button>
-                    <button class="btn btn-lg btn-primary" data-dismiss="modal"
-                    >Cancel
-                    </button>
-                </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Are you sure you want to log out?</h4>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-lg btn-dark" onclick="window.location = 'login.html'">Yes
+                </button>
+                <button class="btn btn-lg btn-primary" data-dismiss="modal"
+                >Cancel
+                </button>
             </div>
         </div>
     </div>
+</div>
 <script>
+    // <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
 
-	function start() {
+    function start() {
 
-        for (var i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length - 1; i++) {
             //Selects all issues assigned to bert and creates a button.
             if (data[i]['specialist'].toLowerCase() == "bert") {
+                var priority = data[i]['priority'];
+                var colour;
+                if (priority === "Important") {
+                    colour = '#f5b366';
+                } else if (priority === "Very Important") {
+                    colour = '#f47a7a';
+                }
+                var issue = "<div class=\"\" id=\"heading" + data[i]['problem_id'] + "\">\n" +
+                    "        <button class=\"accordion\" data-toggle=\"collapse\" data-target=\"#collapse" + data[i]['problem_id'] + "\" aria-expanded=\"true\"\n" +
+                    "                aria-controls=\"collapse" + data[i]['problem_id'] + "\" id=\"accordion-header" + data[i]['problem_id'] + "\" style=\"background: " + colour + "\">\n" +
+                    "<div class=\"container\">\n" +
+                    "            <div class=\"row\">\n" +
+                    "                <div class=\"col-6\" style=\"text-align: center\">\n" +
+                    "                    Problem ID: " + data[i]['problem_id'] + "\n" +
+                    "                </div>\n" +
+                    "                <div class=\"col-6\" style=\"text-align: center\">Problem Description: " + data[i]['problem_desc'] + "\n" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "        </div>" +
+                    "        </button>\n" +
+                    "    </div>\n" +
+                    "\n" +
+                    "    <div  id=\"collapse" + data[i]['problem_id'] + "\" class=\"collapse\" aria-labelledby=\"heading" + data[i]['problem_id'] + "\" data-parent=\"#accordion\">" +
+                    "<br>       " +
+                    "<div class=\"container\">\n" +
+                    "            <div class=\"row\">\n" +
+                    "                <div class=\"col-12\" style=\"text-align: center\">\n" +
+                    "                    Notes: " + data[i]['notes'] + "\n" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "       </div>" +
+                    "<br>" +
+                    "\n<div class=\"container\">\n" +
+                    "            <div class=\"row\">\n" +
+                    "                <div class=\"col-12\" style=\"text-align: center\">\n" +
+                    "                    <a href=\"specialist-issue-details.html\" onclick=setID(" + data[i]['problem_id'] + ")>\n" +
+                    "                    <button class=\"btn btn-dark\">View Details</button></a>\n" +
+                    "                </div>\n" +
+                    "            </div>\n" +
+                    "        </div>" +
+                    "<br>" +
+                    "</div>";
+
+
+                /*var div = document.createElement("DIV");
+                div.setAttribute("id", "heading" + data[i]['problem_id']);
+                document.body.appendChild(div);
                 var btn = document.createElement("BUTTON");
                 btn.setAttribute("class", "accordion");
                 btn.setAttribute("data-id", data[i]['problem_id']);
+                btn.setAttribute("data-toggle", "collapse");
+                btn.setAttribute("data-target", "#collapse" + data[i]['problem_id']);
+                btn.setAttribute("aria-expanded", "true");
+                btn.setAttribute("aria-controls", "collapse" + data[i]['problem_id']);
                 btn.innerHTML='<img src="../open-iconic-master/png/flag-2x.png" alt="flag">' + '&nbsp; &nbsp;' + 'ID:' +
                     data[i]['problem_id'] + '&nbsp; &nbsp;' + "Problem type: " +
                     data[i]['problem_type']+'&nbsp; &nbsp;'+'<a href="specialist-issue-details.html" onclick=setID(' + data[i]["problem_id"] + ')>' +
                     '<button class="btn btn-dark" href="specialist-issue-details.html">View Details</button></a>';
-                document.body.appendChild(btn);
+                document.getElementById('heading'+data[i]['problem_id']).appendChild(btn);
+
+                var collapse = document.createElement("DIV");
+                collapse.setAttribute("id", "collapse"+ data[i]['problem_id']);
+                collapse.setAttribute("class", "collapse show");
+                collapse.setAttribute("data-parent", "#accordion");
+                collapse.setAttribute("aria-labelledby", "heading" + data[i]['problem_id']);
+                document.body.appendChild(collapse);*/
             }
+            $('#accordion').append(issue);
         }
-	}
+    }
 
     $(document).keyup(function (e) {
         if (e.key === "Escape") {
@@ -155,21 +222,21 @@
             document.getElementById('notifications').style.display = 'none';
         }
     }
-	
-	var acc = document.getElementsByClassName("accordion");
-	var i;
 
-	for (i = 0; i < acc.length; i++) {
-	  acc[i].addEventListener("click", function() {
-		this.classList.toggle("active");
-		var panel = this.nextElementSibling;
-		if (panel.style.display === "block") {
-		  panel.style.display = "none";
-		} else {
-		  panel.style.display = "block";
-		}
-	  });
-	}
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
 
     $(document).keyup(function (e) {
         if (e.key === "Escape") {
@@ -177,6 +244,7 @@
         }
     });
     document.getElementById('noti-btn').addEventListener("click", showNotifications);
+
     function showNotifications() {
         document.getElementById('notifications').style.display = 'block';
     }
