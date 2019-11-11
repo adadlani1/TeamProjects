@@ -12,7 +12,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
 </head>
-<body>
+<body onload="addIssues()">
 
 <nav class="navbar bg-dark top">
     <div class="container-fluid">
@@ -109,179 +109,7 @@
 </div>
 
 <div id="accordion">
-    <div class="" id="heading1">
-        <button class="accordion" data-toggle="collapse" data-target="#collapse1" aria-expanded="true"
-                aria-controls="collapse1" onclick="appendProblemDesc(1)" id="accordion-header1">
-            Problem Description:
-        </button>
-    </div>
-
-    <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-6" style="text-align: center">
-                    <span>Problem ID: </span><label id="problem-id"></label>
-                </div>
-                <div class="col-6" style="text-align: center"><span>Call: </span><label id="dateTime"></label>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <form id="issue">
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="callerID">Caller: </label>
-                                    <select class="form-control form-size" name="callerID" id="callerID"
-                                            onchange='fillData()'>
-                                        <option>Select Caller</option>
-                                        <option>Anmol</option>
-                                        <option>Alice</option>
-                                        <option>Bert</option>
-                                        <option>Claire</option>
-                                        <option>Kostas</option>
-                                        <!-- <option>Ayo</option>
-                                        <option>Sean</option>
-                                        <option>Viraj</option>
-                                        <option>Vishwaswaroop</option> -->
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <label for="job-title">Job Title:</label>
-                                    <input class="form-control" id="job-title" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="telephone">Telephone: </label>
-                                    <input type="tel" id="telephone" class="form-control form-size">
-                                </div>
-                                <div class="col-6">
-                                    <label for="department">Department:</label>
-                                    <input class="form-control" id="department" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="software">Software Name:</label>
-                                    <select class="form-control d-inline" id="software">
-                                        <option value="">Software 1</option>
-                                        <option value="">Software 2</option>
-                                        <option value="">Software 3</option>
-                                        <option value="">Software 4</option>
-                                        <option value="">Software 5</option>
-                                        <option value="">Software 6</option>
-                                        <option value="">Software 7</option>
-                                    </select>
-                                </div>
-                                <div class="col-3">
-                                    <label for="software-version">Version:</label>
-                                    <input class="form-control" id="software-version" type="text">
-                                </div>
-                                <div class="col-3">
-                                    <label for="software-date">Expiry Date:</label>
-                                    <input class="form-control" id="software-date" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-3">
-                                    <label for="device-type">Device Type: </label>
-                                    <select id="device-type" class="form-control d-inline">
-                                        <option value="">Laptop</option>
-                                        <option value="">PC</option>
-                                        <option value="">Macbook</option>
-                                        <option value="">iPad</option>
-                                        <option value="">Printer</option>
-                                        <option value="">Television</option>
-                                    </select>
-                                </div>
-                                <div class="col-3">
-                                    <label for="make">Make:</label>
-                                    <input class="form-control" id="make" type="text">
-                                </div>
-                                <div class="col-3">
-                                    <label for="model">Model:</label>
-                                    <input class="form-control" id="model" type="text">
-                                </div>
-                                <div class="col-3">
-                                    <label for="serial-no">Serial Number:</label>
-                                    <input class="form-control" id="serial-no" type="text">
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="problem-type">Problem Type: </label>
-                                    <select class="form-control" id="problem-type">
-                                        <option value="Software 1">Software 1</option>
-                                        <option value="Software 2">Software 2</option>
-                                        <option value="Software 3">Software 3</option>
-                                        <option value="Software 4">Software 4</option>
-                                        <option value="Software 5">Software 5</option>
-                                        <option value="Software 6">Software 6</option>
-                                        <option value="Software 7">Software 7</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label for="problem-desc1">Problem Description:</label>
-                                    <input class="form-control" id="problem-desc1" type="text">
-                                </div>
-                            </div>
-
-                        </div>
-                        <br/>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-12">
-                                    <label for="notes">Notes:</label>
-                                    <textarea id="notes" class="form-control" type="text" placeholder="Notes"
-                                              style="height:100px"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <br/>
-                    </form>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6">
-                                <button type="button" id="specialist-button-1" class="btn btn-dark"
-                                        data-toggle="modal"
-                                        data-target="#refer-to-specialist-modal">
-                                    Refer to a Specialist
-                                </button>
-                            </div>
-                            <div class="col-6">
-                                <button type="button" class="btn btn-dark" data-toggle="modal"
-                                        data-target="#solution-provided-modal1">Provide Solution
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 <div id="new-issues">
 </div>
@@ -291,13 +119,13 @@
     <div class="row form-group text-center">
         <div class="col-4">
             <button class="btn btn-primary" data-toggle='modal' data-target='#confirmation-modal'
-                    onclick="changeStatus({status:'Saved'});redirect()">
+                    onclick="redirect()">
                 Save
             </button>
         </div>
-        <div class="col-4" style="text-align: center">
+        <!-- <div class="col-4" style="text-align: center">
             <span>Status: </span><label id="status">Not yet submitted</label>
-        </div>
+        </div> -->
         <div class="col-4">
             <button type="button" class="btn btn-info" onclick="addIssues()" style="align-content: center">Another
                 issue
@@ -344,7 +172,7 @@
             </div>
             <div class="modal-body custom-checkbox">
                 <div class="custom-control  mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="bertCheck" name="checkbox">
+                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="bertCheck" name="checkbox">
                     <label class="custom-control-label" for="bertCheck"><h4>
                         Bert
                     </h4>
@@ -358,7 +186,7 @@
 
                 </div>
                 <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="claraCheck" name="checkbox">
+                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="claraCheck" name="checkbox">
                     <label class="custom-control-label" for="claraCheck"><h4>
                         Clara
                     </h4>
@@ -370,7 +198,7 @@
                     <div class="tasks" id="tasks-2"></div>
                 </div>
                 <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="jimCheck" name="checkbox">
+                    <input type="radio" onclick='makeReferButtonEnable()' class="specialist custom-control-input" id="jimCheck" name="checkbox">
                     <label class="custom-control-label" for="jimCheck"><h4>
                         Jim
                     </h4>
@@ -382,7 +210,7 @@
                     <div class="tasks" id="tasks-3"></div>
                 </div>
                 <div class="custom-control mb-3" style="margin-bottom: 20px;">
-                    <input type="checkbox" class="custom-control-input" id="timCheck" name="checkbox" disabled>
+                    <input type="radio" class="specialist custom-control-input" id="timCheck" name="checkbox" disabled>
                     <label class="custom-control-label" for="timCheck"><h4>
                         Tim [Unavailable]
                     </h4>
@@ -401,8 +229,8 @@
                 <option value="2">Important</option>
                 <option value="1">Very Important</option>
             </select>
-                <button type="submit" class="btn btn-dark" data-dismiss="modal"
-                        onclick="changeColourOfAccord()">Refer
+                <button type="submit" id='referButton' class="btn btn-dark" data-dismiss="modal"
+                       disabled onclick="changeColourOfAccord();reflectSpecialist()">Refer
                 </button>
             </div>
         </div>
@@ -480,8 +308,6 @@
 
     function changeColourOfAccord() {
         let id = returnCurrentID();
-        console.log(id);
-        changeStatus({status: 'Referred to specialist'});
         const priorityLevel = document.getElementById('priority').value;
         if (priorityLevel === "1") {
             $('#accordion-header' + id).css('background', '#f77b7b');

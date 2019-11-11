@@ -8,6 +8,23 @@ const Roles = [{
     role: 'Specialist'
 }];
 
+function makeReferButtonEnable(){
+    $('#referButton').removeAttr('disabled');
+  }
+
+  var user;
+  const specialists = ['bertCheck','claraCheck','jimCheck','timCheck']
+ function reflectSpecialist(){
+    if($('.specialist').is(':checked')){
+        specialists.forEach((specialist)=>{
+            if($(`#${specialist}`).is(':checked')){
+               // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
+               document.getElementById("status"+currentID).innerHTML = `Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`;
+            }
+        })
+    }
+ }
+
 /*  Data    */
 
 const data = [{
@@ -184,11 +201,10 @@ $(document).ready(function () {
     $('#error').css('display', 'none');
 });
 
-function changeStatus({status}) {
-    event.preventDefault();
-    $('#status').empty();
-    $('#status').append(status)
-}
+// function changeStatus({status}) {
+//     event.preventDefault();
+//     $(`#status${id}`).append(status)
+// }
 
 //finds records with similar ID
 function search() {
@@ -287,10 +303,12 @@ function addIssues() {
         "        <br>\n" +
         "        <div class=\"container\">\n" +
         "            <div class=\"row\">\n" +
-        "                <div class=\"col-6\" style=\"text-align: center\">\n" +
+        "                <div class=\"col-3\" style=\"text-align: center\">\n" +
         "                    <span>Problem ID: </span><label id=\"problem-id\">" + id + "</label>\n" +
         "                </div>\n" +
-        "                <div class=\"col-6\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
+        " <div class='col-3' style='text-align: center'><span>Operator: Alice </span></div>"+
+        `<div class='col-3' style='text-align: center'><span>Status:` + " "+`</span><label id='status${id}'> Not yet submitted</label></div>`+ 
+        "                <div class=\"col-3\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
         "                </div>\n" +
         "            </div>\n" +
         "        </div>\n" +
@@ -303,16 +321,12 @@ function addIssues() {
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-6\">\n" +
         "                                    <label for=\"callerID\">Caller: </label>\n" +
-        "                                    <select class=\"form-control form-size\" name=\"callerID\" id=\"callerID\">\n" +
+        "                                    <select class=\"form-control form-size\" name=\"callerID\" id=\"callerID\" onclick='fillData()'>\n" +
         "                                        <option>Anmol</option>\n" +
         "                                        <option>Alice</option>\n" +
         "                                        <option>Bert</option>\n" +
         "                                        <option>Claire</option>\n" +
         "                                        <option>Kostas</option>\n" +
-        "                                        <option>Ayo</option>\n" +
-        "                                        <option>Sean</option>\n" +
-        "                                        <option>Viraj</option>\n" +
-        "                                        <option>Vishwaswaroop</option>\n" +
         "                                    </select>\n" +
         "                                </div>\n" +
         "                                <div class=\"col-6\">\n" +
