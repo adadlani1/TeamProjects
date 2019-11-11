@@ -261,7 +261,7 @@
                             </div>
                             <div class="col-4">
                                 <button type="button" class="btn btn-success" data-toggle='modal'
-                                    data-target='#confirmation-modal' >Provide
+                                    data-target='#solution-provided-modal' >Provide
                                     Solution
                                 </button>
                             </div>
@@ -401,13 +401,17 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3>Changes have been saved.</h3>
+                        <h5>Changes have been saved.</h5>
 
                     </div>
                     <div class='modal-body'>
-                        <h4>Redirecting you back to dashoard.</h4>
+                        <p>Redirecting you back to dashboard.</p>
                     </div>
-
+                    <div class="modal-footer">
+                        <button class="btn btn-dark" onclick="window.location = 'dashboard.html'">
+                            Okay
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
