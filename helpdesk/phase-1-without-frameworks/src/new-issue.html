@@ -461,6 +461,10 @@
 
     function appendProblemDesc(id) {
         
+		saveButtonID(id);
+		
+		alert(currentID);
+		
         var y = document.getElementById('accordion-header' + id).className;
 		if (y == "accordion") {
 			null;
