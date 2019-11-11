@@ -272,30 +272,32 @@ $(document).ready(function () {
 });
 
 function collapse_all(){
-	
+
 	var x = document.getElementsByClassName("collapse show");
 	for (i = 0; i < x.length; i++) {
 	  x[i].className = "collapse";
 	}
-	
+
 	var y = document.getElementsByClassName("accordion");
 	for (i = 0; i < y.length; i++) {
 	  y[i].className = "accordion collapsed";
 	}
-	
+
 	var z = document.getElementsByClassName("accordion");
 	for (i = 0; i < z.length; i++) {
 	  z[i].setAttribute("aria-expanded", "false");
 	}
-	
+
 }
+var id;
 
 function addIssues() {
-	
+
     collapse_all();
-    collapse_all();	
-	
-    var id = Math.floor(Math.random() * 1000);
+    collapse_all();
+
+    id = Math.floor(Math.random() * 1000);
+
 
 
     var issue = "<div class=\"\" id=\"heading" + id + "\">\n" +
@@ -313,7 +315,7 @@ function addIssues() {
         "                    <span>Problem ID: </span><label id=\"problem-id\">" + id + "</label>\n" +
         "                </div>\n" +
         " <div class='col-3' style='text-align: center'><span>Operator: Alice </span></div>"+
-        `<div class='col-3' style='text-align: center'><span>Status:` + " "+`</span><label id='status${id}'> Not yet submitted</label></div>`+ 
+        `<div class='col-3' style='text-align: center'><span>Status:` + " "+`</span><label id='status${id}'> Not yet submitted</label></div>`+
         "                <div class=\"col-3\" style=\"text-align: center\"><span>Call: </span> <label id=\"dateTime\">" + dateTime + "</label>\n" +
         "                </div>\n" +
         "            </div>\n" +
@@ -409,23 +411,62 @@ function addIssues() {
         "                            </div>\n" +
         "                        </div>\n" +
         "                        <br/>\n" +
-        "                        <div class=\"container\">\n" +
-        "                            <div class=\"row\">\n" +
-        "                                <div class=\"col-6\">\n" +
-        "                                    <label for=\"problem-type\">Problem Type: </label>\n" +
-        "                                    <select class=\"form-control\" id=\"problem-type\">\n" +
-        "                                        <option value=\"Software 1\">Software 1</option>\n" +
-        "                                        <option value=\"Software 2\">Software 2</option>\n" +
-        "                                        <option value=\"Software 3\">Software 3</option>\n" +
-        "                                        <option value=\"Software 4\">Software 4</option>\n" +
-        "                                        <option value=\"Software 5\">Software 5</option>\n" +
-        "                                        <option value=\"Software 6\">Software 6</option>\n" +
-        "                                        <option value=\"Software 7\">Software 7</option>\n" +
-        "                                    </select>\n" +
+        "                 <div class=\"container\">\n" +
+        "                    <div class=\"row\">\n" +
+        "                        <div class=\"col-12\">\n" +
+        "                            <div class=\"menu\">\n" +
+        "                                       <div class=\"accordion\">\n" +
+        "                                           <div class=\"accordion-group\">\n" +
+        "                                               <div class=\"accordion-heading overall-layer\" id=\"overallProblemType"+ id +"\">\n" +
+        "                                                   <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#problem-type-list\">Problem Types <button class=\"btn btn-dark\" id=\"problem-type-display-button-"+id+"\" disabled>Selected: None</button></a>\n" +
+        "                                               </div>\n" +
+        "                                               <div class=\"accordion-body collapse\" id=\"problem-type-list\">\n" +
+        "                                                   <div class=\"accordion-inner\">\n" +
+        "                                                     <div class=\"accordion\" id=\"equipamento1\">\n" +
+        "                                                        <div class=\"accordion-group\">\n" +
+        "                                                           <div class=\"accordion-heading first-layer\" id='first-layer-1-"+id+"' >\n" +
+        "                                                             <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#ponto1-1\" onclick='saveLastClickedProblemType(\"first-layer-1-"+ id +"\")'>Problem Type-1-1</a>\n" +
+        "                                                           </div><!-- Second Layer -->\n" +
+        "                                                           <div class=\"accordion-body collapse\" id=\"ponto1-1\">\n" +
+        "                                                               <div class=\"accordion-inner\">\n" +
+        "                                                                   <div class=\"accordion\" id=\"servico1\">\n" +
+        "                                                                     <div class=\"accordion-group\">\n" +
+        "                                                                       <div class=\"accordion-heading second-layer\" id='second-layer-1-"+id+"'>\n" +
+        "                                                                           <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#servico1-1-1\" onclick='saveLastClickedProblemType(\"second-layer-1-"+ id +"\")'>Problem Type-1-1-1</a>\n" +
+        "                                                                       </div>\n" +
+        "                                                                     </div>\n" +
+        "                                                                   </div>\n" +
+        "                                                               </div>\n" +
+        "                                                           </div>\n" +
+        "                                        </div><!-- /Second Layer -->\n" +
+        "                                    </div><!-- /First Layer -->\n" +
+        "                                    <div class=\"accordion\" id=\"equipamento2\">\n" +
+        "                                    <div class=\"accordion-group\">\n" +
+        "                                        <div class=\"accordion-heading first-layer\" id='first-layer-2-"+id+"'>\n" +
+        "                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#ponto1-2\" onclick='saveLastClickedProblemType(\"first-layer-2-"+ id +"\")'>Problem Type-1-2</a>\n" +
+        "                                        </div><!-- Second Layer -->\n" +
+        "                                        <div class=\"accordion-body collapse\" id=\"ponto1-2\">\n" +
+        "                                            <div class=\"accordion-inner\">\n" +
+        "                                                <div class=\"accordion\" id=\"servico1\">\n" +
+        "                                                    <div class=\"accordion-group\">\n" +
+        "                                                        <div class=\"accordion-heading second-layer\" id='second-layer-2-"+id+"'>\n" +
+        "                                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#servico1-1-1\" onclick='saveLastClickedProblemType(\"second-layer-2-"+ id +"\")'>Problem Type-1-2-1</a>\n" +
+        "                                                        </div>\n" +
+        "                                                        </div>\n" +
+        "                                                    </div>\n" +
+        "                                                </div>\n" +
+        "                                            </div>\n" +
+        "                                        </div><!-- /Second Layer -->\n" +
+        "                                    </div><!-- /First Layer -->\n" +
         "                                </div>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                        <br/>\n" +
+        "                    </div>\n" +
+        "                </div><!-- /accordion -->\n" +
+        "            </div> \n" +
+        "\t\t</div>\n" +
+        "\t</div>\n" +
+        "<br/>\n" +
         "                        <div class=\"container\">\n" +
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-12\">\n" +
@@ -478,8 +519,8 @@ function addIssues() {
     }, 300);
 
     $("#new-issues").append(issue);
-	
-	
+
+
 }
 
 let currentID = 1;
@@ -601,4 +642,10 @@ function changeLanguage(flag, language, timezone) {
     }
 }
 
+var currentProblemType;
 
+function saveLastClickedProblemType(problemTypeID) {
+    currentProblemType = problemTypeID;
+    document.getElementById('problem-type-display-button-'+id).innerText = 'Selected: ' + currentProblemType;
+
+}
