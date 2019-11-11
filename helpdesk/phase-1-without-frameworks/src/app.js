@@ -12,6 +12,14 @@ function makeReferButtonEnable(){
     $('#referButton').removeAttr('disabled');
   }
 
+function disableButton(){
+    document.getElementById("referButton").disabled = true
+}
+
+function unclickAllButtons(){
+    $('.specialist').prop('checked', false)
+}
+
   var user;
   const specialists = ['bertCheck','claraCheck','jimCheck','timCheck']
  function reflectSpecialist(){
@@ -20,6 +28,7 @@ function makeReferButtonEnable(){
             if($(`#${specialist}`).is(':checked')){
                // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
                document.getElementById("status"+currentID).innerHTML = `Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`;
+            //    document.getElementById("myBtn").disabled = true
             }
         })
     }
@@ -322,6 +331,7 @@ function addIssues() {
         "                                <div class=\"col-6\">\n" +
         "                                    <label for=\"callerID\">Caller: </label>\n" +
         "                                    <select class=\"form-control form-size\" name=\"callerID\" id=\"callerID\" onclick='fillData()'>\n" +
+        "                                        <option>Select Caller</option>"+
         "                                        <option>Anmol</option>\n" +
         "                                        <option>Alice</option>\n" +
         "                                        <option>Bert</option>\n" +
@@ -445,7 +455,7 @@ function addIssues() {
         "                            <div class=\"col-6\">\n" +
         "                                <button type=\"button\" id=\"specialist-button-" + id + "\" class=\"btn btn-dark\"\n" +
         "                                        data-toggle=\"modal\"\n" +
-        "                                        data-target=\"#refer-to-specialist-modal\" onclick='saveButtonID(" + id + ")'>\n" +
+        "                                        data-target=\"#refer-to-specialist-modal\" onclick='saveButtonID(" + id + ");disableButton();unclickAllButtons()'>\n" +
         "                                    Refer to a Specialist\n" +
         "                                </button>\n" +
         "                            </div>\n" +
