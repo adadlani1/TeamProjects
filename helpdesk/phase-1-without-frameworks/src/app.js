@@ -26,7 +26,7 @@ const data = [{
     "job": "Helpdesk Operator",
     "specialist": "Bert",
     "time": "02/11/2019 10:00",
-    "priority": "",
+    "priority": "Very Important",
     "location": "",
     "notes": ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
     "called back with the same problem. Referred to Bert."]
@@ -47,7 +47,7 @@ const data = [{
         "job": "IT Technician",
         "specialist": "Bert",
         "time": "06/11/2019 22:43",
-        "priority": "",
+        "priority": "Important",
         "location": "",
         "notes": ["xyz happened"]
     },
