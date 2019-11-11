@@ -187,3 +187,14 @@ a{
 p{
     color: grey;
 }
+
+.menu .accordion-heading {  position: relative; }
+.menu .accordion-heading .edit {
+    position: absolute;
+    top: 8px;
+    right: 30px;
+}
+.menu .overall-layer { border-left: 4px solid #f38787; }
+.menu .first-layer { border-left: 4px solid #65c465; }
+.menu .second-layer { border-left: 4px solid #98b3fa; }
+.menu .collapse.in { overflow: visible; }
