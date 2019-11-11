@@ -436,21 +436,21 @@ function addIssues() {
         "                                       <div class=\"accordion\">\n" +
         "                                           <div class=\"accordion-group\">\n" +
         "                                               <div class=\"accordion-heading overall-layer\" id=\"overallProblemType"+ id +"\">\n" +
-        "                                                   <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#problem-type-list\">Problem Types <button class=\"btn btn-dark\" id=\"problem-type-display-button-"+id+"\" disabled>Selected: None</button></a>\n" +
+        "                                                   <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#problem-type-list\">Problem Type: <button class=\"btn btn-dark\" id=\"problem-type-display-button-"+id+"\" disabled>Selected: None</button></a>\n" +
         "                                               </div>\n" +
         "                                               <div class=\"accordion-body collapse\" id=\"problem-type-list\">\n" +
         "                                                   <div class=\"accordion-inner\">\n" +
         "                                                     <div class=\"accordion\" id=\"equipamento1\">\n" +
         "                                                        <div class=\"accordion-group\">\n" +
         "                                                           <div class=\"accordion-heading first-layer\" id='first-layer-1-"+id+"' >\n" +
-        "                                                             <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#ponto1-1\" onclick='saveLastClickedProblemType(\"first-layer-1-"+ id +"\")'>Problem Type-1-1</a>\n" +
+        "                                                             <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#ponto1-1\" onclick='saveLastClickedProblemType(\"first-layer-1-"+ id +"\")'>Printing</a>\n" +
         "                                                           </div><!-- Second Layer -->\n" +
         "                                                           <div class=\"accordion-body collapse\" id=\"ponto1-1\">\n" +
         "                                                               <div class=\"accordion-inner\">\n" +
         "                                                                   <div class=\"accordion\" id=\"servico1\">\n" +
         "                                                                     <div class=\"accordion-group\">\n" +
         "                                                                       <div class=\"accordion-heading second-layer\" id='second-layer-1-"+id+"'>\n" +
-        "                                                                           <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#servico1-1-1\" onclick='saveLastClickedProblemType(\"second-layer-1-"+ id +"\")'>Problem Type-1-1-1</a>\n" +
+        "                                                                           <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#servico1-1-1\" onclick='saveLastClickedProblemType(\"second-layer-1-"+ id +"\")'>Printer Software</a>\n" +
         "                                                                       </div>\n" +
         "                                                                     </div>\n" +
         "                                                                   </div>\n" +
@@ -461,14 +461,14 @@ function addIssues() {
         "                                    <div class=\"accordion\" id=\"equipamento2\">\n" +
         "                                    <div class=\"accordion-group\">\n" +
         "                                        <div class=\"accordion-heading first-layer\" id='first-layer-2-"+id+"'>\n" +
-        "                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#ponto1-2\" onclick='saveLastClickedProblemType(\"first-layer-2-"+ id +"\")'>Problem Type-1-2</a>\n" +
+        "                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#ponto1-2\" onclick='saveLastClickedProblemType(\"first-layer-2-"+ id +"\")'>Software</a>\n" +
         "                                        </div><!-- Second Layer -->\n" +
         "                                        <div class=\"accordion-body collapse\" id=\"ponto1-2\">\n" +
         "                                            <div class=\"accordion-inner\">\n" +
         "                                                <div class=\"accordion\" id=\"servico1\">\n" +
         "                                                    <div class=\"accordion-group\">\n" +
         "                                                        <div class=\"accordion-heading second-layer\" id='second-layer-2-"+id+"'>\n" +
-        "                                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#servico1-1-1\" onclick='saveLastClickedProblemType(\"second-layer-2-"+ id +"\")'>Problem Type-1-2-1</a>\n" +
+        "                                                            <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-target=\"#servico1-1-1\" onclick='saveLastClickedProblemType(\"second-layer-2-"+ id +"\")'>Software Keeps Crashing</a>\n" +
         "                                                        </div>\n" +
         "                                                        </div>\n" +
         "                                                    </div>\n" +
@@ -479,8 +479,8 @@ function addIssues() {
         "                                </div>\n" +
         "                            </div>\n" +
         "                        </div>\n" +
-        "                    </div>\n" +
-        "                </div><!-- /accordion -->\n" +
+        "                    </div><!-- /accordion -->\n" +
+        "                </div>\n" +
         "            </div> \n" +
         "\t\t</div>\n" +
         "\t</div>\n" +
@@ -489,7 +489,7 @@ function addIssues() {
         "                            <div class=\"row\">\n" +
         "                                <div class=\"col-12\">\n" +
         "                                    <label for=\"problem-desc" + id + "\">Problem Description:</label>\n" +
-        "                                    <input class=\"form-control\" id=\"problem-desc" + id + "\" type=\"text\">\n" +
+        "                                    <input class=\"form-control\" id=\"problem-desc" + id + "\" type=\"text\" onkeyup=\"appendProblemDesc(" + id + ")\">\n" +
         "                                </div>\n" +
         "                            </div>\n" +
         "\n" +
@@ -665,6 +665,16 @@ var currentProblemType;
 
 function saveLastClickedProblemType(problemTypeID) {
     currentProblemType = problemTypeID;
-    document.getElementById('problem-type-display-button-'+id).innerText = 'Selected: ' + currentProblemType;
+    var showSelectedOption;
+    if (currentProblemType.includes('first-layer-1')){
+        showSelectedOption = 'Printing';
+    } else if (currentProblemType.includes('second-layer-1')){
+        showSelectedOption = "Printer Software";
+    } else if (currentProblemType.includes('first-layer-2')){
+        showSelectedOption = 'Software';
+    } else if (currentProblemType.includes('second-layer-2')){
+        showSelectedOption = "Software Keeps Crashing";
+    }
+    document.getElementById('problem-type-display-button-'+id).innerText = 'Selected: ' + showSelectedOption;
 
 }
