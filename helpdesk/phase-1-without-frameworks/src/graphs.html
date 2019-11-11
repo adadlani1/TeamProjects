@@ -47,7 +47,7 @@
             transition: 0.4s;
         }
 
-        #specialistPieChart {
+        /*#specialistPieChart {
             max-width: 30%;
             margin-top: 50px;
             margin-left: 15%;
@@ -56,7 +56,7 @@
 
         #specialist-buttons {
             margin-left: 10%;
-        }
+        }*/
 
     </style>
 
@@ -148,7 +148,6 @@
                         Logout
                     </a>
                     </button>
-                    </a>
                 </div>
             </li>
         </ul>
@@ -159,33 +158,55 @@
     <li>Analysis</li>
 </ul>
 <div class="container">
-    <button class='btn btn-primary'>Data Dump</button>
+    <div class="row" >
+        <div class="col-4">
+            <div class="form-group">
+                <label for="dataset">Select Dataset:</label><select class="form-control" id="dataset">
+                    <option>Individual Operator Data</option>
+                    <option>Individual Specialist Data</option>
+                    <option>Number of Issues Raised</option>
+                    <option>Number of Issues Solved</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <button class="btn btn-dark" >Download Raw Data</button>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-6">
+            <canvas class='' id="problemsChart"></canvas>
+        </div>
+        <div class="col-6">
+            <canvas class='' id="specialistChart"></canvas>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id='specialist-buttons' class="d-inline-block">
+        <p class='styles-for-heading'><b>Performance of Individual specialists</b></p>
+        <button value='Bert' class="accordion" data-solved="7" data-pending="1" data-referred="0"
+                onclick="generateSpecialistChart(this)">Bert
+        </button>
+        <button value='Clara' class="accordion" data-solved="4" data-pending="1" data-referred="1"
+                onclick="generateSpecialistChart(this)">Clara
+        </button>
+        <button value='Bill' class="accordion" data-solved="1" data-pending="2" data-referred="1"
+                onclick="generateSpecialistChart(this)">Bill
+        </button>
+        <button value='Tim' class="accordion" data-solved="2" data-pending="0" data-referred="0"
+                onclick="generateSpecialistChart(this)">Tim
+        </button>
+        <button value='Kim' class="accordion" data-solved="1" data-pending="0" data-referred="0"
+                onclick="generateSpecialistChart(this)">Kim
+        </button>
+    </div>
+    <canvas class='d-inline-block' id="specialistPieChart"></canvas>
 </div>
-</br>
-</br>
-<div>
-    <canvas class='ml-5 d-inline' id="problemsChart" style="max-width: 30%; "></canvas>
-    <canvas class='d-inline' id="specialistChart" style="max-width: 30%;"></canvas>
-</div>
-<div id='specialist-buttons' class="d-inline-block">
-    <p class='styles-for-heading'><b>Performance of Individual specialists</b></p>
-    <button value='Bert' class="accordion" data-solved="7" data-pending="1" data-referred="0"
-            onclick="generateSpecialistChart(this)">Bert
-    </button>
-    <button value='Clara' class="accordion" data-solved="4" data-pending="1" data-referred="1"
-            onclick="generateSpecialistChart(this)">Clara
-    </button>
-    <button value='Bill' class="accordion" data-solved="1" data-pending="2" data-referred="1"
-            onclick="generateSpecialistChart(this)">Bill
-    </button>
-    <button value='Tim' class="accordion" data-solved="2" data-pending="0" data-referred="0"
-            onclick="generateSpecialistChart(this)">Tim
-    </button>
-    <button value='Kim' class="accordion" data-solved="1" data-pending="0" data-referred="0"
-            onclick="generateSpecialistChart(this)">Kim
-    </button>
-</div>
-<canvas class='d-inline-block' id="specialistPieChart"></canvas>
 
 
 <div class="modal fade" id="logout-modal">
