@@ -17,10 +17,11 @@
     <nav class="navbar bg-dark top">
         <div class="container-fluid">
             <div class="navbar-header">
-                <div class="navbar-brand" style="color: white; font-size: 20pt" id="navbar-text"><img src="../logo.png"
-                                                                                     alt="logo">
-                    Make-IT-All Helpdesk
-                </div>
+                <a href="dashboard.html">
+                    <div class="navbar-brand" style="color: white; font-size: 20pt" id="navbar-text"><img src="../logo.png" alt="logo">
+                        Make-IT-All Helpdesk
+                    </div>
+                </a>
             </div>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
@@ -166,7 +167,7 @@
         }
 
         function changeColour() {
-            console.log('colos')
+            document.getElementById('text').style.color = 'white';
         }
     </script>
 </body>
