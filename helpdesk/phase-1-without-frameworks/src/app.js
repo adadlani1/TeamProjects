@@ -199,9 +199,9 @@ function validate(form) {
         setTimeout($('#error').css('display', 'block'), 200)
     } else {
         if (user[0].role === 'Operator')
-            window.location.href = 'dashboard.html';
+            window.location.href = 'src/dashboard.html';
         if (user[0].role === 'Specialist')
-            window.location.href = 'Specialist_Dashboard.html'
+            window.location.href = 'src/Specialist_Dashboard.html'
     }
 
 }
