@@ -470,8 +470,9 @@
                     $('#software-version').val(data[i]['version']);
                     $('#software-date').val(data[i]['expiry_date']);
 
-                    if (data[i]['assigned'] != "") {
+                    if (data[i]['specialist'] != "") {
                         $('#status').text("Referred");
+                        $('#specialist-button').attr('disabled','disabled').html("Referred to " + data[i]['specialist']);
                     } else {
                         $('#status').text("Not Referred");
                     }
@@ -479,7 +480,7 @@
                     //displays all notes for the problem
                     var notes = data[i]['notes'];
                     for (var j = 0; j < notes.length; j++) {
-                        $('#previous-notes').append("<p>" + notes[j] + "</p>")
+                        $('#prev-notes').append("<p>" + notes[j] + "</p>")
                     }
                 }
             }
