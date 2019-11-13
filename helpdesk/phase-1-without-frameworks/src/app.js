@@ -259,24 +259,24 @@ function search() {
 //updates the table based on the given records
 function updateTable(records) {
     $("#header").empty().append(
-        "<tr>  <th>Issue ID</th> <th>Serial number</th>  <th>Department</th> " +
+        "<tr> <th>Issue ID</th> <th>Caller</th> <th>Department</th> <th>Job</th>" +
         "<th> Problem Description</th>  <th>Problem Type</th> <th>Device Type</th>" +
-        "<th>Assigned Specialist</th> </tr>");
+        "<th>Serial Number</th> <th>Assigned Specialist</th> </tr>");
     $("#i-table").empty()
 
-    var keys = ["problem_id", "serial number", "dept", "problem_desc", "problem_type", "device_type", "specialist"];
+    var keys = ["problem_id", "name","dept", "job", "problem_desc", "problem_type", "device_type", "serial_no", "specialist"];
 
     for (var i = 0; i < records.length; i++) {
         var classname = "i-row-" + i;
         var doc = "<tr>";
         for (var j = 0; j < keys.length - 1; j++) {
-            doc += " <td class='" + classname + " problem-data onclick='setID(" + records[i]["problem_id"] + ")'>" + records[i][keys[j]] + "</td>";
+            doc += " <td class='" + classname + " problem-data' onclick='setID(" + records[i]["problem_id"] + ")'>" + records[i][keys[j]] + "</td>";
         }
         doc += "<td class=' pointer +" + classname + " problem-data' onclick='setID(" + records[i]["problem_id"] + ")'>" + records[i]["specialist"] + "</td> </tr>";
         $("#i-table").append(doc);
     }
 
-    $(".problem-data").click(function (e) {
+    $(".problem-data").dblclick(function (e) {
         window.open("existing-issue-details.html", "_self");
     });
 
