@@ -63,8 +63,8 @@ const data = [{
     "time": "02/11/2019 10:00",
     "priority": "Very Important",
     "location": "",
-    "notes": ["Informed caller to restart device and to check if problem still persisted. 02/11/2019 10.30 - caller " +
-        "called back with the same problem. Referred to Bert."]
+    "notes": ["Informed caller to restart device and to check if problem still persisted.",
+        "02/11/2019 10.30 - caller called back with the same problem. Referred to Bert."]
 },
 {
     "problem_id": 11,
@@ -86,8 +86,8 @@ const data = [{
     "time": "06/11/2019 22:43",
     "priority": "Important",
     "location": "",
-    "notes": ["Informed caller to reinstall software and to check if problem persisted. 07/11/2019 09.00 - caller"+
-"called back with the same problem. Referred to Bert"]
+    "notes": ["Informed caller to reinstall software and to check if problem persisted.",
+        " 07/11/2019 09.00 - caller called back with the same problem. Referred to Bert"]
 },
 {
     "problem_id": 100,

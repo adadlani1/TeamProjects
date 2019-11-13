@@ -142,6 +142,13 @@
                 } else if (priority === "Very Important") {
                     colour = '#f47a7a';
                 }
+
+                var noteBlock = "";
+                var notes = data[i]['notes'];
+                for (var j = 0; j < notes.length; j++) {
+                    noteBlock += "<p>" + notes[j] + "</p>\n";
+                }
+
                 var issue = "<div class=\"\" id=\"heading" + data[i]['problem_id'] + "\">\n" +
                     "        <button class=\"accordion\" data-toggle=\"collapse\" data-target=\"#collapse" + data[i]['problem_id'] + "\" aria-expanded=\"true\"\n" +
                     "                aria-controls=\"collapse" + data[i]['problem_id'] + "\" id=\"accordion-header" + data[i]['problem_id'] + "\" style=\"background: " + colour + "\">\n" +
@@ -162,7 +169,7 @@
                     "<div class=\"container\">\n" +
                     "            <div class=\"row\">\n" +
                     "                <div class=\"col-12\" style=\"text-align: center\">\n" +
-                    "                    Notes: " + data[i]['notes'] + "\n" +
+                    "                    Notes: " + noteBlock +
                     "                </div>\n" +
                     "            </div>\n" +
                     "       </div>" +
@@ -177,7 +184,6 @@
                     "        </div>" +
                     "<br>" +
                     "</div>";
-
 
                 /*var div = document.createElement("DIV");
                 div.setAttribute("id", "heading" + data[i]['problem_id']);
