@@ -1,0 +1,212 @@
+.breadcrumb {
+  border-bottom-color: #343a40;
+}
+
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color: #eee;
+}
+
+/* Display list items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li + li:before {
+  padding: 8px;
+  color: black;
+  content: " >\00a0";
+}
+
+/* Add a color to all links inside the list */
+ul.breadcrumb li a {
+  color: #0275d8;
+  text-decoration: none;
+}
+
+/* Add a color on mouse-over */
+ul.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
+
+.dashboard-btn {
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-list {
+  color: black;
+}
+
+.dropdown-content a:hover {
+  background-color: #eeeeee;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropbtn {
+  background-color: #343a40;
+  color: white;
+  padding: 15px;
+  margin-left: 30px;
+  font-size: 20px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  margin-left: 30px;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 400px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #4b4747;
+}
+
+.notification {
+  background-color: transparent;
+  text-decoration: none;
+  padding: 20px;
+  position: relative;
+  display: inline-block;
+  border-radius: 1px;
+}
+
+.notification .badge {
+  position: absolute;
+  top: 25px;
+  right: 20px;
+  padding: 5px 10px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+}
+
+.button-size{
+  height: 150px;
+  width: 150px;
+}
+
+.login-popup-heading>h4 {
+  color: #258b47;
+  font-size: 18px;
+  line-height: 30px;
+}
+.new_reg_popup, .new_login_popup {
+  border-radius: 2px;
+  min-height: 332px;
+  width: 500px;
+  margin: 0px auto;
+}
+.login-popup-btn {
+  background: #258b47;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  display: block;
+  font-size: 18px;
+  height: 38px;
+  line-height: 28px;
+  margin: 20px auto 5px;
+  width: 150px;
+  -webkit-transition: all 700ms ease;
+  -moz-transition: all 700ms ease;
+  -ms-transition: all 700ms ease;
+  -o-transition: all 700ms ease;
+}
+a{
+  color: #258b47;
+  font-size: 18px;
+}
+
+.accord {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accord:hover {
+  background-color: #ccc;
+}
+
+.panell {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+p{
+  color: grey;
+}
+
+#prev-notes p {
+  color: black;
+}
+
+.menu .accordion-heading {  position: relative; }
+.menu .accordion-heading .edit {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+}
+.menu .overall-layer { border-left: 4px solid #f38787; }
+.menu .first-layer { border-left: 4px solid #65c465; }
+.menu .second-layer { border-left: 4px solid #98b3fa; }
+.menu .collapse.in { overflow: visible; }

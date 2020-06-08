@@ -1,0 +1,72 @@
+{
+	"analysis": {
+		"data-set": "اختر مجموعة البيانات:",
+		"download": "تحميل البيانات الخام",
+		"individual-operator-data": "بيانات المشغل الفردية",
+		"individual-specialist-data": "البيانات التخصصية الفردية",
+		"issues-raised": "عدد القضايا المثارة",
+		"issues-solved": "عدد القضايا التي تم حلها",
+		"most-common-graph-header": "معظم المشاكل الشائعة",
+		"number-of-times-specialist-graph-header": "عدد المرات التي أشار فيها كل أخصائي",
+    "generate-graphs": "توليد الرسوم البيانية",
+    "graphs": "الرسوم البيانية",
+    "select-specialist": "اختر المتخصص (المتخصصين)"
+
+  },
+	"breadcrumb": {
+		"analysis": "تحليل",
+		"dashboard": "لوحة القيادة"
+	},
+	"existing-issue": {
+		"close": "قريب",
+		"enter-id": "الرجاء إدخال معرف المشكلة",
+		"existing-issue": "العدد الحالي",
+		"save": "حفظ التغييرات",
+		"solution-details": "تفاصيل الحل",
+		"solved": "كيف تم حل المشكلة؟",
+		"view-prev-notes": "انقر لعرض الملاحظات السابقة"
+	},
+	"login": {
+		"error": "خطأ!",
+		"login": "تسجيل الدخول",
+		"password": "كلمه السر",
+		"username": "اسم المستخدم",
+		"wrong-cred": "أوراق اعتماد خاطئة. حاول مرة اخرى."
+	},
+	"navbar": {
+		"flag": "SA",
+		"helpdesk": "مكتب المساعدة",
+		"language": "عربى",
+		"logout": "الخروج",
+		"notifications": "إخطارات"
+	},
+	"new-issue": {
+		"another-issue": "امر اخر",
+		"new-issue": "مشكلة جديدة",
+		"provide-solution": "توفير الحل",
+		"refer-to-specialist": "الرجوع إلى أخصائي",
+		"save": "حفظ"
+	},
+	"problem-information": {
+		"assigned-specialist": "أخصائي معين",
+		"call": "مكالمة",
+		"caller-department": "قسم المتصل",
+		"caller-job-title": "اسم الوظيفة المتصل",
+		"caller-name": "اسم المتصل",
+		"expiry-date": "تاريخ الانتهاء",
+		"make": "يصنع",
+		"model": "نموذج",
+		"notes": "ملاحظات",
+		"problem-desc": "وصف المشكلة",
+		"problem-id": "تعريف المشكلة",
+		"problem-type": "نوع المشكلة",
+		"software-name": "",
+		"status": "الحالة",
+		"submitted": "قدمت",
+		"telephone": "هاتف",
+		"version": "الإصدار"
+	},
+	"specialist-dashboard": {
+		"specialist-dashboard": "لوحة القيادة المتخصصة"
+	}
+}

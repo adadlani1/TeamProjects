@@ -1,0 +1,45 @@
+.accordion-one {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.header-1 {
+  background-color: #f47a7a;
+}
+
+.header-2 {
+  background-color: #f5b366;
+  color: black;
+}
+
+
+.header-3 {
+  background-color: #eee;
+}
+
+.mat-expansion-panel {
+  color: #000;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  font-size: 15px;
+  box-sizing: border-box !important;
+  box-shadow: rgb(164,164,164);
+}
+.mat-expansion-panel-content{
+  background-color: #eeeeee;
+}
+.mat-expansion-panel-header-description{
+  color: black;
+}
+.mat-expansion-panel-header-title{
+  color: black;
+}

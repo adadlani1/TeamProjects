@@ -1,0 +1,228 @@
+<div id="collapse1" class="collapse show">
+  <br>
+  <!-- Require BE to be filled in -->
+  <div class="container" *ngIf="this.router.url !== '/operator-dashboard/new-issue'">
+    <div class="row">
+      <div class="col-3" style="text-align: center">
+        <span>{{'problem-information.problem-id' | translate}}: {{ currentExistingID }} </span> <label id="problem-aid"> </label>
+      </div>
+      <div class='col-3' style='text-align: center'>
+        <span>Operator: {{ operator_name | titlecase }} </span>
+      </div>
+      <!--For span with text Status check if the space is added -->
+      <div class='col-3' style='text-align: center'>
+        <span>Status: </span><label id='status'>{{ status | titlecase}}</label>
+      </div>
+      <div class="col-3" style="text-align: center">
+        <span>Time Created: </span><label id="dateTime">{{ time_created }}</label>
+      </div>
+    </div>
+  </div>
+  <div class="container" >
+    <div class="row">
+      <div class="col-12">
+        <!-- Start of the form -->
+        <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)" autocomplete="off">
+          <br>
+          <div class="container">
+            <div class="row">   <!-- 1st row Caller, Job title-->
+              <div class="col-6">
+                <label for="callerID">Caller: </label>
+                <!-- Add auto fill data -->
+                <input #callerInput type="text" [matAutocomplete]="employeeList" class="form-control form-size" name="callerID" id="callerID"
+                       formControlName="caller" placeholder="Select Caller" (input)='fillData($event.target)'>
+                <mat-autocomplete #employeeList="matAutocomplete">
+                  <mat-option *ngFor="let employee of employeeNames" [value]="employee">{{ employee }}</mat-option>
+                </mat-autocomplete>
+              </div>
+              <div class="col-6">
+                <label for="job-title">Job Title:</label>
+                <input #job class="form-control" id="job-title" type="text" formControlName="jobTitle" disabled>
+                <!-- use later for errors-->
+                <div class="error" *ngIf="form.controls.jobTitle.invalid && router.url === '/operator-dashboard/new-issue'">
+                  Job title is invalid
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container"> <!-- 2nd row Telephone and Dept-->
+            <div class="row">
+              <div class="col-6">
+                <label for="telephone">Telephone: </label>
+                <input #phone type="tel" id="telephone" class="form-control form-size" formControlName="telephoneC"
+                       disabled>
+              </div>
+              <div class="col-6">
+                <label for="department">Department: </label>
+                <input class="form-control" id="department" type="text" formControlName="dept" disabled>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container"> <!-- 3rd row Software name, Version, Exp date-->
+            <div class="row">
+              <div class="col-6">
+                <label for="software">Software Name: </label>
+                <input #softwareN type="text"  [matAutocomplete]="softwareList" class="form-control" id="software"
+                       formControlName="software_name"
+                       placeholder="Select Software" (blur)="versionN.value = '';getVersions(softwareN.value)">
+                <!-- Gets all software names and displays it as a dropdown-->
+                <mat-autocomplete #softwareList="matAutocomplete">
+                    <mat-option *ngFor="let software of softwareTypeData" [value]="software">{{ software }}</mat-option>
+                </mat-autocomplete>
+              </div>
+              <div class="col-6">
+                <label for="software-version">Version: </label>
+                <input #versionN type="text" [matAutocomplete]="versionList" class="form-control" id="software-version" type="text"
+                       formControlName="version" placeholder="Select Version" (blur)="setVersionID(versionN.value)">
+                <mat-autocomplete #versionList="matAutocomplete">
+                  <!-- Gets all software versions based on software selected and displays it as a dropdown-->
+                  <div *ngIf="softwareTypeData !== undefined || softwareTypeData !== []">
+                    <mat-option *ngFor="let version of softwareVersions" [value]="version.version !== null ? version.version : 'N/A'">
+                       {{ version.version !== null ? version.version : 'N/A'}}</mat-option>
+                  </div>
+                  <div *ngIf="softwareTypeData === undefined || softwareTypeData === []">
+                    <mat-option>""</mat-option>
+                  </div>
+                </mat-autocomplete>
+                <div class="error" *ngIf="form.controls.version.invalid">
+                  version is invalid
+                </div>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container"> <!-- 4th row Device type, Make, Model, Serial no.-->
+            <div class="row">
+              <div class="col-3">
+                <label for="device-type">Device Type: </label>
+                <input #device type="text" [matAutocomplete]="deviceList" class="form-control" id="device-type" formControlName="deviceType"
+                       placeholder="Select Device" (blur)="deviceMake.value = '';getHardwareMakes(device.value)">
+                <!-- Gets all Device names and displays it as a dropdown-->
+                <mat-autocomplete #deviceList="matAutocomplete">
+                  <mat-option *ngFor="let hardware of hardwareTypeData" [value]="hardware">{{ hardware }}</mat-option>
+                </mat-autocomplete>
+              </div>
+              <div class="col-3">
+                <label for="make">Make: </label>
+                <input #deviceMake type="text" [matAutocomplete]="makeList" class="form-control" id="make" type="text" formControlName="makeC"
+                       placeholder="Select Make" (blur)="deviceModel.value = '';getHardwareModels(device.value, deviceMake.value)">
+                  <mat-autocomplete #makeList="matAutocomplete">
+                  <!-- Gets all device makes based on the hardware selected and displays it as a dropdown-->
+                  <div *ngIf="hardwareMakeData !== undefined || hardwareMakeData !== []">
+                    <mat-option *ngFor="let make of hardwareMakeData" [value]="make"> {{ make }}</mat-option>
+                  </div>
+                  <div *ngIf="hardwareMakeData === undefined || hardwareMakeData === []">
+                    <mat-option value="">""</mat-option>
+                  </div>
+                </mat-autocomplete>
+              </div>
+              <div class="col-3">
+                <label for="model">Model: </label>
+                <input #deviceModel type="text" [matAutocomplete]="modelList" class="form-control" id="model" type="text" formControlName="modelC"
+                       placeholder="Select Model" (blur)="deviceSerial.value = '';
+                       getHardwareSerials(device.value, deviceMake.value, deviceModel.value);">
+                  <!-- Gets all device models based on the hardware selected and displays it as a dropdown-->
+                <mat-autocomplete #modelList="matAutocomplete">
+                  <div *ngIf="hardwareModelData !== undefined || hardwareModelData !== []">
+                    <mat-option *ngFor="let model of hardwareModelData" [value]="model">
+                      {{ model }}</mat-option>
+                  </div>
+                  <div *ngIf="hardwareModelData === undefined || hardwareModelData === []">
+                    <mat-option value=""></mat-option>
+                  </div>
+                </mat-autocomplete>
+              </div>
+              <div class="col-3">
+                <label for="serial-no">Serial Number: </label>
+                <input #deviceSerial type="text" [matAutocomplete]="serialList" class="form-control" id="serial-no" type="text"
+                       formControlName="serial" placeholder="Select Serial No.">
+                  <!-- Gets all device serials based on the hardware selected and displays it as a dropdown-->
+                <mat-autocomplete #serialList="matAutocomplete">
+                  <div *ngIf="hardwareSerialData !== undefined || hardwareSerialData !== []">
+                    <mat-option *ngFor="let serials of hardwareSerialData" [value]="serials">{{ serials }}</mat-option>
+                  </div>
+                  <div *ngIf="hardwareSerialData === undefined || hardwareSerialData === []">
+                    <mat-option value=""></mat-option>
+                  </div>
+                </mat-autocomplete>
+              </div>
+            </div>
+          </div>
+          <div class="container" *ngIf="router.url === '/operator-dashboard/new-issue'"> <!-- Problem type tree-->
+            <div class="row">
+              <div class="col-12">
+                <problem-tree-cp (problemTypeEvent)="getProblemType($event)"></problem-tree-cp>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="container"> <!-- 6th row Problem Description and Similar Issues Modal-->
+            <div class="row">
+              <!--class that changes styles depending on url-->
+              <div class="col-9" [ngClass]="{
+              'col-9': this.router.url === '/operator-dashboard/new-issue',
+              'col-12': this.router.url !== '/operator-dashboard/new-issue'
+              }">
+                <!-- Function to rename accord bar, may not need it-->
+                <label for="problem-desc">Problem Description: </label>
+                <input class="form-control" id="problem-desc" type="text" formControlName="description">
+              </div>
+              <div class="col-3" (click)="this.AppendFilledValuesToVariable()">
+                <app-similar-issue [new_issue_data]="new_issue_data" #similar_issue_modal></app-similar-issue>
+                <button type="button" class="btn btn-outline-dark bottom" (click)="similar_issue_modal.OpenModal()"  *ngIf="router.url === '/operator-dashboard/new-issue'">
+                  Show Similar Issues
+                </button>
+              </div>
+            </div>
+          </div>
+          <br>
+          <!-- (7th row) Previous notes only for existing issues-->
+          <div class="container" *ngIf="router.url !== '/operator-dashboard/new-issue'">
+            <div class="row">
+              <div class="col-12">
+                <label for="notes">Previous Notes: </label>
+                <textarea id="prev-notes" class="form-control" style="height:100px" formControlName="prevNotes" disabled></textarea>
+              </div>
+            </div>
+            <br>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <label for="notes">Notes: </label>
+                <textarea id="notes" class="form-control" type="text" placeholder="Notes" style="height:100px"
+                          formControlName="note"></textarea>
+                <div id="add-note-div" class="text-center">
+                  <button *ngIf="router.url !== '/operator-dashboard/new-issue'" class="btn btn-dark" (click)="AddNote()">Add Note</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+        <!-- End of form-->
+        <br>
+        <div class="container functionBtn">
+          <div class="row" >
+            <!-- Add modal when clicked -->
+            <div class="col-6" (click)="this.addSimilarIssueDataToForm()">
+              <app-specialist-referral #referral_modal (referral_made)="getReferral($event);"></app-specialist-referral>
+              <button type="button" id="specialist-button" *ngIf="shouldShowReferralButton()" (click)="referral_modal.OpenModal()" class="btn btn-dark">
+                Refer to a Specialist
+              </button>
+            </div>
+            <!-- Add Solution modal -->
+            <div class="col-3">
+              <problem-solved-modal #solution_modal (solutionEvent)="getSolution($event)"></problem-solved-modal>
+              <button type="button" (click)="solution_modal.OpenModal()" class="btn btn-dark" (blur)="updateFormValue">
+                Provide Solution
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

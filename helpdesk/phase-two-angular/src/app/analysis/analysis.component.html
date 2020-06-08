@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row form-group text-center">
+    <div class="col-12">
+      <mat-button-toggle-group #group="matButtonToggleGroup">
+        <mat-button-toggle value="left" aria-label="Text align left" (click)="this.graphsShown = 'rawData'">
+          {{'analysis.download' | translate}}
+        </mat-button-toggle>
+        <mat-button-toggle value="center" aria-label="Text align right" (click)="this.graphsShown = 'specialistAnalysis'">
+<!--          {{'analysis.graphs' | translate}}--> Specialist Analysis
+        </mat-button-toggle>
+        <mat-button-toggle value="right" (click)="this.graphsShown = 'overallAnalysis'">
+          Overall Analysis
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+  </div>
+  <div *ngIf="graphsShown === 'rawData'">
+    <app-download-raw-data></app-download-raw-data>
+  </div>
+  <div *ngIf="graphsShown === 'specialistAnalysis'">
+    <app-graphs></app-graphs>
+  </div>
+  <div *ngIf="graphsShown === 'overallAnalysis'">
+    <app-graphs-overall></app-graphs-overall>
+  </div>
+</div>

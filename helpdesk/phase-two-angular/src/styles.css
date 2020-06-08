@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap/dist/css/bootstrap.css";
+
+.modal-holder{
+    animation-name: grow;
+    animation-duration: 0.3s;
+}
+  
+@keyframes grow {
+    0%   {transform: scale(0.5)}
+    100% {transform: scale(1)}
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

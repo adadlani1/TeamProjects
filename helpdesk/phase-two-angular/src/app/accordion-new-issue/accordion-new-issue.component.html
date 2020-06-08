@@ -1,0 +1,14 @@
+<!--loads a blank new issue accordion-->
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{'problem-information.problem-id' | translate}}:
+      </mat-panel-title>
+      <mat-panel-description>
+        {{'problem-information.problem-desc' | translate}}:
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-issue-form #form></app-issue-form>
+  </mat-expansion-panel>
+</mat-accordion>

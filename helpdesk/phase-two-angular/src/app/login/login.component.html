@@ -1,0 +1,26 @@
+<body>
+<br>
+<br>
+<div class="login-popup-wrap new_login_popup">
+  <div class="login-popup-heading text-center">
+    <h4><i class="fa fa-lock" aria-hidden="true"></i>
+      {{'login.login' | translate}}
+    </h4>
+  </div>
+
+  <!--I have changed the form to "Angular format". On submit the Validate method is called.-->
+  <form #loginform="ngForm" id="loginForm" (ngSubmit)="Validate(loginform.value)" method="post">
+    <div class="form-group">
+      <input name="U"  type="text" class="form-control" id="username" placeholder="{{'login.username' | translate}}" ngModel>
+    </div>
+    <div class="form-group">
+      <input name="P" type="password" class="form-control" id="password" placeholder="{{'login.password' | translate}}" ngModel>
+    </div>
+    <button type="submit" class="btn btn-dark login-popup-btn" name="submit" value="Login">
+      {{'login.login' | translate}}
+    </button>
+  </form>
+  <app-login-error-message *ngIf="ShowErrorMessage"></app-login-error-message>
+</div>
+<!--<app-operator-dashboard *ngIf="LoggedIn && userLoggedIn == 'Operator'"></app-operator-dashboard>-->
+</body>

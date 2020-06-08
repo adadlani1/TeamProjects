@@ -1,0 +1,17 @@
+<div class="row form-group text-center">
+  <div class="col-12">
+    <div class="form-group">
+      <label for="dataset">Select a Dataset To Download a CSV File For:</label>
+      <select class="form-control" id="dataset" [(ngModel)]="selectedOption">
+      <option value="calls-per-operator">{{'analysis.individual-operator-data' | translate}}</option>
+      <option value= 'specialist-data'>{{'analysis.individual-specialist-data' | translate}}</option>
+      <option value = 'issues-raised'>{{'analysis.issues-raised' | translate}}</option>
+    </select>
+    </div>
+  </div>
+</div>
+<div class="row form-group text-center">
+  <div class="col-12">
+    <button mat-raised-button (click)="DownloadCSVFile()" >{{'analysis.download' | translate}}</button>
+  </div>
+</div>

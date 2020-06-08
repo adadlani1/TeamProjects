@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row form-group text-center">
+    <div class="col-12">
+      <div class="form-group example-section">
+        <mat-card>
+          <mat-label></mat-label>
+          <mat-card-content>
+            <mat-checkbox class="example-margin" style="margin-right: 20px" [(ngModel)]="referredAndOpenSelected">
+              Status of Current Active Issues
+            </mat-checkbox>
+            <mat-checkbox class="example-margin" style="margin-right: 20px" [(ngModel)]="lineGraphForIssues">
+              Issues Solved Per Month for a Specific Year
+            </mat-checkbox>
+            <mat-form-field *ngIf="lineGraphForIssues">
+              <mat-label *ngIf="this.selectedYear === ''">Please Select a Year</mat-label>
+              <mat-label>{{this.selectedYear}}</mat-label>
+              <mat-select>
+                <mat-option *ngFor="let year of years" (onSelectionChange)="this.selectedYear = year">
+                  {{year}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row form-group text-center">
+  <div class="col-12">
+    <button mat-raised-button (click)="GenerateGraphs()">{{'analysis.generate-graphs' | translate}}</button>
+  </div>
+</div>
+
+<div style="width: 80%" *ngIf="showGraphDoughnut">
+  <mat-label>Status of Current Active Issues</mat-label>
+  <canvas baseChart
+          [data]="doughnutChartData"
+          [labels]="doughnutChartLabels"
+          [chartType]="doughnutChartType"
+          [options]="chartOptions"
+          [legend]=true
+  ></canvas>
+</div>
+<br>
+<div style="width: 80%" *ngIf="showGraph">
+  <mat-label>Issues Solved Per Month for {{this.selectedYear}}</mat-label>
+  <canvas baseChart
+          [datasets]="lineChartData"
+          [labels]="lineChartLabels"
+          [legend]="true"
+          [chartType]="'line'"></canvas>
+</div>

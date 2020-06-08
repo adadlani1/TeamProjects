@@ -1,0 +1,71 @@
+{
+	"analysis": {
+		"data-set": "Select Data-Set:",
+		"download": "Download Raw Data",
+		"individual-operator-data": "Individual Operator Data",
+		"individual-specialist-data": "Individual Specialist Data",
+		"issues-raised": "Number of Issues Raised",
+		"issues-solved": "Number of Issues Solved",
+		"most-common-graph-header": "Most Common Problems",
+		"number-of-times-specialist-graph-header": "No. of Times Each Specialist Referred",
+    "generate-graphs": "Generate Graphs",
+    "graphs": "Graphs",
+    "select-specialist": "Select Specialist(s)"
+	},
+	"breadcrumb": {
+		"analysis": "Analysis",
+		"dashboard": "Dashboard"
+	},
+	"existing-issue": {
+		"close": "Close",
+		"enter-id": "Please Enter The Problem ID",
+		"existing-issue": "Existing Issue",
+		"save": "Save Changes",
+		"solution-details": "Solution Details",
+		"solved": "How was the problem solved?",
+		"view-prev-notes": "Click To View Previous Notes"
+	},
+	"login": {
+		"error": "Error! ",
+		"login": "Login",
+		"password": "Password",
+		"username": "Username",
+		"wrong-cred": "Wrong Credentials. Please try again."
+	},
+	"navbar": {
+		"flag": "GB",
+		"helpdesk": "Helpdesk",
+		"language": "English",
+		"logout": "Logout",
+		"notifications": "Notifications"
+	},
+	"new-issue": {
+		"another-issue": "Another Issue",
+		"new-issue": "New Issue",
+		"provide-solution": "Provide Solution",
+		"refer-to-specialist": "Refer To Specialist",
+		"save": "Save"
+	},
+	"problem-information": {
+		"assigned-specialist": "Assigned Specialist",
+		"call": "Call",
+		"caller-department": "Caller Department",
+		"caller-job-title": "Caller Job Title",
+		"caller-name": "Caller Name",
+		"expiry-date": "Expiry Date",
+		"make": "Make",
+		"model": "Model",
+		"notes": "Notes",
+		"problem-desc": "Problem Description",
+		"problem-id": "Problem ID",
+		"problem-type": "Problem Type",
+		"software-name": "Software Name",
+		"status": "Status",
+		"submitted": "Submitted",
+		"telephone": "Telephone",
+		"version": "Version"
+	},
+	"specialist-dashboard": {
+		"specialist-dashboard": "Specialist Dashboard"
+	}
+}

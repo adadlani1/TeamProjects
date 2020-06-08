@@ -1,0 +1,72 @@
+{
+	"analysis": {
+		"data-set": "Datensatz auswählen:",
+		"download": "Rohdaten herunterladen",
+		"individual-operator-data": "Individuelle Betreiberdaten",
+		"individual-specialist-data": "Individuelle Fachdaten",
+		"issues-raised": "Anzahl der aufgetretenen Probleme",
+		"issues-solved": "Anzahl der gelösten Probleme",
+		"most-common-graph-header": "Die häufigsten Probleme",
+		"number-of-times-specialist-graph-header": "Anzahl der Überweisungen jedes Spezialisten",
+    "generate-graphs": "Diagramme generieren",
+    "graphs": "Diagramme",
+    "select-specialist": "Fachkraft (en) auswählen"
+
+  },
+	"breadcrumb": {
+		"analysis": "Analyse",
+		"dashboard": "Instrumententafel"
+	},
+	"existing-issue": {
+		"close": "Schließen",
+		"enter-id": "Bitte geben Sie die Problem-ID ein",
+		"existing-issue": "Bestehendes Problem",
+		"save": "Änderungen speichern",
+		"solution-details": "Lösungsdetails",
+		"solved": "Wie wurde das Problem gelöst?",
+		"view-prev-notes": "Klicken Sie auf, um vorherige Notizen anzuzeigen"
+	},
+	"login": {
+		"error": "Error!",
+		"login": "Anmeldung",
+		"password": "Passwort",
+		"username": "Nutzername",
+		"wrong-cred": "Falsche Anmeldeinformationen. Bitte versuche es erneut."
+	},
+	"navbar": {
+		"flag": "DE",
+		"helpdesk": "Beratungsstelle",
+		"language": "Deutsche",
+		"logout": "Ausloggen",
+		"notifications": "Benachrichtigungen"
+	},
+	"new-issue": {
+		"another-issue": "Ein anderes Problem",
+		"new-issue": "Neues Problem",
+		"provide-solution": "Lösung bereitstellen",
+		"refer-to-specialist": "Wenden Sie sich an einen Spezialisten",
+		"save": "Sparen"
+	},
+	"problem-information": {
+		"assigned-specialist": "Zugewiesener Spezialist",
+		"call": "Anruf",
+		"caller-department": "Anruferabteilung",
+		"caller-job-title": "Berufsbezeichnung des Anrufers",
+		"caller-name": "Name des Anrufers",
+		"expiry-date": "Verfallsdatum",
+		"make": "Machen",
+		"model": "Modell",
+		"notes": "Anmerkungen",
+		"problem-desc": "Problembeschreibung",
+		"problem-id": "Problemerkennung",
+		"problem-type": "Problemtyp",
+		"software-name": "",
+		"status": "Status",
+		"submitted": "Eingereicht",
+		"telephone": "Telefon",
+		"version": "Ausführung"
+	},
+	"specialist-dashboard": {
+		"specialist-dashboard": "Spezialist Dashboard"
+	}
+}

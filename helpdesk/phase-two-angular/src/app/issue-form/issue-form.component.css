@@ -1,0 +1,9 @@
+.bottom{
+  position: absolute;
+  bottom:   0;
+  right: 1rem;
+}
+
+#add-note-div {
+  padding-top:5px;
+}

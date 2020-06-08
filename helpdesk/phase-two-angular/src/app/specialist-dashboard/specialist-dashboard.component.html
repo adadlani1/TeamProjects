@@ -1,0 +1,2 @@
+<app-accordion *ngIf="this.jwtService.LoggedIn() && this.specialistLoggedIn"></app-accordion>
+<div *ngIf="!this.specialistLoggedIn">Error: Please login to access this site</div>

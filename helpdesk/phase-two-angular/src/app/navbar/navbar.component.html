@@ -1,0 +1,84 @@
+<nav class="navbar bg-dark top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a [routerLink]="goToHomepage()" style="cursor: pointer">
+        <div class="navbar-brand" style="color: white; font-size: 20pt" id="navbar-text"><img
+          src="../../assets/logo.png" alt="logo">
+          Make-IT-All {{'navbar.helpdesk' | translate}}
+        </div>
+      </a>
+    </div>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <div class="dropdown" *ngIf="this.jwtService.LoggedIn()">
+          <button class="dropbtn" id="noti-btn">
+            <img src="../../assets/open-iconic-master/png/bell-3x.png" alt="">
+            <br> <a style="font-size: 9pt; color: white" id="text">
+            {{'navbar.notifications' | translate}}
+          </a>
+          </button>
+          <div class="dropdown-content" id="notifications" style="max-width: 300px">
+            <!--insert notifications here-->
+            <notifications></notifications>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button class="dropbtn" id="lang-btn"><img
+            src="../../assets/Flags-Icon-Set/24x24/{{'navbar.flag' | translate}}.png" alt="" id="flag">
+            <br> <a style="
+                        font-size: 9pt; color: white" id="text1">
+              {{'navbar.language' | translate}}
+            </a>
+          </button>
+          <div class="dropdown-content" id="country" style="max-width: 180px">
+            <a (click)="changeLanguage('de')">
+              <p style="color: black"><img src="../../assets/Flags-Icon-Set/24x24/DE.png" alt="Germany"> - Deutsche
+              </p>
+            </a>
+            <a (click)="changeLanguage('en')">
+              <p style="color: black"><img src="../../assets/Flags-Icon-Set/24x24/GB.png" alt="GB"> - English</p>
+            </a>
+            <a (click)="changeLanguage('jp')">
+              <p style="color: black"><img src="../../assets/Flags-Icon-Set/24x24/JP.png" alt="Japan"> - 日本語</p>
+            </a>
+            <a (click)="changeLanguage('sa')">
+              <p style="color: black"><img src="../../assets/Flags-Icon-Set/24x24/SA.png" alt="Saudi Arabia"> - عربى
+              </p>
+            </a>
+
+          </div>
+        </div>
+      <li class="nav-item">
+        <div (click)="open(content)" *ngIf="this.jwtService.LoggedIn()">
+          <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Logout Confirmation</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>Confirm Logout?</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-dark" (click)="logoutUser()">Log out</button>
+              <button type="button" class="btn btn-outline-dark" (click)="d('Cross click')">Cancel</button>
+            </div>
+          </ng-template>
+          <button class="dropbtn" id="logout">
+            <img src="../../assets/open-iconic-master/png/account-logout-3x.png" alt="Logout">
+            <br> <a
+            style="font-size: 9pt; color: white">
+            {{'navbar.logout' | translate}}
+          </a>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<app-breadcrumb></app-breadcrumb>

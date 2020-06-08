@@ -1,0 +1,19 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">All Similar Issues Found</h4>
+    <button type="button" class="close" (click)="modal.dismiss()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <p *ngFor="let issue of data">
+      <app-display-similar-issue [problemID]="issue.problem_id" #show_similar_issue></app-display-similar-issue>
+      <button *ngIf="data.length != 0" type="button" class="btn btn-outline-secondary mr-2" placement="right"
+              ngbTooltip="Similarity Score:{{issue.similarity_score}} - Type:{{issue.problem_type | titlecase}} - ID:{{issue.problem_id}}"
+      (click)="show_similar_issue.OpenModal()" (select)="this.idSelected = issue.problem_id">
+        {{ issue.description }}</button>
+    </p>
+    <p *ngIf="data.length === 0">No Similar Issues. Please fill out more sections.</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.dismiss()">Save and Close</button>
+  </div>
+</ng-template>

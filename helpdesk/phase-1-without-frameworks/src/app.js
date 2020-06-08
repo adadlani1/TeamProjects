@@ -33,15 +33,11 @@ function reflectSpecialist() {
     if ($('.specialist').is(':checked')) {
         specialists.forEach((specialist) => {
             if ($(`#${specialist}`).is(':checked')) {
-                // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
                 document.getElementById("status" + currentID).innerHTML = `Referred to ${specialist.toUpperCase().substring(0, specialist.length - 5)}`;
-                //    document.getElementById("myBtn").disabled = true
             }
         })
     }
 }
-
-/*  Data    */
 
 const data = [{
     "problem_id": 2,
@@ -172,7 +168,6 @@ var time = hours + ":" + minutes;
 var dateTime = date + " " + time + " " + timeZoneGlobalVar;
 
 
-
 const employeesData = [{ name: 'Select Caller', jobTitle: '', telephone: '', department: '' },
 { name: 'Anmol', jobTitle: 'Worker-1', telephone: '07828228282', department: 'department-1' },
 { name: 'Bert', jobTitle: 'Worker-2', telephone: '07262262662', department: 'department-2' },
@@ -188,10 +183,9 @@ function redirect() {
 
 function redirectForSpecialist() {
     setTimeout(() => {
-        window.location = 'Specialist_Dashboard.html'
+        window.location = 'Specialist_Dashboard.html';
     }, 2000)
 }
-
 
 
 function fillData() {
@@ -231,11 +225,6 @@ function validate(form) {
 $(document).ready(function () {
     $('#error').css('display', 'none');
 });
-
-// function changeStatus({status}) {
-//     event.preventDefault();
-//     $(`#status${id}`).append(status)
-// }
 
 //finds records with similar ID
 function search() {

@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row form-group text-center">
+      <div class="col-6" *ngIf="router.url === '/operator-dashboard' && this.operatorLoggedIn">
+        <app-operator-dashboard-button img="../../assets/open-iconic-master/png/plus-8x.png" routerLink="new-issue">
+          {{'new-issue.new-issue' | translate}}
+        </app-operator-dashboard-button>
+      </div>
+
+      <div class="col-6" *ngIf="router.url === '/operator-dashboard' && this.jwtService.LoggedIn()" >
+        <app-operator-dashboard-button img="../../assets/open-iconic-master/png/wrench-8x.png"
+                                       routerLink="existing-issue">
+          {{'existing-issue.existing-issue' | translate}}
+        </app-operator-dashboard-button>
+      </div>
+    <div *ngIf="!this.jwtService.LoggedIn()">
+      Error: Please Login to access this site.
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

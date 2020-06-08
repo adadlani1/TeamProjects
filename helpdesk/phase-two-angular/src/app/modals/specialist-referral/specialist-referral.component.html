@@ -1,0 +1,32 @@
+<ng-template #content let-modal>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5>Specialists</h5>
+      <button type="button" class="close" (click)="modal.dismiss()"> &times;</button>
+    </div>
+
+    <div class="modal-body">
+      <!-- Generate row of specialist info for each specialist -->
+      <div *ngFor="let specialist of specialists_to_show" class="modal-body custom-checkbox">
+        <app-specialist-info-for-referral
+          [specialist_info]="specialist"
+          (specialist_select)="OnSpecialistSelect($event)">
+        </app-specialist-info-for-referral>
+      </div>
+    </div>
+
+    <!-- Priority selection box and referral button -->
+    <div class="modal-footer">
+      <label for="priority">Priority: </label>
+      <select [(ngModel)]="priority" class="form-control" id="priority">
+        <option value="3">Normal</option>
+        <option value="2">Important</option>
+        <option value="1">Very Important</option>
+      </select>
+      <button (click)="EmitEventWithResultAndCloseModal()" type="submit" class="btn btn-dark"
+              [disabled]="no_specialist_selected">
+        Refer
+      </button>
+    </div>
+  </div>
+</ng-template>

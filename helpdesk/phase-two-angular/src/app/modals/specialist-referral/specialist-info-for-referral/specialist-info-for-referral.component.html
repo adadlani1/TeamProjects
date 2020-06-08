@@ -1,0 +1,24 @@
+<div class="custom-control mb-3" style="margin-bottom: 20px;">
+    <input type="radio" (click)="specialist_select.emit(specialist_info.username)" [disabled]="!specialist_info.is_available" name="checkbox" [id]="specialist_info.name" class="custom-control-input">
+    <!-- Note that the value of the label's for attribute must match the radio button's id for the radio
+         button to work here. -->
+    <label class="custom-control-label" [for]="specialist_info.name"> 
+        <h4> {{ specialist_info.name }} {{ specialist_info.is_available ? "" : "[Unavailable]"}} </h4>
+        <p> Location: {{ specialist_info.site_name }} </p>
+    </label>
+
+    <!-- Styling of the button is based on specialist's workload (see function DetermineWorkload()) -->
+    <button (click)="ShowJobs()" [disabled]="!specialist_info.is_available" style="float: right;"
+            class="btn" [ngClass]="{'btn-success' : has_low_work_load,
+                                    'btn-warning' : has_medium_work_load,
+                                    'btn-danger'  : has_high_work_load }">
+        No of Jobs: {{ specialist_info.num_of_jobs }}
+    </button>
+    <div *ngIf="show_tasks">
+        <div *ngFor="let job of specialist_info.jobs"class="tasks">
+            <br>
+            <p> ID-{{ job.problem_id }} </p>
+            <p> {{ job.description }} </p>
+        </div>
+    </div>
+</div>

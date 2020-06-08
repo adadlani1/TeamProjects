@@ -1,0 +1,19 @@
+<div id='specialist-buttons' class="d-inline-block">
+  <p class='styles-for-heading'><b>Performance of Individual specialists</b></p>
+  <button value='Bert' class="accordion" data-solved="7" data-pending="1" data-referred="0">Bert
+  </button>
+  <button value='Clara' class="accordion" data-solved="4" data-pending="1" data-referred="1">Clara
+  </button>
+  <button value='Bill' class="accordion" data-solved="1" data-pending="2" data-referred="1">Bill
+  </button>
+  <button value='Tim' class="accordion" data-solved="2" data-pending="0" data-referred="0">Tim
+  </button>
+  <button value='Kim' class="accordion" data-solved="1" data-pending="0" data-referred="0">Kim
+  </button>
+</div>
+<div>
+<canvas baseChart [datasets]="issueData"
+        [labels]="IssueStatus" [chartType]="chart"
+        [plugins]="plugins" [options]="options"
+        id="specialistPieChart"></canvas>
+</div>

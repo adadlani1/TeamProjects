@@ -90,8 +90,6 @@
                 </li>
                 <li class='nav-item'>
                     <div class="">
-                        <!-- <a href="../index.html"></a> -->
-                        <!-- <button class="dropbtn" onclick="window.location = '../index.html'"> -->
                         <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
                             <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
                             <br> <a style="font-size: 9pt">
@@ -423,9 +421,7 @@
             if ($('.specialist').is(':checked')) {
                 specialistsInExistingIssue.forEach((specialist) => {
                     if ($(`#${specialist}`).is(':checked')) {
-                        // changeStatus({status:`Referred to ${specialist.toUpperCase().substring(0,specialist.length-5)}`})
                         document.getElementById("status").innerHTML = `Referred to ${specialist.toUpperCase().substring(0, specialist.length - 5)}`;
-                        //    document.getElementById("myBtn").disabled = true
                     }
                 })
             }
@@ -484,8 +480,6 @@
                     }
                 }
             }
-
-
         }
 
         $(document).keyup(function (e) {
@@ -507,8 +501,6 @@
         }
     </script>
     <div id="bottom"></div>
-
-    <!-- Ends here -->
 </body>
 
 </html>

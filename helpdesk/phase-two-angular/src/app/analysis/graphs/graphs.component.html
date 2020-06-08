@@ -1,0 +1,39 @@
+<div class="row form-group text-center">
+  <div class="col-12">
+    <div class="form-group example-section">
+      <mat-card>
+        <mat-label>{{'analysis.select-specialist' | translate}}</mat-label>
+        <mat-card-content>
+          <mat-checkbox class="example-margin" style="margin-right: 20px;" *ngFor="let specialist of this.specialistNames"
+                        (change)="toggle($event, specialist.name)"
+                        >{{specialist.name | titlecase}}</mat-checkbox>
+        </mat-card-content>
+        <mat-label>Sort by:</mat-label>
+        <mat-card-content>
+          <mat-checkbox class="example-margin" style="margin-right: 20px" [(ngModel)]="solved" (change)="showChart = false">Number of Solved Issues</mat-checkbox>
+          <mat-checkbox class="example-margin" style="margin-right: 20px" [(ngModel)]="activeTasks" (change)="showChart = false">Number of Active Issues</mat-checkbox>
+          <mat-checkbox class="example-margin" style="margin-right: 20px" [(ngModel)]="rereferred" (change)="showChart = false">Number of Re-referred Issues</mat-checkbox>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+<div class="row form-group text-center">
+  <div class="col-12">
+    <button mat-raised-button (click)="GenerateGraphs()">{{'analysis.generate-graphs' | translate}}</button>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12" style="width: 80%" *ngIf="showChart">
+
+      <canvas
+        baseChart
+        [chartType]="'bar'"
+        [datasets]="chartData"
+        [labels]="chartLabels"
+        [options]="chartOptions"
+        [legend]="true"></canvas>
+    </div>
+  </div>
+</div>

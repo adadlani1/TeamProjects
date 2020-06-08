@@ -1,0 +1,72 @@
+{
+	"analysis": {
+		"data-set": "データセットを選択：",
+		"download": "生データをダウンロードする",
+		"individual-operator-data": "個々のオペレーターデータ",
+		"individual-specialist-data": "個人スペシャリストデータ",
+		"issues-raised": "提起された問題の数",
+		"issues-solved": "解決された問題の数",
+		"most-common-graph-header": "最も一般的な問題",
+		"number-of-times-specialist-graph-header": "各スペシャリストが紹介した回数",
+    "generate-graphs": "グラフを生成する",
+    "graphs": "グラフ",
+    "select-specialist": "スペシャリストを選択"
+
+  },
+	"breadcrumb": {
+		"analysis": "分析",
+		"dashboard": "ダッシュボード"
+	},
+	"existing-issue": {
+		"close": "閉じる",
+		"enter-id": "問題IDを入力してください",
+		"existing-issue": "既存の問題",
+		"save": "変更内容を保存",
+		"solution-details": "ソリューションの詳細",
+		"solved": "問題はどのように解決されましたか？",
+		"view-prev-notes": "クリックして前のメモを表示"
+	},
+	"login": {
+		"error": "エラー！",
+		"login": "ログイン",
+		"password": "パスワード",
+		"username": "ユーザー名",
+		"wrong-cred": "間違った資格情報。もう一度やり直してください。"
+	},
+	"navbar": {
+		"flag": "JP",
+		"helpdesk": "ヘルプデスク ",
+		"language": "日本語",
+		"logout": "ログアウト",
+		"notifications": "通知"
+	},
+	"new-issue": {
+		"another-issue": "別の問題",
+		"new-issue": "新刊",
+		"provide-solution": "ソリューションを提供する",
+		"refer-to-specialist": "スペシャリストを参照",
+		"save": "保存する"
+	},
+	"problem-information": {
+		"assigned-specialist": "担当スペシャリスト",
+		"call": "コール",
+		"caller-department": "発信者部",
+		"caller-job-title": "発信者の役職",
+		"caller-name": "発信者名",
+		"expiry-date": "有効期限",
+		"make": "作る",
+		"model": "モデル",
+		"notes": "ノート",
+		"problem-desc": "問題の説明",
+		"problem-id": "問題の識別",
+		"problem-type": "問題の種類",
+		"software-name": "",
+		"status": "状態",
+		"submitted": "送信済み",
+		"telephone": "電話",
+		"version": "バージョン"
+	},
+	"specialist-dashboard": {
+		"specialist-dashboard": "スペシャリストダッシュボード"
+	}
+}

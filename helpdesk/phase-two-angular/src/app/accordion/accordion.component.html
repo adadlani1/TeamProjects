@@ -1,0 +1,21 @@
+<div *ngIf="router.url === '/specialist-dashboard'">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let issue of issues; let i = index" [ngClass]="{
+  'header-1': issue.priority === '1',
+  'header-2': issue.priority === '2',
+  'header-3': issue.priority === '3'
+  }" >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{'problem-information.problem-desc' | translate}}: {{issue.problem_id}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{'problem-information.problem-desc' | translate}}: {{issue.description}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <app-specialist-issue-desc [problemNotes]="issue.notes" [problemID]="issue.problem_id"></app-specialist-issue-desc>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<router-outlet></router-outlet>

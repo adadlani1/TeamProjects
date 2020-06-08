@@ -86,8 +86,6 @@
             </li>
             <li class='nav-item'>
                 <div class="">
-                    <!-- <a href="../index.html"></a> -->
-                    <!-- <button class="dropbtn" onclick="window.location = '../index.html'"> -->
                     <button class="dropbtn" data-toggle="modal" data-target='#logout-modal'>
                         <img src="../open-iconic-master/png/account-logout-3x.png" alt="logout">
                         <br> <a
@@ -128,8 +126,6 @@
     </div>
 </div>
 <script>
-    // <div id="collapse1" class="collapse show" aria-labelledby="heading1" data-parent="#accordion">
-
     function start() {
 
         for (var i = 0; i < data.length - 1; i++) {
@@ -184,29 +180,6 @@
                     "        </div>" +
                     "<br>" +
                     "</div>";
-
-                /*var div = document.createElement("DIV");
-                div.setAttribute("id", "heading" + data[i]['problem_id']);
-                document.body.appendChild(div);
-                var btn = document.createElement("BUTTON");
-                btn.setAttribute("class", "accordion");
-                btn.setAttribute("data-id", data[i]['problem_id']);
-                btn.setAttribute("data-toggle", "collapse");
-                btn.setAttribute("data-target", "#collapse" + data[i]['problem_id']);
-                btn.setAttribute("aria-expanded", "true");
-                btn.setAttribute("aria-controls", "collapse" + data[i]['problem_id']);
-                btn.innerHTML='<img src="../open-iconic-master/png/flag-2x.png" alt="flag">' + '&nbsp; &nbsp;' + 'ID:' +
-                    data[i]['problem_id'] + '&nbsp; &nbsp;' + "Problem type: " +
-                    data[i]['problem_type']+'&nbsp; &nbsp;'+'<a href="specialist-issue-details.html" onclick=setID(' + data[i]["problem_id"] + ')>' +
-                    '<button class="btn btn-dark" href="specialist-issue-details.html">View Details</button></a>';
-                document.getElementById('heading'+data[i]['problem_id']).appendChild(btn);
-
-                var collapse = document.createElement("DIV");
-                collapse.setAttribute("id", "collapse"+ data[i]['problem_id']);
-                collapse.setAttribute("class", "collapse show");
-                collapse.setAttribute("data-parent", "#accordion");
-                collapse.setAttribute("aria-labelledby", "heading" + data[i]['problem_id']);
-                document.body.appendChild(collapse);*/
             }
             $('#accordion').append(issue);
         }
